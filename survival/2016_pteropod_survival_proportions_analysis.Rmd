@@ -6,7 +6,7 @@ output: rmarkdown::github_document
 ---
 
 Load libraries
-```{r, load_libraries}
+```{r, load_libraries, echo = FALSE}
 library(readxl)
 library(tidyr)
 library(ggplot2)
@@ -15,10 +15,11 @@ library(survminer)
 library(survival)
 library(lme4)
 library(lmerTest)
+library(knitr)
 ```
 
 Read in data
-```{r,read_in_data}
+```{r,read_in_data, echo = FALSE}
 #survival data
 d <- read_xlsx("~/Documents/GitHub/pteropod_pHxDO_metabolomics/survival/pteropod_pHxDO2016_masterdatasheet.xlsx", sheet = "sample IDs living", skip = 2)
 
@@ -28,7 +29,7 @@ treatments$MOATS <- paste0("M",treatments$MOATS)
 ```
 
 Format survival data
-```{r, format_survival_data}
+```{r, format_survival_data, echo = FALSE}
 #fix column names which are dates
 weird_date <- as.numeric(colnames(d)[3:11], quote = FALSE)
 good_dates <- as.Date(weird_date, origin = '1899-12-30')
@@ -93,7 +94,7 @@ for(i in 1:length(STACKED_d$status)){
 
 
 remove samples with 2L, M, or LL (2L = 2 animals in one jar (misplacement), M = missing, LL = live but lost..not sure what that actually means)
-```{r}
+```{r, echo=FALSE}
 bad_ptero_list <- unique(STACKED_d[grep("unknown", STACKED_d$event), "crabID"])
 
 STACKED_d <- STACKED_d[which(!(STACKED_d$crabID %in% bad_ptero_list)),]
@@ -104,7 +105,7 @@ STACKED_d <- STACKED_d[-grep("----", STACKED_d$status),]
 ```
 
 Add Duration column
-```{r}
+```{r, echo = FALSE}
 #assign durations
 STACKED_d <- STACKED_d[order(STACKED_d$crabID),]
 durCounter <- 0
@@ -119,7 +120,7 @@ for(i in 1:length(STACKED_d$event)){
 ```
 
 Add survival column
-```{r}
+```{r, echo = FALSE}
 STACKED_d$isDead <- NA
 lastDayObs <- "2016-11-30"
 
@@ -138,13 +139,13 @@ for(i in 1:length(STACKED_d$event)){
 ```
 
 merge treatment data
-```{r}
+```{r, echo = FALSE}
 
 STACKED_d <- merge(STACKED_d, treatments, by = "MOATS")
 ```
 
 **survival analysis**
-```{r}
+```{r, echo = FALSE}
 dSub <- STACKED_d[!is.na(STACKED_d$isDead),]
 surv <- Surv(time = dSub$duration, event = dSub$isDead, type = "right")
 ggsurvplot(survfit(surv ~ Target_Treatment, dSub), risk.table = FALSE, pval = FALSE, conf.int = FALSE,font.main = 16, font.x =  16, font.y = 16, font.tickslab = 16, font.legend = 10, break.time.by = 1,legend = c(0.4, 0.4), legend.title = "Treatment", title = "pHxDO effect on survival", xlab = "Time (Days)", xlim = c(0,9), ylim = c(0.3,1)) 
@@ -172,23 +173,23 @@ summary(fitME)
 
 
 **plot survival proportions for treatments**
-```{r}
+```{r, echo = FALSE}
 ggplot(dSub) + geom_bar(aes(Treatment_abbv, fill = event))
 ```
 
 **plot survival proportions (fraction) for treatments**
-```{r}
+```{r, echo = FALSE}
 ggplot(dSub) + geom_bar(aes(Treatment_abbv, fill = event), position = "fill")
 ```
 
 
 **plot survival proportions for MOATS**
-```{r}
+```{r, echo = FALSE}
 ggplot(dSub) + geom_bar(aes(MOATS, fill = event), position = "fill") + facet_wrap(~Treatment_abbv)
 ```
 
 **calculate chi square and p values for proportions**
-```{r}
+```{r, echo = FALSE}
 comparisons <- c("HH_HL", "HH_LH", "HH_LL", "HL_LH", "HL_LL", "LH_LL")
 surv_stats <- data.frame()
 for(i in 1:length(comparisons)){
@@ -202,15 +203,16 @@ for(i in 1:length(comparisons)){
 rownames(surv_stats) = NULL
 
 surv_stats$P.value_bonferroni <- p.adjust(surv_stats$P.value, method = "bonferroni")
+```
 
-library(knitr)
+```{r}
 kable(surv_stats, caption = "Treatment effect on survival proportions test table")
 ```
 
 ## EXCLUDING MOATS 2
 
 **survival analysis**
-```{r, surv_analysis_noM2}
+```{r, surv_analysis_noM2, echo = FALSE}
 dSub <- STACKED_d[which(!is.na(STACKED_d$isDead) & STACKED_d$MOATS != "M2"),]
 surv <- Surv(time = dSub$duration, event = dSub$isDead, type = "right")
 ggsurvplot(survfit(surv ~ Target_Treatment, dSub), risk.table = FALSE, pval = FALSE, conf.int = FALSE,font.main = 16, font.x =  16, font.y = 16, font.tickslab = 16, font.legend = 10, break.time.by = 1,legend = c(0.4, 0.4), legend.title = "Treatment", title = "pHxDO effect on survival", xlab = "Time (Days)", xlim = c(0,9), ylim = c(0.3,1)) 
@@ -237,23 +239,23 @@ summary(fitME)
 
 
 **plot survival proportions for treatments (without M2)**
-```{r}
+```{r, echo =FALSE}
 ggplot(dSub) + geom_bar(aes(Treatment_abbv, fill = event))
 ```
 
 **plot survival proportions (as fractions) for treatments (without M2)**
-```{r}
+```{r, echo = FALSE}
 ggplot(dSub) + geom_bar(aes(Treatment_abbv, fill = event), position = "fill")
 ```
 
 
 **plot survival proportions for MOATS (without M2)**
-```{r}
+```{r, echo = FALSE}
 ggplot(dSub) + geom_bar(aes(MOATS, fill = event), position = "fill") + facet_wrap(~Treatment_abbv)
 ```
 
 **calculate chi square and p values for proportions (without M2)**
-```{r}
+```{r, echo = FALSE}
 comparisons <- c("HH_HL", "HH_LH", "HH_LL", "HL_LH", "HL_LL", "LH_LL")
 surv_stats <- data.frame()
 for(i in 1:length(comparisons)){
@@ -267,7 +269,8 @@ for(i in 1:length(comparisons)){
 rownames(surv_stats) = NULL
 
 surv_stats$P.value_bonferroni <- p.adjust(surv_stats$P.value, method = "bonferroni")
+```
 
-library(knitr)
+```{r}
 kable(surv_stats, caption = "Treatment effect on survival proportions test table (without M2)")
 ```

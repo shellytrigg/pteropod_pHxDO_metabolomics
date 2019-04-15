@@ -5,19 +5,8 @@ Shelly Trigg
 
 Load libraries
 
-``` r
-library(readxl)
-library(tidyr)
-library(ggplot2)
-library(FSA)
-```
-
     ## ## FSA v0.8.22. See citation('FSA') if used in publication.
     ## ## Run fishR() for related website and fishR('IFAR') for related book.
-
-``` r
-library(survminer)
-```
 
     ## Loading required package: ggpubr
 
@@ -30,11 +19,6 @@ library(survminer)
     ## 
     ##     extract
 
-``` r
-library(survival)
-library(lme4)
-```
-
     ## Loading required package: Matrix
 
     ## 
@@ -43,10 +27,6 @@ library(lme4)
     ## The following object is masked from 'package:tidyr':
     ## 
     ##     expand
-
-``` r
-library(lmerTest)
-```
 
     ## 
     ## Attaching package: 'lmerTest'
@@ -61,147 +41,22 @@ library(lmerTest)
 
 Read in data
 
-``` r
-#survival data
-d <- read_xlsx("~/Documents/GitHub/pteropod_pHxDO_metabolomics/survival/pteropod_pHxDO2016_masterdatasheet.xlsx", sheet = "sample IDs living", skip = 2)
-```
-
     ## New names:
     ## * `` -> `..1`
     ## * `` -> `..2`
     ## * `` -> `..15`
 
-``` r
-#treatment data
-treatments <- read.csv("~/Documents/GitHub/Seawater-Chemistry-Analysis/2016-17_PteropodExp_WaterChem/PteropodWaterChem/Treatments.csv", stringsAsFactors = FALSE)
-treatments$MOATS <- paste0("M",treatments$MOATS)
-```
-
 Format survival data
-
-``` r
-#fix column names which are dates
-weird_date <- as.numeric(colnames(d)[3:11], quote = FALSE)
-good_dates <- as.Date(weird_date, origin = '1899-12-30')
-
-#convert d to data frame
-d <- data.frame(d)
-
-#convert date column names to reformated date strings
-colnames(d)[3:11] <- as.character(good_dates)
-
-#rename the first two columns
-colnames(d)[1:2] <- c("MOATS", "Jar")
-
-#remove rows containing repetitive date info
-d <- d[-grep("^42",d$`2016-11-22`),]
-
-#remove rows containing only NAs
-d <- d[which(!is.na(d$`2016-11-22`)),]
-
-#add column for first day everything was put on MOATS
-d$`2016-11-21` <- "L1"
-
-#reorder columns so dates are all next to each other
-d <- d[,c(1,2,16,3:15)]
-
-#remove MOATS 2 and 9 which had problems
-d <- d[-grep("M9", d$MOATS),]
-
-
-#crab_id column
-d$crabID <- paste(d$MOATS, d$Jar, sep = "_")
-
-#reformat date column
-STACKED_d <- tidyr::gather(d, date, status, 3:12)
-
-#make event column
-
-for(i in 1:length(STACKED_d$status)){
-  if(STACKED_d$status[i] == "L1"){
-    STACKED_d$event[i] <- "start"
-  }
-  if(STACKED_d$status[i] == "D"){
-    STACKED_d$event[i] <- "Dead"
-  }
-  if(STACKED_d$status[i]== "2L"){
-    STACKED_d$event[i] <- "unknown"
-  }
-  if(STACKED_d$status[i] == "M"){
-    STACKED_d$event[i] <- "unknown"
-  }
-  if(STACKED_d$status[i] == "LL"){
-    STACKED_d$event[i] <- "unknown"
-  }
- if(STACKED_d$status[i] == "L"){
-    STACKED_d$event[i] <- "NA"
-  }
-  if(STACKED_d$status[i] == "----"){
-    STACKED_d$event[i] <- "NA"
-  }
-}
-```
 
 remove samples with 2L, M, or LL (2L = 2 animals in one jar (misplacement), M = missing, LL = live but lost..not sure what that actually means)
 
-``` r
-bad_ptero_list <- unique(STACKED_d[grep("unknown", STACKED_d$event), "crabID"])
-
-STACKED_d <- STACKED_d[which(!(STACKED_d$crabID %in% bad_ptero_list)),]
-
-#remove columns with no event ("--")
-
-STACKED_d <- STACKED_d[-grep("----", STACKED_d$status),]
-```
-
 Add Duration column
-
-``` r
-#assign durations
-STACKED_d <- STACKED_d[order(STACKED_d$crabID),]
-durCounter <- 0
-for(i in 1:length(STACKED_d$event)){
-  if(STACKED_d$event[i] == "start"){
-    durCounter <- 0
-  }
-  STACKED_d$duration[i] <- durCounter
-  durCounter <- durCounter + 1
-}
-```
 
 Add survival column
 
-``` r
-STACKED_d$isDead <- NA
-lastDayObs <- "2016-11-30"
-
-for(i in 1:length(STACKED_d$event)){
-  if(STACKED_d$event[i] == "Dead"){
-    STACKED_d$isDead[i]  <- 1
-  }
-  if(STACKED_d$status[i] == "L" && STACKED_d$date[i] == lastDayObs){
-    STACKED_d$isDead[i] <- 0
-    STACKED_d$event[i] <- "AliveAtEnd"
-  }
-
-}
-```
-
 merge treatment data
 
-``` r
-STACKED_d <- merge(STACKED_d, treatments, by = "MOATS")
-```
-
-**survival analysis**
-
-``` r
-dSub <- STACKED_d[!is.na(STACKED_d$isDead),]
-surv <- Surv(time = dSub$duration, event = dSub$isDead, type = "right")
-ggsurvplot(survfit(surv ~ Target_Treatment, dSub), risk.table = FALSE, pval = FALSE, conf.int = FALSE,font.main = 16, font.x =  16, font.y = 16, font.tickslab = 16, font.legend = 10, break.time.by = 1,legend = c(0.4, 0.4), legend.title = "Treatment", title = "pHxDO effect on survival", xlab = "Time (Days)", xlim = c(0,9), ylim = c(0.3,1)) 
-```
-
-![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-5-1.png)
+**survival analysis** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 **treatment effect on duration to death**
 
@@ -264,48 +119,15 @@ summary(fitME)
     ## Trtmnt_bbLH -0.667  0.449       
     ## Trtmnt_bbLL -0.723  0.487  0.482
 
-**plot survival proportions for treatments**
+**plot survival proportions for treatments** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-9-1.png)
 
-``` r
-ggplot(dSub) + geom_bar(aes(Treatment_abbv, fill = event))
-```
+**plot survival proportions (fraction) for treatments** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-10-1.png)
 
-![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-9-1.png)
-
-**plot survival proportions (fraction) for treatments**
-
-``` r
-ggplot(dSub) + geom_bar(aes(Treatment_abbv, fill = event), position = "fill")
-```
-
-![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-10-1.png)
-
-**plot survival proportions for MOATS**
-
-``` r
-ggplot(dSub) + geom_bar(aes(MOATS, fill = event), position = "fill") + facet_wrap(~Treatment_abbv)
-```
-
-![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-11-1.png)
+**plot survival proportions for MOATS** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-11-1.png)
 
 **calculate chi square and p values for proportions**
 
 ``` r
-comparisons <- c("HH_HL", "HH_LH", "HH_LL", "HL_LH", "HL_LL", "LH_LL")
-surv_stats <- data.frame()
-for(i in 1:length(comparisons)){
-  x <- c(length(dSub[which(dSub$isDead == 0 & dSub$Treatment_abbv == substr(comparisons[i], 1,2)),"isDead"]), length(dSub[which(dSub$isDead == 0 & dSub$Treatment_abbv == substr(comparisons[i], 4,5)),"isDead"]))
-  n <- c(length(dSub[which(dSub$Treatment_abbv == substr(comparisons[i], 1,2)),"isDead"]), length(dSub[which(dSub$Treatment_abbv == substr(comparisons[i], 4,5)),"isDead"]))
-  chi <- prop.test(x = x, n = n, correct = FALSE)
-  row <- data.frame(t(data.frame(c(comparisons[i], chi$statistic, chi$p.value))))
-  colnames(row) <- c("Comparison", "ChiSq", "P.value")
-  surv_stats <- rbind(surv_stats, row)
-}
-rownames(surv_stats) = NULL
-
-surv_stats$P.value_bonferroni <- p.adjust(surv_stats$P.value, method = "bonferroni")
-
-library(knitr)
 kable(surv_stats, caption = "Treatment effect on survival proportions test table")
 ```
 
@@ -321,15 +143,7 @@ kable(surv_stats, caption = "Treatment effect on survival proportions test table
 EXCLUDING MOATS 2
 -----------------
 
-**survival analysis**
-
-``` r
-dSub <- STACKED_d[which(!is.na(STACKED_d$isDead) & STACKED_d$MOATS != "M2"),]
-surv <- Surv(time = dSub$duration, event = dSub$isDead, type = "right")
-ggsurvplot(survfit(surv ~ Target_Treatment, dSub), risk.table = FALSE, pval = FALSE, conf.int = FALSE,font.main = 16, font.x =  16, font.y = 16, font.tickslab = 16, font.legend = 10, break.time.by = 1,legend = c(0.4, 0.4), legend.title = "Treatment", title = "pHxDO effect on survival", xlab = "Time (Days)", xlim = c(0,9), ylim = c(0.3,1)) 
-```
-
-![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/surv_analysis_noM2-1.png)
+**survival analysis** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/surv_analysis_noM2-1.png)
 
 **treatment effect on duration to death (without M2)**
 
@@ -392,48 +206,15 @@ summary(fitME)
     ## Trtmnt_bbLH -0.651  0.358       
     ## Trtmnt_bbLL -0.729  0.401  0.474
 
-**plot survival proportions for treatments (without M2)**
+**plot survival proportions for treatments (without M2)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-17-1.png)
 
-``` r
-ggplot(dSub) + geom_bar(aes(Treatment_abbv, fill = event))
-```
+**plot survival proportions (as fractions) for treatments (without M2)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-18-1.png)
 
-![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-16-1.png)
-
-**plot survival proportions (as fractions) for treatments (without M2)**
-
-``` r
-ggplot(dSub) + geom_bar(aes(Treatment_abbv, fill = event), position = "fill")
-```
-
-![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-17-1.png)
-
-**plot survival proportions for MOATS (without M2)**
-
-``` r
-ggplot(dSub) + geom_bar(aes(MOATS, fill = event), position = "fill") + facet_wrap(~Treatment_abbv)
-```
-
-![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-18-1.png)
+**plot survival proportions for MOATS (without M2)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-19-1.png)
 
 **calculate chi square and p values for proportions (without M2)**
 
 ``` r
-comparisons <- c("HH_HL", "HH_LH", "HH_LL", "HL_LH", "HL_LL", "LH_LL")
-surv_stats <- data.frame()
-for(i in 1:length(comparisons)){
-  x <- c(length(dSub[which(dSub$isDead == 0 & dSub$Treatment_abbv == substr(comparisons[i], 1,2)),"isDead"]), length(dSub[which(dSub$isDead == 0 & dSub$Treatment_abbv == substr(comparisons[i], 4,5)),"isDead"]))
-  n <- c(length(dSub[which(dSub$Treatment_abbv == substr(comparisons[i], 1,2)),"isDead"]), length(dSub[which(dSub$Treatment_abbv == substr(comparisons[i], 4,5)),"isDead"]))
-  chi <- prop.test(x = x, n = n, correct = FALSE)
-  row <- data.frame(t(data.frame(c(comparisons[i], chi$statistic, chi$p.value))))
-  colnames(row) <- c("Comparison", "ChiSq", "P.value")
-  surv_stats <- rbind(surv_stats, row)
-}
-rownames(surv_stats) = NULL
-
-surv_stats$P.value_bonferroni <- p.adjust(surv_stats$P.value, method = "bonferroni")
-
-library(knitr)
 kable(surv_stats, caption = "Treatment effect on survival proportions test table (without M2)")
 ```
 
