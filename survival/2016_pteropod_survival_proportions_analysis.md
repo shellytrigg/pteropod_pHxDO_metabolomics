@@ -3,7 +3,9 @@
 Shelly Trigg
 4/15/2019
 
-Load libraries
+1.  Load libraries
+
+<!-- -->
 
     ## ## FSA v0.8.22. See citation('FSA') if used in publication.
     ## ## Run fishR() for related website and fishR('IFAR') for related book.
@@ -39,24 +41,29 @@ Load libraries
     ## 
     ##     step
 
-Read in data
+1.  Read in data
+
+<!-- -->
 
     ## New names:
     ## * `` -> `..1`
     ## * `` -> `..2`
     ## * `` -> `..15`
 
-Format survival data
+1.  Format survival data
 
-remove samples with 2L, M, or LL (2L = 2 animals in one jar (misplacement), M = missing, LL = live but lost..not sure what that actually means)
+2.  Remove samples with 2L, M, or LL (2L = 2 animals in one jar (misplacement), M = missing, LL = live but lost..not sure what that actually means)
 
-Add Duration column
+3.  Make duration column
 
-Add survival column
+4.  Make survival column (e.g. "Dead" or "AliveAtEnd")
 
-merge treatment data
+5.  Merge survival data with treatment data
 
-**survival analysis** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-5-1.png)
+SURVIVAL ANALYSIS EXCLUDING MOATS 9
+-----------------------------------
+
+**Plot survival probability over time** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 **treatment effect on duration to death**
 
@@ -140,12 +147,12 @@ kable(surv_stats, caption = "Treatment effect on survival proportions test table
 | HL\_LL     | 5.36592618879012 | 0.0205338811344844  |                    1|
 | LH\_LL     | 8.50433362477545 | 0.00354301640506706 |                    1|
 
-EXCLUDING MOATS 2
------------------
+SURVIVAL ANALYSIS EXCLUDING MOATS 2 AND 9
+-----------------------------------------
 
-**survival analysis** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/surv_analysis_noM2-1.png)
+**Plot survival probability over time** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/surv_analysis_noM2-1.png)
 
-**treatment effect on duration to death (without M2)**
+**treatment effect on duration to death (without M2 and M9)**
 
 ``` r
 durTreat <- aov(duration ~ Treatment_abbv,data = dSub[which(dSub$isDead == 1),])
@@ -156,7 +163,7 @@ summary(durTreat)
     ## Treatment_abbv   3   24.3   8.099   1.985  0.119
     ## Residuals      130  530.5   4.081
 
-**MOATS effect on duration to death (without M2)**
+**MOATS effect on duration to death (without M2 and M9)**
 
 ``` r
 durMOATS <- aov(duration ~ MOATS,data = dSub[which(dSub$isDead == 1),])
@@ -167,7 +174,7 @@ summary(durMOATS)
     ## MOATS        10   56.7    5.67     1.4  0.188
     ## Residuals   123  498.1    4.05
 
-**Test significance of treatment on duration to death with MOATS as a random effect (without M2)**
+**Test significance of treatment on duration to death with MOATS as a random effect (without M2 and M9)**
 
 ``` r
 fitME <- lmer(duration~ Treatment_abbv + (1|MOATS), data = dSub[which(dSub$isDead == 1),])
@@ -206,16 +213,16 @@ summary(fitME)
     ## Trtmnt_bbLH -0.651  0.358       
     ## Trtmnt_bbLL -0.729  0.401  0.474
 
-**plot survival proportions for treatments (without M2)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-17-1.png)
+**plot survival proportions for treatments (without M2 and M9)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-17-1.png)
 
-**plot survival proportions (as fractions) for treatments (without M2)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-18-1.png)
+**plot survival proportions (as fractions) for treatments (without M2 and M9)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-18-1.png)
 
-**plot survival proportions for MOATS (without M2)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-19-1.png)
+**plot survival proportions for MOATS (without M2 and M9)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-19-1.png)
 
-**calculate chi square and p values for proportions (without M2)**
+**calculate chi square and p values for proportions (without M2 and M9)**
 
 ``` r
-kable(surv_stats, caption = "Treatment effect on survival proportions test table (without M2)")
+kable(surv_stats, caption = "Treatment effect on survival proportions test table (without M2 and M9)")
 ```
 
 | Comparison | ChiSq              | P.value             |  P.value\_bonferroni|
