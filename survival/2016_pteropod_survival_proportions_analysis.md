@@ -63,7 +63,7 @@ Shelly Trigg
 SURVIVAL ANALYSIS EXCLUDING MOATS 9
 -----------------------------------
 
-**Plot survival probability over time** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-5-1.png)
+**Plot survival probability over time** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/survival_prob_plot_noM9-1.png)
 
 **treatment effect on duration to death**
 
@@ -126,11 +126,11 @@ summary(fitME)
     ## Trtmnt_bbLH -0.667  0.449       
     ## Trtmnt_bbLL -0.723  0.487  0.482
 
-**plot survival proportions for treatments** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-9-1.png)
+**plot survival proportions for treatments** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/survival_proportions_by_treatment-1.png)
 
-**plot survival proportions (fraction) for treatments** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-10-1.png)
+**plot survival proportions (fraction) for treatments** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/survival_percentages_by_treatment-1.png)
 
-**plot survival proportions for MOATS** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-11-1.png)
+**plot survival proportions for MOATS** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/survival_percentages_by_MOATS-1.png)
 
 **calculate chi square and p values for proportions**
 
@@ -150,7 +150,7 @@ kable(surv_stats, caption = "Treatment effect on survival proportions test table
 SURVIVAL ANALYSIS EXCLUDING MOATS 2 AND 9
 -----------------------------------------
 
-**Plot survival probability over time** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/surv_analysis_noM2-1.png)
+**Plot survival probability over time** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/survival_prob_plot_noM2orM9-1.png)
 
 **treatment effect on duration to death (without M2 and M9)**
 
@@ -213,11 +213,11 @@ summary(fitME)
     ## Trtmnt_bbLH -0.651  0.358       
     ## Trtmnt_bbLL -0.729  0.401  0.474
 
-**plot survival proportions for treatments (without M2 and M9)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-17-1.png)
+**plot survival proportions for treatments (without M2 and M9)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/survival_proportions_by_treatment_noM2orM9-1.png)
 
-**plot survival proportions (as fractions) for treatments (without M2 and M9)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-18-1.png)
+**plot survival proportions (as fractions) for treatments (without M2 and M9)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/survival_percentages_by_treatment_noM2orM9-1.png)
 
-**plot survival proportions for MOATS (without M2 and M9)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/unnamed-chunk-19-1.png)
+**plot survival proportions for MOATS (without M2 and M9)** ![](2016_pteropod_survival_proportions_analysis_files/figure-markdown_github/survival_percentages_by_MOATS_noM2orM9-1.png)
 
 **calculate chi square and p values for proportions (without M2 and M9)**
 
