@@ -16,6 +16,7 @@ library(survival)
 library(lme4)
 library(lmerTest)
 library(knitr)
+library(coxme)
 ```
 
 2. Read in data
@@ -149,7 +150,7 @@ STACKED_d <- merge(STACKED_d, treatments, by = "MOATS")
 ```{r, survival_prob_plot_noM9,echo = FALSE}
 dSub <- STACKED_d[!is.na(STACKED_d$isDead),]
 surv <- Surv(time = dSub$duration, event = dSub$isDead, type = "right")
-ggsurvplot(survfit(surv ~ Target_Treatment, dSub), risk.table = FALSE, pval = FALSE, conf.int = FALSE,font.main = 16, font.x =  16, font.y = 16, font.tickslab = 16, font.legend = 10, break.time.by = 1,legend = c(0.4, 0.4), legend.title = "Treatment", title = "pHxDO effect on survival", xlab = "Time (Days)", xlim = c(0,9), ylim = c(0.3,1)) 
+ggsurvplot(survfit(surv ~ Target_Treatment, dSub), risk.table = FALSE, pval = FALSE, conf.int = TRUE,font.main = 16, font.x =  16, font.y = 16, font.tickslab = 16, font.legend = 10, break.time.by = 1,legend = c(0.4, 0.4), legend.title = "Treatment", title = "pHxDO effect on survival", xlab = "Time (Days)", xlim = c(0,9), ylim = c(0.3,1)) 
 
 ```
 
@@ -215,7 +216,7 @@ kable(surv_stats, caption = "Treatment effect on survival proportions test table
 ```{r, survival_prob_plot_noM2orM9, echo = FALSE}
 dSub <- STACKED_d[which(!is.na(STACKED_d$isDead) & STACKED_d$MOATS != "M2"),]
 surv <- Surv(time = dSub$duration, event = dSub$isDead, type = "right")
-ggsurvplot(survfit(surv ~ Target_Treatment, dSub), risk.table = FALSE, pval = FALSE, conf.int = FALSE,font.main = 16, font.x =  16, font.y = 16, font.tickslab = 16, font.legend = 10, break.time.by = 1,legend = c(0.4, 0.4), legend.title = "Treatment", title = "pHxDO effect on survival", xlab = "Time (Days)", xlim = c(0,9), ylim = c(0.3,1)) 
+ggsurvplot(survfit(surv ~ Target_Treatment, dSub), risk.table = FALSE, pval = FALSE, conf.int = TRUE,font.main = 16, font.x =  16, font.y = 16, font.tickslab = 16, font.legend = 10, break.time.by = 1,legend = c(0.4, 0.4), legend.title = "Treatment", title = "pHxDO effect on survival", xlab = "Time (Days)", xlim = c(0,9), ylim = c(0.3,1)) 
 ```
 
 
