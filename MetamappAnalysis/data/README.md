@@ -1,0 +1,1 @@
+Created metamapp_input_nodups.csv from metamapp_input.csv by removing duplicated compound IDs () and pubchem IDs (e.g. fatty acids detected by GC/MS and LC/MS that have different compound names but same pubchem ID)

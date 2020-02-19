@@ -1,0 +1,122 @@
+---
+title: "Untitled"
+author: "Shelly Trigg"
+date: "1/22/2020"
+output: html_document
+---
+
+load libraries
+```{r}
+library(readxl)
+library(ggplot2)
+library(gplots)
+
+```
+
+read in data
+```{r}
+metab_data <- read_xlsx("data/mx 338976 Krista Nichols_pteropods_whole animals_09-2017_submit.xlsx", skip = 8) 
+
+lipid_data <- read_xlsx("data/mx 339045_Nichols_CSH-QTOF MSMS_lipidomics_09-2017_submit.xlsx", sheet = "submit", skip = 6)
+
+#read in meta data
+metab_meta <- read_xlsx("data/mx 338976 Krista Nichols_pteropods_whole animals_09-2017_submit.xlsx", range = "H1:BO8",n_max = 8) 
+
+lipid_meta <- read_xlsx("data/mx 339045_Nichols_CSH-QTOF MSMS_lipidomics_09-2017_submit.xlsx", range = "H1:BW8", n_max = 6, sheet = "submit")
+
+#read in stats data
+uni_metab <- read_xlsx("../MetamappAnalysis/data/pteropod_genmetabANDlipids_univariate_RESULTSsupplement.xlsx")
+
+uni_lipid <- read_xlsx("../MetamappAnalysis/data/pteropod_genmetabANDlipids_univariate_RESULTSsupplement.xlsx", sheet = 2)
+
+#rename columns 9-67
+colnames(metab_data)[9:67] <- as.vector(as.character(data.frame(metab_meta)[3,2:ncol(metab_meta)]))
+
+
+colnames(lipid_data)[9:75] <- colnames(data.frame(lipid_meta[,-1]))
+
+if(substr(lipid_data$Annotation lipid_data$Annotation 
+#
+```
+
+create a matrix for plotting
+```{r}
+metab_data_m <- data.matrix(metab_data[,9:67])
+rownames(metab_data_m) <- as.vector(as.character(metab_data$`BinBase name`))
+
+
+lipid_data_m <- data.matrix(lipid_data[,16:75])
+
+
+
+rownames(lipid_data_m) <- as.vector(as.character(lipid_data$Identifier))
+
+lipid_data_m <- lipid_data_m[-grep("iSTD", rownames(lipid_data_m)),-grep("Biorec",colnames(lipid_data_m))]
+
+
+```
+
+heatmap of everything
+```{r}
+heatmap.2(metab_data_m,margins = c(10,20), cexRow = 1.2, cexCol = 1,ColSideColors = c(rep("green",15),rep("blue",15), rep("yellow",14),rep("red",15)), Colv=NA, col = rev(RColorBrewer::brewer.pal(name = "RdBu", n = 10)), distfun = function(x) as.dist(1-cor(t(x))), hclustfun = function(x) hclust(x, method="average"),na.color = "black", density.info = "none", trace = "none", scale = "row")
+
+heatmap.2(lipid_data_m,margins = c(10,20), cexRow = 1.2, cexCol = 1,ColSideColors = c(rep("green",15),rep("blue",15), rep("yellow",14),rep("red",15)), Colv=NA, col = rev(RColorBrewer::brewer.pal(name = "RdBu", n = 10)), na.color = "black", density.info = "none", trace = "none", scale = "row")
+```
+
+heatmap of overall significant at p < 0.1
+```{r}
+#first subset the data 
+#need to convert special characters in rownames to "."
+rownames(metab_data_m) <- gsub(" ","\\.", rownames(metab_data_m))
+rownames(metab_data_m) <- gsub("-","\\.", rownames(metab_data_m))
+rownames(metab_data_m) <- gsub(",","\\.", rownames(metab_data_m))
+rownames(metab_data_m) <- gsub("\\'","\\.", rownames(metab_data_m))
+
+uni_metab$analyte <- gsub("X","",uni_metab$analyte)
+
+#create array of significant analytes
+sig_metab <- data.frame(uni_metab[which(uni_metab$`Pr(>Chisq)_overall`<= 0.1),"analyte"])
+
+sig_metab_data_m <- metab_data_m[which(row.names(metab_data_m) %in% sig_metab$analyte),]
+
+heatmap.2(data.matrix(sig_metab_data_m),margins = c(10,20), cexRow = 1.2, cexCol = 1,ColSideColors = c(rep("green",15),rep("blue",15), rep("yellow",14),rep("red",15)), Colv=NA, col = rev(RColorBrewer::brewer.pal(name = "RdBu", n = 10)), distfun = function(x) as.dist(1-cor(t(x))), hclustfun = function(x) hclust(x, method="average"),na.color = "black", density.info = "none", trace = "none", scale = "row")
+
+
+
+sig_lipid <- data.frame(uni_lipid[which(uni_lipid$`Pr(>Chisq)_overall`<= 0.1),"analyte"])
+
+sig_lipid_data_m <- lipid_data_m[which(row.names(lipid_data_m) %in% sig_lipid$analyte),]
+
+
+
+```
+
+plot means
+```{r}
+HH_mean <- rowMeans(sig_metab_data_m[,1:15])
+HL_mean <- rowMeans(sig_metab_data_m[,16:30])
+LH_mean <- rowMeans(sig_metab_data_m[,31:44])
+LL_mean <- rowMeans(sig_metab_data_m[,45:59])
+all_mean <- cbind(HH_mean,HL_mean, LH_mean, LL_mean)
+
+
+colnames(all_mean) <- gsub("_mean","", colnames(all_mean))
+
+jpeg("img/AOVoverall_sig0.1_metab_heatmap.jpg", width = 800, height = 800)
+heatmap.2(data.matrix(all_mean), margins = c(5,40), cexRow = 1.1, cexCol = 2, Colv=NA, col = rev(RColorBrewer::brewer.pal(name = "RdBu", n = 10)), distfun = function(x) as.dist(1-cor(t(x))), hclustfun = function(x) hclust(x, method="average"),na.color = "black", density.info = "none", trace = "none", scale = "row",sepwidth=c(0.025,0.025), sepcolor="darkgray",colsep=1:ncol(all_mean),rowsep=1:nrow(all_mean))
+dev.off()
+
+
+
+HHlipid_mean <- rowMeans(sig_lipid_data_m[,1:15])
+HLlipid_mean <- rowMeans(sig_lipid_data_m[,16:30])
+LHlipid_mean <- rowMeans(sig_lipid_data_m[,31:44])
+LLlipid_mean <- rowMeans(sig_lipid_data_m[,45:59])
+alllipid_mean <- cbind(HHlipid_mean,HLlipid_mean, LHlipid_mean, LLlipid_mean)
+
+
+colnames(alllipid_mean) <- gsub("lipid_mean","", colnames(alllipid_mean))
+
+heatmap.2(data.matrix(alllipid_mean), margins = c(5,40), cexRow = 1.1, cexCol = 2, Colv=NA, col = rev(RColorBrewer::brewer.pal(name = "RdBu", n = 10)), distfun = function(x) as.dist(1-cor(t(x))), hclustfun = function(x) hclust(x, method="average"),na.color = "black", density.info = "none", trace = "none", scale = "row",sepwidth=c(0.025,0.025), sepcolor="darkgray",colsep=1:ncol(alllipid_mean),rowsep=1:nrow(alllipid_mean))
+dev.off()
+```

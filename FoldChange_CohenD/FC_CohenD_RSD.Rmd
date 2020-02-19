@@ -1,0 +1,343 @@
+---
+title: "Untitled"
+author: "Shelly Trigg"
+date: "2/10/2020"
+output: html_document
+---
+
+#############################################################################################################
+########Calculating FC and effects for individual treatments compared to control treatment###################
+#############################################################################################################
+
+
+load libraries
+```{r}
+library(readxl)
+library(ggplot2)
+library(gplots)
+library(tidyr)
+library(dplyr)
+library(effsize)
+library(broom)
+
+
+
+```
+
+read data
+
+```{r}
+
+metab_data <- data.frame(read_xlsx("../abundance_visualization/data/mx 338976 Krista Nichols_pteropods_whole animals_09-2017_submit.xlsx", skip = 8))
+
+lipid_data <- data.frame(read_xlsx("../abundance_visualization/data/mx 339045_Nichols_CSH-QTOF MSMS_lipidomics_09-2017_submit.xlsx", sheet = "submit", skip = 6))
+
+#read in meta data
+metab_meta <- data.frame(read_xlsx("../abundance_visualization/data/mx 338976 Krista Nichols_pteropods_whole animals_09-2017_submit.xlsx", range = "H1:BO8",n_max = 8))
+
+lipid_meta <- data.frame(read_xlsx("../abundance_visualization/data/mx 339045_Nichols_CSH-QTOF MSMS_lipidomics_09-2017_submit.xlsx", range = "H1:BW8", n_max = 6, sheet = "submit"))
+
+#rename columns 9-67
+colnames(metab_data)[9:67] <- as.vector(as.character(data.frame(metab_meta)[3,2:ncol(metab_meta)]))
+
+
+colnames(lipid_data)[9:75] <- colnames(data.frame(lipid_meta[,-1]))
+
+lipid_data <- lipid_data[,-c(4:15)]
+lipid_data <- lipid_data[-grep("iSTD", lipid_data$Annotation),]
+
+
+#replace space in colnames with .
+
+colnames(metab_data) <- gsub(" ", "\\.", colnames(metab_data))
+colnames(lipid_data) <- gsub(" ", "\\.", colnames(lipid_data))
+
+```
+
+
+reshape data
+```{r}
+metab_data_STACKED <- data.frame(tidyr::gather(metab_data,"label" ,"quant", 9:67))
+
+metab_meta_t <- data.frame(t.data.frame(metab_meta), stringsAsFactors = FALSE)
+metab_meta_t <- metab_meta_t[-1,]
+colnames(metab_meta_t) <- metab_meta$file.id
+
+metab_data_STACKED <- merge(metab_data_STACKED,metab_meta_t, by = "label")
+
+
+
+lipid_data_STACKED <- data.frame(tidyr::gather(lipid_data,"label", "quant", 4:63))
+lipid_meta_t <- data.frame(t.data.frame(lipid_meta), stringsAsFactors = FALSE)
+lipid_meta_t$label <- rownames(lipid_meta_t)
+
+lipid_meta_t <- lipid_meta_t[-1,]
+colnames(lipid_meta_t) <- lipid_meta$Label
+colnames(lipid_meta_t)[8] <- "label"
+
+lipid_data_STACKED <- merge(lipid_meta_t[-grep("Biorec", lipid_meta_t),c(4,8)],lipid_data_STACKED, by = "label")
+
+#in annotation column in lipid data sub identifier for unknown compounds
+for (i in 1:nrow(lipid_data)){
+  if(substr(lipid_data$Annotation[i],1,3)=="unk"){
+    lipid_data$Annotation[i] =lipid_data$Identifier[i]
+  }
+}
+
+
+
+```
+
+Calculate mean FC
+```{r}
+metab_group_means <- metab_data_STACKED %>% group_by(BinBase.name, comment) %>% summarise(mean=mean(quant, na.rm = TRUE))
+
+metab_group_means <- spread(metab_group_means, "comment", "mean")
+
+metab_group_means$logFC_HL <- log(metab_group_means$HL,2) - log(metab_group_means$HH,2)
+metab_group_means$logFC_LH <- log(metab_group_means$LH,2) - log(metab_group_means$HH,2)
+metab_group_means$logFC_LL <- log(metab_group_means$LL,2) - log(metab_group_means$HH,2)
+
+
+######For Lipids#######
+lipid_group_means <- lipid_data_STACKED %>% group_by(Identifier, Treatment) %>% summarise(mean=mean(quant,na.rm = TRUE))
+
+lipid_group_means <- spread(lipid_group_means, "Treatment", "mean")
+
+lipid_group_means$logFC_HL <- log(lipid_group_means$HL,2) - log(lipid_group_means$HH,2)
+lipid_group_means$logFC_LH <- log(lipid_group_means$LH,2) - log(lipid_group_means$HH,2)
+lipid_group_means$logFC_LL <- log(lipid_group_means$LL,2) - log(lipid_group_means$HH,2)
+```
+
+
+
+Calculate RSD
+```{r}
+metab_group_sd <- metab_data_STACKED %>% group_by(BinBase.name, comment) %>% summarise(mean = mean(quant,na.rm = TRUE),sd=sd(quant,na.rm = TRUE))
+
+metab_group_sd$RSD <- metab_group_sd$sd/metab_group_sd$mean *100
+
+
+metab_group_RSDs <- spread(metab_group_sd[,c("BinBase.name", "comment","RSD")], "comment", "RSD")
+
+metab_group_RSDs$logRSDfc_HL <- log(metab_group_RSDs$HL,2) - log(metab_group_RSDs$HH,2)
+metab_group_RSDs$logRSDfc_LH <- log(metab_group_RSDs$LH,2) - log(metab_group_RSDs$HH,2)
+metab_group_RSDs$logRSDfc_LL <- log(metab_group_RSDs$LL,2) - log(metab_group_RSDs$HH,2)
+
+
+
+######For Lipids#######
+lipid_group_sd <- lipid_data_STACKED %>% group_by(Identifier, Treatment) %>% summarise(mean=mean(quant,na.rm = TRUE), sd = sd(quant,na.rm = TRUE))
+
+lipid_group_sd$RSD <- lipid_group_sd$sd/lipid_group_sd$mean *100
+
+lipid_group_RSDs <- spread(lipid_group_sd[,c("Identifier", "Treatment","RSD")], "Treatment", "RSD")
+
+lipid_group_RSDs$logRSDfc_HL <- log(lipid_group_RSDs$HL,2) - log(lipid_group_RSDs$HH,2)
+lipid_group_RSDs$logRSDfc_LH <- log(lipid_group_RSDs$LH,2) - log(lipid_group_RSDs$HH,2)
+lipid_group_RSDs$logRSDfc_LL <- log(lipid_group_RSDs$LL,2) - log(lipid_group_RSDs$HH,2)
+
+
+
+```
+
+
+###################################
+######effect size calculation######
+###################################
+
+######group size is only 30 individuals so need to use hedge's correction here
+```{r}
+
+####using STACKED_data[grep("High_High|High_Low", STACKED_data$treatment),] as data input here 
+###gives warnings because levels don't match the two actually present in the data
+#######warning message:  'Factor with multiple levles, using only the two actually present in data'
+#######the function still work properly because it is only using the the specified factors in the calculation. If there were more than two factors, the function would not work
+############### see https://github.com/cran/effsize/blob/master/R/CohenD.R for more details
+#######this is a check to show how many factors are in the data being used for the calculation, and it shows the number of factors differs from the levels. I'm not sure why the original number of levels are maintained despite subsetting the data.
+########unique(STACKED_data[grep("High_High|High_Low", STACKED_data$treatment),11])
+#######[1] High_High High_Low 
+###########Levels: High_High High_Low Low_High Low_Low
+###HAD TO CHANGE THE LEVELS BECAUSE SOMETHING WAS GETTING MESSED UP IN THE OUTPUT.
+
+#HL effect size
+STACKED_metab_HL <- metab_data_STACKED[grep("HH|HL", metab_data_STACKED$comment),]
+STACKED_metab_HL <- droplevels(STACKED_metab_HL)
+Cohen_HLeffect_metab = STACKED_metab_HL %>% group_by(BinBase.name) %>%  
+  do(metab_cohen_HLeffect = cohen.d(quant ~ comment,hedges.correction=TRUE, data = . ,na.rm = TRUE))
+
+Cohen_HLeffect_metab_summ <- matrix(0, ncol = 4, nrow = length(Cohen_HLeffect_metab$metab_cohen_HLeffect), dimnames = list(Cohen_HLeffect_metab$BinBase.name, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
+for(i in 1:length(Cohen_HLeffect_metab$metab_cohen_HLeffect)) {
+  cohen_d <- Cohen_HLeffect_metab$metab_cohen_HLeffect[[i]]$estimate
+  magnitude <- as.character(Cohen_HLeffect_metab$metab_cohen_HLeffect[[i]]$magnitude)
+  conf_int <- Cohen_HLeffect_metab$metab_cohen_HLeffect[[i]]$conf.int 
+  Cohen_HLeffect_metab_summ[i,1] = cohen_d
+  Cohen_HLeffect_metab_summ[i,2] = magnitude
+  Cohen_HLeffect_metab_summ[i,3:4] = conf_int
+}
+
+#LH effect size
+
+STACKED_metab_LH <- metab_data_STACKED[grep("HH|LH", metab_data_STACKED$comment),]
+STACKED_metab_LH <- droplevels(STACKED_metab_LH)
+Cohen_LHeffect_metab = STACKED_metab_LH %>% group_by(BinBase.name) %>%  
+  do(metab_cohen_LHeffect = cohen.d(quant ~ comment,hedges.correction=TRUE, data = . ,na.rm = TRUE))
+
+Cohen_LHeffect_metab_summ <- matrix(0, ncol = 4, nrow = length(Cohen_LHeffect_metab$metab_cohen_LHeffect), dimnames = list(Cohen_LHeffect_metab$BinBase.name, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
+for(i in 1:length(Cohen_LHeffect_metab$metab_cohen_LHeffect)) {
+  cohen_d <- Cohen_LHeffect_metab$metab_cohen_LHeffect[[i]]$estimate
+  magnitude <- as.character(Cohen_LHeffect_metab$metab_cohen_LHeffect[[i]]$magnitude)
+  conf_int <- Cohen_LHeffect_metab$metab_cohen_LHeffect[[i]]$conf.int 
+  Cohen_LHeffect_metab_summ[i,1] = cohen_d
+  Cohen_LHeffect_metab_summ[i,2] = magnitude
+  Cohen_LHeffect_metab_summ[i,3:4] = conf_int
+}
+
+
+#LL effect size
+
+STACKED_metab_LL <- metab_data_STACKED[grep("HH|LL", metab_data_STACKED$comment),]
+STACKED_metab_LL <- droplevels(STACKED_metab_LL)
+Cohen_LLeffect_metab = STACKED_metab_LL %>% group_by(BinBase.name) %>%  
+  do(metab_cohen_LLeffect = cohen.d(quant ~ comment,hedges.correction=TRUE, data = . ,na.rm = TRUE))
+
+Cohen_LLeffect_metab_summ <- matrix(0, ncol = 4, nrow = length(Cohen_LLeffect_metab$metab_cohen_LLeffect), dimnames = list(Cohen_LLeffect_metab$BinBase.name, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
+for(i in 1:length(Cohen_LLeffect_metab$metab_cohen_LLeffect)) {
+  cohen_d <- Cohen_LLeffect_metab$metab_cohen_LLeffect[[i]]$estimate
+  magnitude <- as.character(Cohen_LLeffect_metab$metab_cohen_LLeffect[[i]]$magnitude)
+  conf_int <- Cohen_LLeffect_metab$metab_cohen_LLeffect[[i]]$conf.int 
+  Cohen_LLeffect_metab_summ[i,1] = cohen_d
+  Cohen_LLeffect_metab_summ[i,2] = magnitude
+  Cohen_LLeffect_metab_summ[i,3:4] = conf_int
+}
+
+
+#merge cohen summary tables by analyte
+cohen_all_indv_effects_metabs <- data.frame(cbind(Cohen_HLeffect_metab_summ, Cohen_LHeffect_metab_summ, Cohen_LLeffect_metab_summ))
+colnames(cohen_all_indv_effects_metabs) <- c("CohenD_HL_effect","Mag_HL_effect","CI_inf_HL_effect","CI_sup_HL_effect", "CohenD_LH_effect", "Mag_LH_effect","CI_inf_LH_effect","CI_sup_LH_effect", "CohenD_LL_effect", "Mag_LL_effect","CI_inf_LL_effect","CI_sup_LL_effect")
+
+
+cohen_all_indv_effects_metabs$BinBase.name <- rownames(cohen_all_indv_effects_metabs)
+###########################################
+###############For Lipids##################
+###########################################
+
+
+#HL effect size
+STACKED_lipid_HL <- lipid_data_STACKED[grep("HH|HL", lipid_data_STACKED$Treatment),]
+STACKED_lipid_HL <- droplevels(STACKED_lipid_HL)
+STACKED_lipid_HL$Treatment <- as.factor(STACKED_lipid_HL$Treatment)
+Cohen_HLeffect_lipid = STACKED_lipid_HL %>% group_by(Identifier) %>%  
+  do(lipid_cohen_HLeffect = cohen.d(quant ~ Treatment,hedges.correction=TRUE, data = . , na.rm = TRUE))
+
+Cohen_HLeffect_lipid_summ <- matrix(0, ncol = 4, nrow = length(Cohen_HLeffect_lipid$lipid_cohen_HLeffect), dimnames = list(Cohen_HLeffect_lipid$Identifier, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
+for(i in 1:length(Cohen_HLeffect_lipid$lipid_cohen_HLeffect)) {
+  cohen_d <- Cohen_HLeffect_lipid$lipid_cohen_HLeffect[[i]]$estimate
+  magnitude <- as.character(Cohen_HLeffect_lipid$lipid_cohen_HLeffect[[i]]$magnitude)
+  conf_int <- Cohen_HLeffect_lipid$lipid_cohen_HLeffect[[i]]$conf.int 
+  Cohen_HLeffect_lipid_summ[i,1] = cohen_d
+  Cohen_HLeffect_lipid_summ[i,2] = magnitude
+  Cohen_HLeffect_lipid_summ[i,3:4] = conf_int
+}
+
+#LH effect size
+
+STACKED_lipid_LH <- lipid_data_STACKED[grep("HH|LH", lipid_data_STACKED$Treatment),]
+STACKED_lipid_LH <- droplevels(STACKED_lipid_LH)
+STACKED_lipid_LH$Treatment <- as.factor(STACKED_lipid_LH$Treatment)
+Cohen_LHeffect_lipid = STACKED_lipid_LH %>% group_by(Identifier) %>%  
+  do(lipid_cohen_LHeffect = cohen.d(quant ~ Treatment,hedges.correction=TRUE, data = . ,na.rm = TRUE))
+
+Cohen_LHeffect_lipid_summ <- matrix(0, ncol = 4, nrow = length(Cohen_LHeffect_lipid$lipid_cohen_LHeffect), dimnames = list(Cohen_LHeffect_lipid$Identifier, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
+for(i in 1:length(Cohen_LHeffect_lipid$lipid_cohen_LHeffect)) {
+  cohen_d <- Cohen_LHeffect_lipid$lipid_cohen_LHeffect[[i]]$estimate
+  magnitude <- as.character(Cohen_LHeffect_lipid$lipid_cohen_LHeffect[[i]]$magnitude)
+  conf_int <- Cohen_LHeffect_lipid$lipid_cohen_LHeffect[[i]]$conf.int 
+  Cohen_LHeffect_lipid_summ[i,1] = cohen_d
+  Cohen_LHeffect_lipid_summ[i,2] = magnitude
+  Cohen_LHeffect_lipid_summ[i,3:4] = conf_int
+}
+
+
+#LL effect size
+
+STACKED_lipid_LL <- lipid_data_STACKED[grep("HH|LL", lipid_data_STACKED$Treatment),]
+STACKED_lipid_LL <- droplevels(STACKED_lipid_LL)
+STACKED_lipid_LL$Treatment <- as.factor(STACKED_lipid_LL$Treatment)
+Cohen_LLeffect_lipid = STACKED_lipid_LL %>% group_by(Identifier) %>%  
+  do(lipid_cohen_LLeffect = cohen.d(quant ~ Treatment,hedges.correction=TRUE, data = . ,na.rm = TRUE))
+
+Cohen_LLeffect_lipid_summ <- matrix(0, ncol = 4, nrow = length(Cohen_LLeffect_lipid$lipid_cohen_LLeffect), dimnames = list(Cohen_LLeffect_lipid$Identifier, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
+for(i in 1:length(Cohen_LLeffect_lipid$lipid_cohen_LLeffect)) {
+  cohen_d <- Cohen_LLeffect_lipid$lipid_cohen_LLeffect[[i]]$estimate
+  magnitude <- as.character(Cohen_LLeffect_lipid$lipid_cohen_LLeffect[[i]]$magnitude)
+  conf_int <- Cohen_LLeffect_lipid$lipid_cohen_LLeffect[[i]]$conf.int 
+  Cohen_LLeffect_lipid_summ[i,1] = cohen_d
+  Cohen_LLeffect_lipid_summ[i,2] = magnitude
+  Cohen_LLeffect_lipid_summ[i,3:4] = conf_int
+}
+
+
+#merge cohen summary tables by analyte
+cohen_all_indv_effects_lipids <- data.frame(cbind(Cohen_HLeffect_lipid_summ, Cohen_LHeffect_lipid_summ, Cohen_LLeffect_lipid_summ))
+colnames(cohen_all_indv_effects_lipids) <- c("CohenD_HL_effect","Mag_HL_effect","CI_inf_HL_effect","CI_sup_HL_effect", "CohenD_LH_effect", "Mag_LH_effect","CI_inf_LH_effect","CI_sup_LH_effect", "CohenD_LL_effect", "Mag_LL_effect","CI_inf_LL_effect","CI_sup_LL_effect")
+
+cohen_all_indv_effects_lipids$Identifier <- rownames(cohen_all_indv_effects_lipids)
+```
+
+
+MERGE cohen D and log FC data
+```{r}
+metab_FC_RSD <- merge(metab_group_means[,-c(2:5)], metab_group_RSDs[,-c(2:5)], by = "BinBase.name")
+
+metab_FC_RSD_cohen <- merge(metab_FC_RSD, cohen_all_indv_effects_metabs, by = "BinBase.name")
+
+lipid_FC_RSD <- merge(lipid_group_means[,-c(2:5)], lipid_group_RSDs[,-c(2:5)], by = "Identifier")
+
+lipid_FC_RSD_cohen <- merge(lipid_FC_RSD, cohen_all_indv_effects_lipids, by = "Identifier")
+```
+
+Merge inchikey with metab and lipid data
+```{r}
+metab_FC_RSD_cohen <- merge(metab_data[,c("BinBase.name","InChI.Key")], metab_FC_RSD_cohen, by = "BinBase.name")
+
+colnames(metab_FC_RSD_cohen)[1] <- "analyte"
+
+metab_FC_RSD_cohen$Annotation <- metab_FC_RSD_cohen$analyte
+metab_FC_RSD_cohen <- metab_FC_RSD_cohen[,c(1,ncol(metab_FC_RSD_cohen),2:(ncol(metab_FC_RSD_cohen)-1))]
+
+lipid_FC_RSD_cohen <- merge(lipid_data[,c("Identifier","Annotation","InChI.Key")], lipid_FC_RSD_cohen, by = "Identifier")
+
+colnames(lipid_FC_RSD_cohen)[1] <- "analyte"
+
+#merge metab and lipid data
+
+all_cmpds_FC_RSD_cohen <- rbind(metab_FC_RSD_cohen, lipid_FC_RSD_cohen)
+
+#replace special characters with decimal
+all_cmpds_FC_RSD_cohen$analyte <- gsub("-","\\.", all_cmpds_FC_RSD_cohen$analyte)
+
+all_cmpds_FC_RSD_cohen$analyte <- gsub("\\'","\\.", all_cmpds_FC_RSD_cohen$analyte)
+
+all_cmpds_FC_RSD_cohen$analyte <- gsub(",","\\.", all_cmpds_FC_RSD_cohen$analyte)
+
+all_cmpds_FC_RSD_cohen$analyte <- gsub(" ","\\.", all_cmpds_FC_RSD_cohen$analyte)
+
+
+all_cmpds_FC_RSD_cohen$Annotation <- gsub("-","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+
+all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\'","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+
+all_cmpds_FC_RSD_cohen$Annotation <- gsub(",","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+
+all_cmpds_FC_RSD_cohen$Annotation <- gsub(" ","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+
+all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\(","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+
+all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\)","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+
+all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\#","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+
+write.table(all_cmpds_FC_RSD_cohen,"all_cmpds_FC_RSD_cohen.tsv", sep = "\t",row.names = FALSE, col.names = TRUE, quote = FALSE )
+
+```
