@@ -1,0 +1,82 @@
+---
+title: "Create_ID_key"
+author: "Shelly Trigg"
+date: "2/24/2020"
+output: html_document
+---
+
+read in data
+```{r}
+KNM_metab <- read.csv("data/mx338976_pteropod_genmetab0917_phxDO.csv", stringsAsFactors = FALSE)
+
+KNM_lipid <- read.csv("data/mx339045_lipid_sampleTRTlipidsonly.csv", stringsAsFactors = FALSE)
+```
+
+transpose column names 
+```{r}
+KNM_metab_colnames <- data.frame(matrix(0,ncol(KNM_metab[,-c(1:2)]),1))
+KNM_metab_colnames[,1] <- colnames(KNM_metab[,-c(1:2)])
+colnames(KNM_metab_colnames) <- "BinBasename_R"
+
+KNM_lipid_colnames <- data.frame(matrix(0,ncol(KNM_lipid[,-c(1:2)]),1))
+KNM_lipid_colnames[,1] <- colnames(KNM_lipid[,-c(1:2)])
+colnames(KNM_lipid_colnames) <- "Identifier_R"
+
+```
+
+
+Read in raw data
+```{r}
+load libraries
+```{r}
+library(readxl)
+library(ggplot2)
+library(gplots)
+library(tidyr)
+library(dplyr)
+library(effsize)
+library(broom)
+
+
+
+```
+
+read data
+
+```{r}
+
+metab_data <- data.frame(read_xlsx("../abundance_visualization/data/mx 338976 Krista Nichols_pteropods_whole animals_09-2017_submit.xlsx", skip = 8))
+
+lipid_data <- data.frame(read_xlsx("../abundance_visualization/data/mx 339045_Nichols_CSH-QTOF MSMS_lipidomics_09-2017_submit.xlsx", sheet = "submit", skip = 6))
+
+#remove the internal standards
+lipid_data <- lipid_data[-grep("iSTD", lipid_data$Annotation),]
+
+#order data by Annotation name
+lipid_data <- lipid_data[order(lipid_data$Annotation),]
+
+#for unknown compounds add identifier to annotation column
+for (i in 1:nrow(lipid_data)){
+  if(is.na(lipid_data$Annotation[i])){
+    lipid_data$Annotation[i] <- paste0("X",lipid_data$Identifier[i])
+  }
+}
+
+```
+
+
+merge id columns
+```{r}
+metab_data <- cbind(metab_data[,c("BinBase.name", "BB.id", "PubChem", "KEGG", "InChI.Key")],KNM_metab_colnames)
+
+lipid_data <- cbind(lipid_data[,c("Identifier", "Annotation", "InChI.Key")],KNM_lipid_colnames)
+```
+
+Write out ID key table
+
+```{r}
+write.table(metab_data,"metab_ID_Key.txt", sep = "\t", row.names = FALSE, quote = FALSE)
+
+write.table(lipid_data,"lipid_ID_Key.txt", sep = "\t", row.names = FALSE, quote = FALSE)
+
+```

@@ -222,7 +222,6 @@ write.csv(All_names_uniquePubChem_KEGG,"~/Documents/GitHub/pteropod_pHxDO_metabo
 #zcat < /Users/Shelly/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/1087426400801374154.txt.gz | tr '\t' ',' | awk -F, 'NR==FNR{a[$1]=$2;next}{print $0","a[$2]}' - /Users/Shelly/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/unique_inchi_pubchem_kegg.csv > unique_inchi_pubchem_kegg_smiles.csv
 
 
-RSD_FC_cohen <- read.table("../FoldChange_CohenD/all_cmpds_FC_RSD_cohen.tsv", sep = "\t",header = TRUE,stringsAsFactors = FALSE)
 
 ###Read in univariate data
 
@@ -230,25 +229,32 @@ library(readxl)
 metab_uni<- read_xlsx("~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/pteropod_genmetabANDlipids_univariate_RESULTSsupplement.xlsx", sheet =1)
 lipid_uni<- read_xlsx("~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/pteropod_genmetabANDlipids_univariate_RESULTSsupplement.xlsx", sheet =2)
 
+colnames(metab_uni)[1] <- "BinBasename_R"
+colnames(lipid_uni)[1] <- "Identifier_R"
 
-###Use cut off of 0.1
-metab_uni_cut <- metab_uni[which(metab_uni$`Pr(>Chisq)_overall` <= 0.1),]
-lipid_uni_cut <- lipid_uni[which(lipid_uni$`Pr(>Chisq)_overall` <= 0.1),]
+
+#read in ID keys
+metab_ID <- read.table("../MetamappAnalysis/metab_ID_Key.txt", sep ="\t", stringsAsFactors = FALSE,header = TRUE, quote ="")
+  
+lipid_ID <- read.table("../MetamappAnalysis/lipid_ID_Key.txt", sep ="\t", stringsAsFactors = FALSE,header = TRUE, quote ="",comment.char = "")
+
+
+
 
 #get names with decimals instead of spaces
-names_df <- All_names[,1:2]
-names_df$alt <- trimws(names_df$BinBase.name)
-names_df$alt <- gsub(" ",".",names_df$alt)
-names_df$alt <- gsub("\\(",".",names_df$alt)
-names_df$alt <- gsub("\\)",".",names_df$alt)
-names_df$alt <- gsub("-",".",names_df$alt)
-names_df$alt <- gsub(":",".",names_df$alt)
-names_df$alt <- gsub(",",".",names_df$alt)
-names_df$alt <- gsub("\\/",".",names_df$alt)
-names_df$alt <- gsub(";",".",names_df$alt)
+#names_df <- All_names[,1:2]
+#names_df$alt <- trimws(names_df$BinBase.name)
+#names_df$alt <- gsub(" ",".",names_df$alt)
+#names_df$alt <- gsub("\\(",".",names_df$alt)
+#names_df$alt <- gsub("\\)",".",names_df$alt)
+#names_df$alt <- gsub("-",".",names_df$alt)
+#names_df$alt <- gsub(":",".",names_df$alt)
+#names_df$alt <- gsub(",",".",names_df$alt)
+#names_df$alt <- gsub("\\/",".",names_df$alt)
+#names_df$alt <- gsub(";",".",names_df$alt)
 
-names_df <- unique(names_df)
-colnames(names_df)[3] <- "analyte"
+#names_df <- unique(names_df)
+#colnames(names_df)[3] <- "analyte"
 
 #add cholesterol inchikey to cholesterol.nist compound
 #names_df$InChI.Key[2] <- "HVYWMOMLDIMFJA-DPAQBDIFSA-N"
@@ -257,8 +263,16 @@ colnames(names_df)[3] <- "analyte"
 #names_df$InChI.Key[1] <- "FFEARJCKVFRZRR-BYPYZUCNSA-N"
 
 
-metab_uni_names <- merge(metab_uni[,c(1,4,8,14,20)],names_df, by = "analyte")
-lipid_uni_names <- merge(lipid_uni[,c(1,4,8,14,20)], names_df, by = "analyte")
+metab_uni_names <- merge(metab_uni[,c(1,4,8,14,20)],metab_ID[,-c(3:4)], by = "BinBasename_R")
+#reorder columns
+metab_uni_names <- metab_uni_names[,c(1:5,7,6,8)]
+#rename columns to match lipid data colnames
+colnames(metab_uni_names)[1] <- "Identifier_R"
+colnames(metab_uni_names)[6] <- "Identifier"
+colnames(metab_uni_names)[7] <- "Annotation"
+
+
+lipid_uni_names <- merge(lipid_uni[,c(1,4,8,14,20)],lipid_ID, by = "Identifier_R")
 
 
 all_analytes <- rbind(metab_uni_names,lipid_uni_names)
@@ -266,14 +280,32 @@ all_analytes <- rbind(metab_uni_names,lipid_uni_names)
 pubch_kegg_smiles <- read.csv("~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/unique_inchi_pubchem_kegg_smiles.csv", stringsAsFactors = FALSE)
 colnames(pubch_kegg_smiles)[4] <- "SMILES"
 
+#pubchem table still contains 1 duplicate where one line has a kegg and the other doesn't. It is pubchem ID 24699
+#remove the line missing the kegg ID
+pubch_kegg_smiles <- pubch_kegg_smiles[-which(pubch_kegg_smiles$PubChem=="24699" & is.na(pubch_kegg_smiles$KEGG)),]
 
-#
 
+#merge pubchem, kegg, and smiles IDs with all analytes by their InChI.Key
+###NEED TO VALIDATE THIS
 df <- merge(all_analytes,pubch_kegg_smiles, by = "InChI.Key")
-df <- df[,c(8,9,10,7,3)]
 
-colnames(df) <- c("PubChem_ID", "KEGG_ID", "SMILES", "Compound_Name", "Chi_overall_pvalue")
-write.csv(df, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/metamapp_input.csv", quote = FALSE, row.names = FALSE)
+
+#read in RSD, FC, and Cohen D info
+RSD_FC_cohen <- read.table("../FoldChange_CohenD/all_cmpds_FC_RSD_cohen.tsv", sep = "\t",header = TRUE,stringsAsFactors = FALSE, quote = "", comment.char = "")
+
+
+#merge RSD data with anova data
+RSD_FC_cohen_pub <- merge(RSD_FC_cohen,df, by = "Identifier")
+
+
+#df <- merge(df, RSD_FC_cohen, by = "InChI.Key")
+
+#df <- unique(df)
+
+#df <- df[,c(8,9,10,7,3)]
+
+#colnames(df) <- c("PubChem_ID", "KEGG_ID", "SMILES", "Compound_Name", "Chi_overall_pvalue")
+#write.csv(df, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/metamapp_input.csv", quote = FALSE, row.names = FALSE)
 
 
 ###METAMAPP
@@ -282,8 +314,10 @@ write.csv(df, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/d
 ##need to resolve duplicated compound names (see email from Dinesh)
 
 #print duplicated compound names
-dups <- df[which(duplicated(df$Compound_Name)),"Compound_Name"]
-View(df[which(df$Compound_Name %in% dups),])
+#dups <- df[which(duplicated(df$Compound_Name)),"Compound_Name"]
+dups <- df[which(duplicated(df$PubChem)),"PubChem"]
+
+View(df[which(df$PubChem %in% dups),])
 
 #removed duplicates manually and tried to keep the ones that had KEGG IDs
 
@@ -295,10 +329,4 @@ View(df[which(df$Compound_Name %in% dups),])
 
 node_attr <- read.table("data/node_attributes_chemsim_krp_07-1.tsv", sep = "\t", stringsAsFactors = FALSE, header = TRUE)
 
-
-#read in RSD, FC, and Cohen D info
-RSD_FC_cohen <- read.table("../FoldChange_CohenD/all_cmpds_FC_RSD_cohen.tsv", sep = "\t",header = TRUE,stringsAsFactors = FALSE)
-
-#add pubchem ID to merge with node_attr table
-RSD_FC_cohen_pub <- merge(RSD_FC_cohen,pubch_kegg_smiles, by = "InChI.Key")
 
