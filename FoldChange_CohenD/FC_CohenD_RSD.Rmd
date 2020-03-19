@@ -79,7 +79,7 @@ lipid_data_STACKED <- merge(lipid_meta_t[-grep("Biorec", lipid_meta_t),c(4,8)],l
 
 #in annotation column in lipid data sub identifier for unknown compounds
 for (i in 1:nrow(lipid_data)){
-  if(substr(lipid_data$Annotation[i],1,3)=="unk"){
+  if(is.na(lipid_data$Annotation[i])){
     lipid_data$Annotation[i] =lipid_data$Identifier[i]
   }
 }
@@ -90,7 +90,7 @@ for (i in 1:nrow(lipid_data)){
 
 Calculate mean FC
 ```{r}
-metab_group_means <- metab_data_STACKED %>% group_by(BinBase.name, comment) %>% summarise(mean=mean(quant, na.rm = TRUE))
+metab_group_means <- metab_data_STACKED %>% group_by(BB.id, comment) %>% summarise(mean=mean(quant, na.rm = TRUE))
 
 metab_group_means <- spread(metab_group_means, "comment", "mean")
 
@@ -113,12 +113,12 @@ lipid_group_means$logFC_LL <- log(lipid_group_means$LL,2) - log(lipid_group_mean
 
 Calculate RSD
 ```{r}
-metab_group_sd <- metab_data_STACKED %>% group_by(BinBase.name, comment) %>% summarise(mean = mean(quant,na.rm = TRUE),sd=sd(quant,na.rm = TRUE))
+metab_group_sd <- metab_data_STACKED %>% group_by(BB.id, comment) %>% summarise(mean = mean(quant,na.rm = TRUE),sd=sd(quant,na.rm = TRUE))
 
 metab_group_sd$RSD <- metab_group_sd$sd/metab_group_sd$mean *100
 
 
-metab_group_RSDs <- spread(metab_group_sd[,c("BinBase.name", "comment","RSD")], "comment", "RSD")
+metab_group_RSDs <- spread(metab_group_sd[,c("BB.id", "comment","RSD")], "comment", "RSD")
 
 metab_group_RSDs$logRSDfc_HL <- log(metab_group_RSDs$HL,2) - log(metab_group_RSDs$HH,2)
 metab_group_RSDs$logRSDfc_LH <- log(metab_group_RSDs$LH,2) - log(metab_group_RSDs$HH,2)
@@ -163,10 +163,10 @@ lipid_group_RSDs$logRSDfc_LL <- log(lipid_group_RSDs$LL,2) - log(lipid_group_RSD
 #HL effect size
 STACKED_metab_HL <- metab_data_STACKED[grep("HH|HL", metab_data_STACKED$comment),]
 STACKED_metab_HL <- droplevels(STACKED_metab_HL)
-Cohen_HLeffect_metab = STACKED_metab_HL %>% group_by(BinBase.name) %>%  
+Cohen_HLeffect_metab = STACKED_metab_HL %>% group_by(BB.id) %>%  
   do(metab_cohen_HLeffect = cohen.d(quant ~ comment,hedges.correction=TRUE, data = . ,na.rm = TRUE))
 
-Cohen_HLeffect_metab_summ <- matrix(0, ncol = 4, nrow = length(Cohen_HLeffect_metab$metab_cohen_HLeffect), dimnames = list(Cohen_HLeffect_metab$BinBase.name, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
+Cohen_HLeffect_metab_summ <- matrix(0, ncol = 4, nrow = length(Cohen_HLeffect_metab$metab_cohen_HLeffect), dimnames = list(Cohen_HLeffect_metab$BB.id, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
 for(i in 1:length(Cohen_HLeffect_metab$metab_cohen_HLeffect)) {
   cohen_d <- Cohen_HLeffect_metab$metab_cohen_HLeffect[[i]]$estimate
   magnitude <- as.character(Cohen_HLeffect_metab$metab_cohen_HLeffect[[i]]$magnitude)
@@ -180,10 +180,10 @@ for(i in 1:length(Cohen_HLeffect_metab$metab_cohen_HLeffect)) {
 
 STACKED_metab_LH <- metab_data_STACKED[grep("HH|LH", metab_data_STACKED$comment),]
 STACKED_metab_LH <- droplevels(STACKED_metab_LH)
-Cohen_LHeffect_metab = STACKED_metab_LH %>% group_by(BinBase.name) %>%  
+Cohen_LHeffect_metab = STACKED_metab_LH %>% group_by(BB.id) %>%  
   do(metab_cohen_LHeffect = cohen.d(quant ~ comment,hedges.correction=TRUE, data = . ,na.rm = TRUE))
 
-Cohen_LHeffect_metab_summ <- matrix(0, ncol = 4, nrow = length(Cohen_LHeffect_metab$metab_cohen_LHeffect), dimnames = list(Cohen_LHeffect_metab$BinBase.name, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
+Cohen_LHeffect_metab_summ <- matrix(0, ncol = 4, nrow = length(Cohen_LHeffect_metab$metab_cohen_LHeffect), dimnames = list(Cohen_LHeffect_metab$BB.id, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
 for(i in 1:length(Cohen_LHeffect_metab$metab_cohen_LHeffect)) {
   cohen_d <- Cohen_LHeffect_metab$metab_cohen_LHeffect[[i]]$estimate
   magnitude <- as.character(Cohen_LHeffect_metab$metab_cohen_LHeffect[[i]]$magnitude)
@@ -198,10 +198,10 @@ for(i in 1:length(Cohen_LHeffect_metab$metab_cohen_LHeffect)) {
 
 STACKED_metab_LL <- metab_data_STACKED[grep("HH|LL", metab_data_STACKED$comment),]
 STACKED_metab_LL <- droplevels(STACKED_metab_LL)
-Cohen_LLeffect_metab = STACKED_metab_LL %>% group_by(BinBase.name) %>%  
+Cohen_LLeffect_metab = STACKED_metab_LL %>% group_by(BB.id) %>%  
   do(metab_cohen_LLeffect = cohen.d(quant ~ comment,hedges.correction=TRUE, data = . ,na.rm = TRUE))
 
-Cohen_LLeffect_metab_summ <- matrix(0, ncol = 4, nrow = length(Cohen_LLeffect_metab$metab_cohen_LLeffect), dimnames = list(Cohen_LLeffect_metab$BinBase.name, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
+Cohen_LLeffect_metab_summ <- matrix(0, ncol = 4, nrow = length(Cohen_LLeffect_metab$metab_cohen_LLeffect), dimnames = list(Cohen_LLeffect_metab$BB.id, c("cohen_d", "magnitude", "confidence_int_inf", "confidence_int_sup")))
 for(i in 1:length(Cohen_LLeffect_metab$metab_cohen_LLeffect)) {
   cohen_d <- Cohen_LLeffect_metab$metab_cohen_LLeffect[[i]]$estimate
   magnitude <- as.character(Cohen_LLeffect_metab$metab_cohen_LLeffect[[i]]$magnitude)
@@ -217,7 +217,7 @@ cohen_all_indv_effects_metabs <- data.frame(cbind(Cohen_HLeffect_metab_summ, Coh
 colnames(cohen_all_indv_effects_metabs) <- c("CohenD_HL_effect","Mag_HL_effect","CI_inf_HL_effect","CI_sup_HL_effect", "CohenD_LH_effect", "Mag_LH_effect","CI_inf_LH_effect","CI_sup_LH_effect", "CohenD_LL_effect", "Mag_LL_effect","CI_inf_LL_effect","CI_sup_LL_effect")
 
 
-cohen_all_indv_effects_metabs$BinBase.name <- rownames(cohen_all_indv_effects_metabs)
+cohen_all_indv_effects_metabs$BB.id <- rownames(cohen_all_indv_effects_metabs)
 ###########################################
 ###############For Lipids##################
 ###########################################
@@ -288,9 +288,9 @@ cohen_all_indv_effects_lipids$Identifier <- rownames(cohen_all_indv_effects_lipi
 
 MERGE cohen D and log FC data
 ```{r}
-metab_FC_RSD <- merge(metab_group_means[,-c(2:5)], metab_group_RSDs[,-c(2:5)], by = "BinBase.name")
+metab_FC_RSD <- merge(metab_group_means[,-c(2:5)], metab_group_RSDs[,-c(2:5)], by = "BB.id")
 
-metab_FC_RSD_cohen <- merge(metab_FC_RSD, cohen_all_indv_effects_metabs, by = "BinBase.name")
+metab_FC_RSD_cohen <- merge(metab_FC_RSD, cohen_all_indv_effects_metabs, by = "BB.id")
 
 lipid_FC_RSD <- merge(lipid_group_means[,-c(2:5)], lipid_group_RSDs[,-c(2:5)], by = "Identifier")
 
@@ -299,44 +299,44 @@ lipid_FC_RSD_cohen <- merge(lipid_FC_RSD, cohen_all_indv_effects_lipids, by = "I
 
 Merge inchikey with metab and lipid data
 ```{r}
-metab_FC_RSD_cohen <- merge(metab_data[,c("BinBase.name","InChI.Key")], metab_FC_RSD_cohen, by = "BinBase.name")
+metab_FC_RSD_cohen <- merge(metab_data[,c("BB.id","InChI.Key")], metab_FC_RSD_cohen, by = "BB.id")
 
-colnames(metab_FC_RSD_cohen)[1] <- "analyte"
+colnames(metab_FC_RSD_cohen)[1] <- "Identifier"
 
-metab_FC_RSD_cohen$Annotation <- metab_FC_RSD_cohen$analyte
-metab_FC_RSD_cohen <- metab_FC_RSD_cohen[,c(1,ncol(metab_FC_RSD_cohen),2:(ncol(metab_FC_RSD_cohen)-1))]
+#metab_FC_RSD_cohen$Annotation <- metab_FC_RSD_cohen$analyte
+#metab_FC_RSD_cohen <- #metab_FC_RSD_cohen[,c(1,ncol(metab_FC_RSD_cohen),2:(ncol(metab_FC_RSD_cohen)-1))]
 
-lipid_FC_RSD_cohen <- merge(lipid_data[,c("Identifier","Annotation","InChI.Key")], lipid_FC_RSD_cohen, by = "Identifier")
+lipid_FC_RSD_cohen <- merge(lipid_data[,c("Identifier","InChI.Key")], lipid_FC_RSD_cohen, by = "Identifier")
 
-colnames(lipid_FC_RSD_cohen)[1] <- "analyte"
+#colnames(lipid_FC_RSD_cohen)[1] <- "analyte"
 
 #merge metab and lipid data
 
 all_cmpds_FC_RSD_cohen <- rbind(metab_FC_RSD_cohen, lipid_FC_RSD_cohen)
 
 #replace special characters with decimal
-all_cmpds_FC_RSD_cohen$analyte <- gsub("-","\\.", all_cmpds_FC_RSD_cohen$analyte)
-
-all_cmpds_FC_RSD_cohen$analyte <- gsub("\\'","\\.", all_cmpds_FC_RSD_cohen$analyte)
-
-all_cmpds_FC_RSD_cohen$analyte <- gsub(",","\\.", all_cmpds_FC_RSD_cohen$analyte)
-
-all_cmpds_FC_RSD_cohen$analyte <- gsub(" ","\\.", all_cmpds_FC_RSD_cohen$analyte)
-
-
-all_cmpds_FC_RSD_cohen$Annotation <- gsub("-","\\.", all_cmpds_FC_RSD_cohen$Annotation)
-
-all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\'","\\.", all_cmpds_FC_RSD_cohen$Annotation)
-
-all_cmpds_FC_RSD_cohen$Annotation <- gsub(",","\\.", all_cmpds_FC_RSD_cohen$Annotation)
-
-all_cmpds_FC_RSD_cohen$Annotation <- gsub(" ","\\.", all_cmpds_FC_RSD_cohen$Annotation)
-
-all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\(","\\.", all_cmpds_FC_RSD_cohen$Annotation)
-
-all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\)","\\.", all_cmpds_FC_RSD_cohen$Annotation)
-
-all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\#","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+# all_cmpds_FC_RSD_cohen$analyte <- gsub("-","\\.", all_cmpds_FC_RSD_cohen$analyte)
+# 
+# all_cmpds_FC_RSD_cohen$analyte <- gsub("\\'","\\.", all_cmpds_FC_RSD_cohen$analyte)
+# 
+# all_cmpds_FC_RSD_cohen$analyte <- gsub(",","\\.", all_cmpds_FC_RSD_cohen$analyte)
+# 
+# all_cmpds_FC_RSD_cohen$analyte <- gsub(" ","\\.", all_cmpds_FC_RSD_cohen$analyte)
+# 
+# 
+# all_cmpds_FC_RSD_cohen$Annotation <- gsub("-","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+# 
+# all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\'","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+# 
+# all_cmpds_FC_RSD_cohen$Annotation <- gsub(",","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+# 
+# all_cmpds_FC_RSD_cohen$Annotation <- gsub(" ","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+# 
+# all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\(","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+# 
+# all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\)","\\.", all_cmpds_FC_RSD_cohen$Annotation)
+# 
+# all_cmpds_FC_RSD_cohen$Annotation <- gsub("\\#","\\.", all_cmpds_FC_RSD_cohen$Annotation)
 
 write.table(all_cmpds_FC_RSD_cohen,"all_cmpds_FC_RSD_cohen.tsv", sep = "\t",row.names = FALSE, col.names = TRUE, quote = FALSE )
 
