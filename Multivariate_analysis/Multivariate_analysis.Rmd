@@ -1,0 +1,34 @@
+---
+title: "Untitled"
+author: "Shelly Trigg"
+date: "5/4/2020"
+output: html_document
+---
+
+load libraries
+```{r}
+library(readxl)
+```
+
+read in data 
+```{r}
+metab_data <- read_xlsx("../abundance_visualization/data/mx 338976 Krista Nichols_pteropods_whole animals_09-2017_submit.xlsx", skip = 8) 
+
+lipid_data <- read_xlsx("../abundance_visualization/data/mx 339045_Nichols_CSH-QTOF MSMS_lipidomics_09-2017_submit.xlsx", sheet = "submit", skip = 6)
+
+#read in meta data
+metab_meta <- read_xlsx("../abundance_visualization/data/mx 338976 Krista Nichols_pteropods_whole animals_09-2017_submit.xlsx", range = "H1:BO8",n_max = 8) 
+
+lipid_meta <- read_xlsx("../abundance_visualization/data/mx 339045_Nichols_CSH-QTOF MSMS_lipidomics_09-2017_submit.xlsx", range = "H1:BW8", n_max = 6, sheet = "submit")
+
+
+#rename columns 9-67
+colnames(metab_data)[9:67] <- as.vector(as.character(data.frame(metab_meta)[3,2:ncol(metab_meta)]))
+
+
+colnames(lipid_data)[9:75] <- colnames(data.frame(lipid_meta[,-1]))
+
+#remove standards
+lipid_data <- lipid_data[-grep("iSTD", lipid_data$Annotation),-grep("Biorec",colnames(lipid_data))]
+
+```

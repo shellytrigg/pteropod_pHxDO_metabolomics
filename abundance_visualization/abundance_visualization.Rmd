@@ -35,8 +35,9 @@ colnames(metab_data)[9:67] <- as.vector(as.character(data.frame(metab_meta)[3,2:
 
 colnames(lipid_data)[9:75] <- colnames(data.frame(lipid_meta[,-1]))
 
-if(substr(lipid_data$Annotation lipid_data$Annotation 
-#
+#remove standards
+lipid_data <- lipid_data[-grep("iSTD", lipid_data$Annotation),-grep("Biorec",colnames(lipid_data))]
+
 ```
 
 create a matrix for plotting
@@ -45,13 +46,12 @@ metab_data_m <- data.matrix(metab_data[,9:67])
 rownames(metab_data_m) <- as.vector(as.character(metab_data$`BinBase name`))
 
 
-lipid_data_m <- data.matrix(lipid_data[,16:75])
+lipid_data_m <- data.frame(lipid_data[,9:68])
 
 
 
 rownames(lipid_data_m) <- as.vector(as.character(lipid_data$Identifier))
 
-lipid_data_m <- lipid_data_m[-grep("iSTD", rownames(lipid_data_m)),-grep("Biorec",colnames(lipid_data_m))]
 
 
 ```
@@ -83,9 +83,11 @@ heatmap.2(data.matrix(sig_metab_data_m),margins = c(10,20), cexRow = 1.2, cexCol
 
 
 
-sig_lipid <- data.frame(uni_lipid[which(uni_lipid$`Pr(>Chisq)_overall`<= 0.1),"analyte"])
+sig_lipid <- data.frame(uni_lipid[which(uni_lipid$`Pr(>Chisq)_overall`<= 0.1 & uni_lipid$DO_p.value <= 0.05 | uni_lipid$`Pr(>Chisq)_overall`<= 0.1 & uni_lipid$pH_p.value <= 0.05 | uni_lipid$`Pr(>Chisq)_overall`<= 0.1 & uni_lipid$`pH:DO_p.value` <= 0.05),"analyte"])
 
-sig_lipid_data_m <- lipid_data_m[which(row.names(lipid_data_m) %in% sig_lipid$analyte),]
+sig_lipid$analyte <- gsub("X","",sig_lipid$analyte)
+
+sig_lipid_data_m <- lipid_data_m[which(rownames(lipid_data_m) %in% sig_lipid$analyte),]
 
 
 

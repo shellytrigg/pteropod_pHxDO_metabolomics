@@ -371,6 +371,12 @@ colnames(metamapp_input) <- c("PubChem_ID", "KEGG_ID",	"SMILES",	"Compound_Name"
 write.table(metamapp_input, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/metamapp_input.csv", sep = "\t",quote = FALSE, row.names = FALSE)
 
 
+#format file for chemRICH input
+chemrich_input <- RSD_FC_cohen_pub[,c("Identifier_R","InChI.Key.y","PubChem", "SMILES","Pr(>Chisq)_overall","logFC_HL")]
+colnames(chemrich_input) <- c("Compound Name", "InChiKeys",	"Pubchem ID",	"SMILES", "pvalue",	"foldchange")
+write.table(chemrich_input, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/chemrich_input.csv", sep = "\t",quote = FALSE, row.names = FALSE)
+
+
 ########################################################
 ####################### STEP 5 #########################
 ########################################################
