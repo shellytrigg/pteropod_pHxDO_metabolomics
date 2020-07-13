@@ -1,0 +1,187 @@
+---
+title: "RelativeStandardDeviation"
+author: "Shelly Trigg"
+date: "6/9/2020"
+output: html_document
+---
+
+
+load libraries
+```{r}
+library(readxl)
+library(ggplot2)
+library(gplots)
+library(dplyr)
+
+```
+
+read in data
+```{r}
+metab_data <- read_xlsx("../abundance_visualization/data/mx 338976 Krista Nichols_pteropods_whole animals_09-2017_submit.xlsx", skip = 8) 
+
+lipid_data <- read_xlsx("../abundance_visualization/data/mx 339045_Nichols_CSH-QTOF MSMS_lipidomics_09-2017_submit.xlsx", sheet = "submit", skip = 6)
+
+#read in meta data
+metab_meta <- read_xlsx("../abundance_visualization/data/mx 338976 Krista Nichols_pteropods_whole animals_09-2017_submit.xlsx", range = "H1:BO8",n_max = 8) 
+
+lipid_meta <- read_xlsx("../abundance_visualization/data/mx 339045_Nichols_CSH-QTOF MSMS_lipidomics_09-2017_submit.xlsx", range = "H1:BW8", n_max = 6, sheet = "submit")
+
+#rename columns 9-67
+colnames(metab_data)[9:67] <- as.vector(as.character(data.frame(metab_meta)[3,2:ncol(metab_meta)]))
+
+
+colnames(lipid_data)[9:75] <- colnames(data.frame(lipid_meta[,-1]))
+
+#remove standards
+lipid_data <- lipid_data[-grep("iSTD", lipid_data$Annotation),-grep("Biorec",colnames(lipid_data))]
+
+```
+
+Reshape data to long format
+```{r}
+STACKED_lipid <- tidyr::gather(lipid_data, "Sample", "peak_height", 9:68)
+
+#transform meta data
+STACKED_lipid_meta <- t(lipid_meta)
+colnames(STACKED_lipid_meta) <- STACKED_lipid_meta[1,]
+
+STACKED_lipid_meta <- STACKED_lipid_meta[2:nrow(STACKED_lipid_meta),]
+colnames(STACKED_lipid_meta)[1] <- "sample_type"
+STACKED_lipid_meta <- data.frame(STACKED_lipid_meta)
+STACKED_lipid_meta$Sample <- rownames(STACKED_lipid_meta)
+rownames(STACKED_lipid_meta) <- NULL
+
+#merge meta data with lipid data
+STACKED_lipid <- merge(STACKED_lipid_meta, STACKED_lipid, by = "Sample")
+
+
+
+#horizontal data
+#horiz_lipid <- data.frame(t(lipid_data[,9:68]))
+#colnames(horiz_lipid) <- data.frame(t(lipid_data[,2]))
+
+#horiz_lipid[is.na(horiz_lipid)] <- 0
+
+
+
+#lipid_data_log <- log(horiz_lipid,2)
+
+#pca <-  prcomp(lipid_data_log, center = T, scale = T)
+```
+
+
+Calculate relative standard deviation
+```{r}
+
+#lipid_RSD_pHDO = STACKED_lipid %>% group_by(Identifier, Treatment) %>% summarise_each(funs(mean, sd))
+  #do(lipid_RSD = sd(peak_height, data = .)/mean(peak_height, data =.) *100)
+
+#sd(peak_height)/mean(peak_height) *100
+
+#calculate treatment group mean for each compound
+ag_m <- aggregate(peak_height ~ Identifier + Treatment, STACKED_lipid, function(x) mean = mean(x, na.rm = T))
+colnames(ag_m)[3] <- "peak_height_m"
+
+#calculate treatment group standard deviation for each compound
+ag_sd <- aggregate(peak_height ~ Identifier + Treatment, STACKED_lipid, function(x) sd = sd(x, na.rm = T))
+colnames(ag_sd)[3] <- "peak_height_SD"
+
+#calculate the relative standard deviation for each compound
+ag_RSD <- merge(ag_m, ag_sd, by = c("Identifier", "Treatment"))
+ag_RSD$RSD <- ag_RSD$peak_height_SD/ag_RSD$peak_height_m *100
+```
+
+
+plot distribution of RSDs
+```{r}
+ggplot(ag_RSD, aes(RSD, color = Treatment), alpha  = 0.5) + geom_density(aes(fill = Treatment), alpha = 0.2) + theme_bw()
+
+# there are 3 compounds with NAs because they did not have enough data
+# ag_RSD[which(is.na(ag_RSD$RSD)),]
+#      Identifier Treatment peak_height_m peak_height_SD
+#300  0.59_329.09        LL          2434             NA
+#353  0.61_355.09        LH          5030             NA
+#4830 6.40_663.49        HH         43139             NA
+#4831 6.40_663.49        HL          7175             NA
+#     RSD
+#300   NA
+#353   NA
+#4830  NA
+#4831  NA
+
+#For simplicity sake, I'm going to remove these
+ag_RSD <- ag_RSD[-grep("0.59_329.09|0.61_355.09|6.40_663.49",ag_RSD$Identifier),]
+
+
+
+#plot distribution as boxplots
+ggplot(ag_RSD, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot()
+```
+
+perform KW test for all lipids collectively
+```{r}
+kruskal.test(ag_RSD$RSD, ag_RSD$Treatment)
+
+#run a dunn's test
+dunn.test::dunn.test(ag_RSD$RSD, ag_RSD$Treatment,method = "bh",kw = T)
+```
+
+
+test if pH or DO has an effect on log RSD
+```{r}
+ag_RSD$pH <- factor(substr(ag_RSD$Treatment,1,1))
+ag_RSD$DO <- factor(substr(ag_RSD$Treatment,2,2))
+
+
+#run kw for each compound
+lipid_RSD_pHDO = ag_RSD %>% group_by(Identifier) %>% do(lipid_models = kruskal.test(RSD~Treatment, data = .))
+#do(lipid_RSD = sd(peak_height, data = .)/mean(peak_height, data =.) *100)
+
+lipid_RSD_pHDO_summary <- broom::glance(lipid_RSD_pHDO, lipid_models)
+#this gives the same p value for all compounds
+```
+
+
+Threshold for compounds with RSD >= 150 and see if there are group diffs
+```{r}
+ID150 <- unique(ag_RSD[which(ag_RSD$RSD>=150),"Identifier"])
+
+#run a dunn's test
+dunn.test::dunn.test(ag_RSD[which(ag_RSD$Identifier %in% ID150),"RSD"], ag_RSD[which(ag_RSD$Identifier %in% ID150),"Treatment"],method = "bh",kw = T)
+
+ggplot(ag_RSD[which(ag_RSD$Identifier %in% ID150),], aes(Treatment,RSD, fill = Treatment)) + geom_boxplot() + theme_bw()+ ggtitle("RSD thresholded to 150")
+```
+
+
+Threshold for compounds with RSD >= 200 and see if there are group diffs
+```{r}
+ID200 <- unique(ag_RSD[which(ag_RSD$RSD>=200),"Identifier"])
+
+#run a dunn's test
+dunn.test::dunn.test(ag_RSD[which(ag_RSD$Identifier %in% ID200),"RSD"], ag_RSD[which(ag_RSD$Identifier %in% ID200),"Treatment"],method = "bh",kw = T)
+
+ggplot(ag_RSD[which(ag_RSD$Identifier %in% ID200),], aes(Treatment,RSD, fill = Treatment)) + geom_boxplot() + theme_bw() + ggtitle("RSD thresholded to 200")
+
+```
+
+heatmap of RSD thresholded at 150
+```{r}
+ag_RSD_melt <- ag_RSD[which(ag_RSD$Identifier %in% ID150),c("Identifier", "Treatment", "RSD")]
+ag_RSD_melt <- tidyr::spread(ag_RSD_melt, "Treatment", "RSD")
+rownames(ag_RSD_melt) <- ag_RSD_melt$Identifier
+ag_RSD_melt$Identifier <- NULL
+
+heatmap.2(as.matrix(ag_RSD_melt),margins = c(10,20), distfun = function(x) as.dist(1 - cor(t(x), use = "pa")), hclustfun = function(x) hclust(x,method = 'average'), col= rev(colorRampPalette(RColorBrewer::brewer.pal(10, "RdYlBu"))(256)), na.color = "black", density.info = "none", trace = "none", scale = "row", Colv = NA)
+
+```
+
+heatmap of RSD thresholded at 200
+```{r}
+ag_RSD_melt <- ag_RSD[which(ag_RSD$Identifier %in% ID200),c("Identifier", "Treatment", "RSD")]
+ag_RSD_melt <- tidyr::spread(ag_RSD_melt, "Treatment", "RSD")
+rownames(ag_RSD_melt) <- ag_RSD_melt$Identifier
+ag_RSD_melt$Identifier <- NULL
+
+heatmap.2(as.matrix(ag_RSD_melt),margins = c(10,20), distfun = function(x) as.dist(1 - cor(t(x), use = "pa")), hclustfun = function(x) hclust(x,method = 'average'), col= rev(colorRampPalette(RColorBrewer::brewer.pal(10, "RdYlBu"))(256)), na.color = "black", density.info = "none", trace = "none", scale = "row", Colv = NA)
+
+```
