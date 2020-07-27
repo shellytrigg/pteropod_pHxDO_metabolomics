@@ -19,7 +19,7 @@ read in data
 ```{r}
 metab_data <- read_xlsx("../abundance_visualization/data/mx 338976 Krista Nichols_pteropods_whole animals_09-2017_submit.xlsx", skip = 8) 
 
-lipid_data <- read_xlsx("../abundance_visualization/data/mx 339045_Nichols_CSH-QTOF MSMS_lipidomics_09-2017_submit.xlsx", sheet = "submit", skip = 6)
+lipid_data <- data.frame(read_xlsx("../abundance_visualization/data/mx 339045_Nichols_CSH-QTOF MSMS_lipidomics_09-2017_submit.xlsx", sheet = "submit", skip = 6))
 
 #read in meta data
 metab_meta <- read_xlsx("../abundance_visualization/data/mx 338976 Krista Nichols_pteropods_whole animals_09-2017_submit.xlsx", range = "H1:BO8",n_max = 8) 
@@ -183,5 +183,102 @@ rownames(ag_RSD_melt) <- ag_RSD_melt$Identifier
 ag_RSD_melt$Identifier <- NULL
 
 heatmap.2(as.matrix(ag_RSD_melt),margins = c(10,20), distfun = function(x) as.dist(1 - cor(t(x), use = "pa")), hclustfun = function(x) hclust(x,method = 'average'), col= rev(colorRampPalette(RColorBrewer::brewer.pal(10, "RdYlBu"))(256)), na.color = "black", density.info = "none", trace = "none", scale = "row", Colv = NA)
+
+```
+
+read in stats data
+
+```{r}
+stats_d <- read.csv("../abundance_visualization/data/pteropods_LIPID_univar_PLSDA_supplement.csv", stringsAsFactors = F)
+
+```
+
+apply stats thresholding
+```{r}
+
+# overall model pvalue < 0.1 and effect pvalue < 0.05
+
+#Plsda cut off of 1.5
+
+
+stats_d_cut <- stats_d[which((stats_d$Pr..Chisq._overall < 0.1 & stats_d$DO_p.value < 0.05 ) | (stats_d$Pr..Chisq._overall < 0.1 & stats_d$pH_p.value < 0.05 ) | (stats_d$Pr..Chisq._overall < 0.1 & stats_d$pH.DO_p.value < 0.05 ) | stats_d$VIP_PLSDA_comp1 >= 1.5),]
+
+```
+
+add colors to describe significance
+
+```{r}
+stats_d_cut$PLSDA <- ifelse(stats_d_cut$VIP_PLSDA_comp1 >= 1.5, "PLSDA", "NO") 
+
+stats_d_cut$uniDO <- ifelse(stats_d_cut$DO_p.value < 0.05, "uniDO", "NO") 
+
+stats_d_cut$unipH <- ifelse(stats_d_cut$pH_p.value < 0.05, "unipH", "NO") 
+
+stats_d_cut$unipHxDO <- ifelse(stats_d_cut$pH.DO_p.value < 0.05, "unipHxDO", "NO") 
+
+stats_d_cut$method <- paste(stats_d_cut$uniDO, stats_d_cut$unipH, stats_d_cut$unipHxDO, stats_d_cut$PLSDA, sep ="_")
+
+stats_d_cut$method <- gsub("_NO", "", stats_d_cut$method)
+
+stats_d_cut$method <- gsub("NO_", "", stats_d_cut$method)
+
+#see how many fall into the different stats categories
+table(stats_d_cut$method)
+
+#create a simplified methods column
+for(i in 1:nrow(stats_d_cut)){
+  if(grepl("PLSDA",stats_d_cut$method[i]) & grepl("uni", stats_d_cut$method[i])){
+    stats_d_cut$method_simple[i] <- "both"
+  }
+  if(!(grepl("PLSDA",stats_d_cut$method[i])) & grepl("uni", stats_d_cut$method[i])){
+    stats_d_cut$method_simple[i] <- "uni"
+  }
+  if(grepl("PLSDA",stats_d_cut$method[i]) & (!(grepl("uni", stats_d_cut$method[i])))){
+    stats_d_cut$method_simple[i] <- "PLSDA"
+  }
+}
+
+```
+
+convert names to identifiers only
+```{r}
+#read in data with R names 
+
+lipid_r_data <- read.csv("../MetamappAnalysis/data/mx339045_lipid_sampleTRTlipidsonly.csv", stringsAsFactors = F)
+
+#create key
+
+lipid_name_key <- cbind(lipid_data[order(lipid_data$Annotation),c("Identifier", "Annotation")],r_names = colnames(lipid_r_data[,-c(1:2)]))
+
+
+colnames(stats_d_cut)[1] <- "r_names"
+
+stats_d_cut <- merge(lipid_name_key, stats_d_cut, by = "r_names")
+```
+
+
+subset RSD data for significant compoounds
+```{r}
+ag_RSD_sig <- merge(stats_d_cut, ag_RSD, by = "Identifier")
+
+
+```
+
+plot with colors
+```{r}
+#plot distribution as boxplots
+ggplot(ag_RSD_sig, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA) + geom_jitter(aes(color = method_simple),width = 0.2, alpha = 0.7) + theme_bw() + scale_color_manual(values = c("black", "blue", "gold3"))
+```
+
+look for correlation between pvalue or VIP and RSD
+```{r}
+
+ggplot(ag_RSD_sig[which(ag_RSD_sig$DO_p.value < 0.05),], aes(DO_p.value, RSD, color = Treatment)) + geom_point() + ggtitle("RSD x DO pval for p < 0.05")
+
+ggplot(ag_RSD_sig[which(ag_RSD_sig$pH_p.value < 0.05),], aes(pH_p.value, RSD, color = Treatment)) + geom_point()+ ggtitle("RSD x pH pval for p < 0.05")
+
+ggplot(ag_RSD_sig[which(ag_RSD_sig$pH_p.value < 0.05),], aes(pH.DO_p.value, RSD, color = Treatment)) + geom_point()+ ggtitle("RSD x pH*DO pval for p < 0.05")
+
+ggplot(ag_RSD_sig[which(ag_RSD_sig$VIP_PLSDA_comp1 >= 1.5),], aes(VIP_PLSDA_comp1, RSD, color = Treatment)) + geom_point()+ ggtitle("RSD x PLSDA VIP for VIP >= 1.5")
 
 ```
