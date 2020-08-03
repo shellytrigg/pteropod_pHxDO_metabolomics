@@ -264,20 +264,34 @@ ag_RSD_sig <- merge(stats_d_cut, ag_RSD, by = "Identifier", all.y = T)
 #convert NAs to not_sig
 ag_RSD_sig$method_simple[is.na(ag_RSD_sig$method_simple)] <- "not_sig"
 
+#create a column denoting sig or not sig
+ag_RSD_sig$sig <- ifelse(ag_RSD_sig$method_simple == "not_sig","not_sig", "sig")
+
+#create column for plotting sig and non.sig sidexside
+
+ag_RSD_sig$meth_sig <- paste(ag_RSD_sig$Treatment,ag_RSD_sig$sig, sep = "_" )
 
 ```
 
 plot significant compounds with colors
 ```{r}
 #plot distribution as boxplots
-ggplot(ag_RSD_sig[which(ag_RSD_sig$method_simple!="not_sig"),], aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple),width = 0.2, alpha = 0.4) + theme_bw() + scale_color_manual(values = c("black", "gold3", "blue")) + ggtitle("RSD x treatment for significant lipids")
+ggplot(ag_RSD_sig[which(ag_RSD_sig$method_simple!="not_sig"),], aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple),width = 0.2, alpha = 0.4) + theme_bw() + scale_color_manual(values = c("black", "orange", "blue")) + ggtitle("RSD x treatment for significant lipids")
 ```
 
 plot with all compounds 
 ```{r}
 #plot distribution as boxplots
-ggplot(ag_RSD_sig, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple, size = method_simple),width = 0.2, alpha = 0.4) + theme_bw() + scale_color_manual(values = c("black", "gray", "gold3", "blue")) + scale_size_manual(values = c(1,0.5,1,1)) 
+ggplot(ag_RSD_sig, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple, size = method_simple),width = 0.2, alpha = 0.4) + theme_bw() + scale_color_manual(values = c("black", "gray", "orange", "blue")) + scale_size_manual(values = c(1,0.5,1,1)) 
 ```
+
+plot with all compounds side x side
+```{r}
+#plot distribution as boxplots
+ggplot(ag_RSD_sig, aes(meth_sig,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple),size = 0.8,width = 0.2, alpha = 0.5) + theme_bw() + scale_color_manual(values = c("black", "gray", "orange", "blue")) + xlab("Treatment")
+```
+
+
 
 look for correlation between pvalue or VIP and RSD
 ```{r}
