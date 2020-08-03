@@ -128,7 +128,7 @@ dunn.test::dunn.test(ag_RSD$RSD, ag_RSD$Treatment,method = "bh",kw = T)
 
 
 test if pH or DO has an effect on log RSD
-```{r}
+```{r, eval = F}
 ag_RSD$pH <- factor(substr(ag_RSD$Treatment,1,1))
 ag_RSD$DO <- factor(substr(ag_RSD$Treatment,2,2))
 
@@ -137,7 +137,7 @@ ag_RSD$DO <- factor(substr(ag_RSD$Treatment,2,2))
 lipid_RSD_pHDO = ag_RSD %>% group_by(Identifier) %>% do(lipid_models = kruskal.test(RSD~Treatment, data = .))
 #do(lipid_RSD = sd(peak_height, data = .)/mean(peak_height, data =.) *100)
 
-lipid_RSD_pHDO_summary <- broom::glance(lipid_RSD_pHDO, lipid_models)
+lipid_RSD_pHDO_summary <- broom::tidy(lipid_RSD_pHDO, lipid_models)
 #this gives the same p value for all compounds
 ```
 
@@ -259,7 +259,10 @@ stats_d_cut <- merge(lipid_name_key, stats_d_cut, by = "r_names")
 
 subset RSD data for significant compoounds
 ```{r}
-ag_RSD_sig <- merge(stats_d_cut, ag_RSD, by = "Identifier")
+ag_RSD_sig <- merge(stats_d_cut, ag_RSD, by = "Identifier", all.y = T)
+
+#convert NAs to not_sig
+ag_RSD_sig$method_simple[is.na(ag_RSD_sig$method_simple)] <- "not_sig"
 
 
 ```
@@ -267,18 +270,18 @@ ag_RSD_sig <- merge(stats_d_cut, ag_RSD, by = "Identifier")
 plot with colors
 ```{r}
 #plot distribution as boxplots
-ggplot(ag_RSD_sig, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA) + geom_jitter(aes(color = method_simple),width = 0.2, alpha = 0.7) + theme_bw() + scale_color_manual(values = c("black", "blue", "gold3"))
+ggplot(ag_RSD_sig, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple, size = method_simple),width = 0.2, alpha = 0.4) + theme_bw() + scale_color_manual(values = c("black", "gray", "gold3", "blue")) + scale_size_manual(values = c(1,0.5,1,1)) 
 ```
 
 look for correlation between pvalue or VIP and RSD
 ```{r}
 
-ggplot(ag_RSD_sig[which(ag_RSD_sig$DO_p.value < 0.05),], aes(DO_p.value, RSD, color = Treatment)) + geom_point() + ggtitle("RSD x DO pval for p < 0.05")
+ggplot(ag_RSD_sig[which(ag_RSD_sig$DO_p.value < 0.05),], aes(DO_p.value, RSD, color = Treatment)) + geom_point() + ggtitle("Correlation check: RSD x DO pval for p < 0.05") + theme_bw()
 
-ggplot(ag_RSD_sig[which(ag_RSD_sig$pH_p.value < 0.05),], aes(pH_p.value, RSD, color = Treatment)) + geom_point()+ ggtitle("RSD x pH pval for p < 0.05")
+ggplot(ag_RSD_sig[which(ag_RSD_sig$pH_p.value < 0.05),], aes(pH_p.value, RSD, color = Treatment)) + geom_point()+ ggtitle("Correlation check: RSD x pH correlation pval for p < 0.05") + theme_bw()
 
-ggplot(ag_RSD_sig[which(ag_RSD_sig$pH_p.value < 0.05),], aes(pH.DO_p.value, RSD, color = Treatment)) + geom_point()+ ggtitle("RSD x pH*DO pval for p < 0.05")
+ggplot(ag_RSD_sig[which(ag_RSD_sig$pH_p.value < 0.05),], aes(pH.DO_p.value, RSD, color = Treatment)) + geom_point()+ ggtitle("Correlation check: RSD x pH*DO pval for p < 0.05")
 
-ggplot(ag_RSD_sig[which(ag_RSD_sig$VIP_PLSDA_comp1 >= 1.5),], aes(VIP_PLSDA_comp1, RSD, color = Treatment)) + geom_point()+ ggtitle("RSD x PLSDA VIP for VIP >= 1.5")
+ggplot(ag_RSD_sig[which(ag_RSD_sig$VIP_PLSDA_comp1 >= 1.5),], aes(VIP_PLSDA_comp1, RSD, color = Treatment)) + geom_point()+ ggtitle("Correlation check: RSD x PLSDA VIP for VIP >= 1.5")
 
 ```
