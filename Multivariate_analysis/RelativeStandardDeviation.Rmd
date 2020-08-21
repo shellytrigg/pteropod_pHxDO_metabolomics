@@ -35,13 +35,31 @@ colnames(lipid_data)[9:75] <- colnames(data.frame(lipid_meta[,-1]))
 #remove standards
 lipid_data <- lipid_data[-grep("iSTD", lipid_data$Annotation),-grep("Biorec",colnames(lipid_data))]
 
+
 ```
 
 Reshape data to long format
 ```{r}
 STACKED_lipid <- tidyr::gather(lipid_data, "Sample", "peak_height", 9:68)
 
+#there is one fewer animal in LH treatment for metabolomics
+STACKED_metab <- tidyr::gather(metab_data, "Sample", "peak_height", 9:67)
+#replace BB ID column name with Identifier
+colnames(STACKED_metab)[4] <- "Identifier"
+
 #transform meta data
+STACKED_metab_meta <- t(metab_meta)
+colnames(STACKED_metab_meta) <- STACKED_metab_meta[1,]
+#replace colname "label" with "Sample"
+colnames(STACKED_metab_meta)[3] <- "Sample"
+#replace colname "comment" with "Treatment"
+colnames(STACKED_metab_meta)[4] <- "Treatment"
+
+STACKED_metab_meta <- STACKED_metab_meta[2:nrow(STACKED_metab_meta),]
+STACKED_metab_meta <- data.frame(STACKED_metab_meta)
+rownames(STACKED_metab_meta) <- NULL
+
+
 STACKED_lipid_meta <- t(lipid_meta)
 colnames(STACKED_lipid_meta) <- STACKED_lipid_meta[1,]
 
@@ -52,6 +70,9 @@ STACKED_lipid_meta$Sample <- rownames(STACKED_lipid_meta)
 rownames(STACKED_lipid_meta) <- NULL
 
 #merge meta data with lipid data
+STACKED_metab <- merge(STACKED_metab_meta, STACKED_metab, by = "Sample")
+
+
 STACKED_lipid <- merge(STACKED_lipid_meta, STACKED_lipid, by = "Sample")
 
 
@@ -78,23 +99,49 @@ Calculate relative standard deviation
 
 #sd(peak_height)/mean(peak_height) *100
 
-#calculate treatment group mean for each compound
-ag_m <- aggregate(peak_height ~ Identifier + Treatment, STACKED_lipid, function(x) mean = mean(x, na.rm = T))
-colnames(ag_m)[3] <- "peak_height_m"
+
+#calculate treatment group mean for each metab
+ag_m_m <- aggregate(peak_height ~ Identifier + Treatment, STACKED_metab, function(x) mean = mean(x, na.rm = T))
+colnames(ag_m_m)[3] <- "peak_height_m"
 
 #calculate treatment group standard deviation for each compound
-ag_sd <- aggregate(peak_height ~ Identifier + Treatment, STACKED_lipid, function(x) sd = sd(x, na.rm = T))
-colnames(ag_sd)[3] <- "peak_height_SD"
+ag_sd_m <- aggregate(peak_height ~ Identifier + Treatment, STACKED_metab, function(x) sd = sd(x, na.rm = T))
+colnames(ag_sd_m)[3] <- "peak_height_SD"
 
 #calculate the relative standard deviation for each compound
-ag_RSD <- merge(ag_m, ag_sd, by = c("Identifier", "Treatment"))
-ag_RSD$RSD <- ag_RSD$peak_height_SD/ag_RSD$peak_height_m *100
+ag_RSD_m <- merge(ag_m_m, ag_sd_m, by = c("Identifier", "Treatment"))
+ag_RSD_m$RSD <- ag_RSD_m$peak_height_SD/ag_RSD_m$peak_height_m *100
+
+
+
+
+
+
+#calculate treatment group mean for each lipid
+ag_m_l <- aggregate(peak_height ~ Identifier + Treatment, STACKED_lipid, function(x) mean = mean(x, na.rm = T))
+colnames(ag_m_l)[3] <- "peak_height_m"
+
+#calculate treatment group standard deviation for each compound
+ag_sd_l <- aggregate(peak_height ~ Identifier + Treatment, STACKED_lipid, function(x) sd = sd(x, na.rm = T))
+colnames(ag_sd_l)[3] <- "peak_height_SD"
+
+#calculate the relative standard deviation for each compound
+ag_RSD_l <- merge(ag_m_l, ag_sd_l, by = c("Identifier", "Treatment"))
+ag_RSD_l$RSD <- ag_RSD_l$peak_height_SD/ag_RSD_l$peak_height_m *100
+
+
+
 ```
 
 
 plot distribution of RSDs
 ```{r}
-ggplot(ag_RSD, aes(RSD, color = Treatment), alpha  = 0.5) + geom_density(aes(fill = Treatment), alpha = 0.2) + theme_bw()
+ggplot(ag_RSD_m, aes(RSD, color = Treatment), alpha  = 0.5) + geom_density(aes(fill = Treatment), alpha = 0.2) + theme_bw()
+
+
+
+
+ggplot(ag_RSD_l, aes(RSD, color = Treatment), alpha  = 0.5) + geom_density(aes(fill = Treatment), alpha = 0.2) + theme_bw()
 
 # there are 3 compounds with NAs because they did not have enough data
 # ag_RSD[which(is.na(ag_RSD$RSD)),]
@@ -110,20 +157,33 @@ ggplot(ag_RSD, aes(RSD, color = Treatment), alpha  = 0.5) + geom_density(aes(fil
 #4831  NA
 
 #For simplicity sake, I'm going to remove these
-ag_RSD <- ag_RSD[-grep("0.59_329.09|0.61_355.09|6.40_663.49",ag_RSD$Identifier),]
+ag_RSD_l <- ag_RSD_l[-grep("0.59_329.09|0.61_355.09|6.40_663.49",ag_RSD_l$Identifier),]
 
 
 
 #plot distribution as boxplots
-ggplot(ag_RSD, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot()
+ggplot(ag_RSD_m, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot()
+
+
+ggplot(ag_RSD_l, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot()
+
+
 ```
 
 perform KW test for all lipids collectively
 ```{r}
-kruskal.test(ag_RSD$RSD, ag_RSD$Treatment)
+kruskal.test(ag_RSD_m$RSD, ag_RSD_m$Treatment)
 
 #run a dunn's test
-dunn.test::dunn.test(ag_RSD$RSD, ag_RSD$Treatment,method = "bh",kw = T)
+dunn.test::dunn.test(ag_RSD_m$RSD, ag_RSD_m$Treatment,method = "bh",kw = T)
+
+
+
+
+kruskal.test(ag_RSD_l$RSD, ag_RSD_l$Treatment)
+
+#run a dunn's test
+dunn.test::dunn.test(ag_RSD_l$RSD, ag_RSD_l$Treatment,method = "bh",kw = T)
 ```
 
 
@@ -189,7 +249,9 @@ heatmap.2(as.matrix(ag_RSD_melt),margins = c(10,20), distfun = function(x) as.di
 read in stats data
 
 ```{r}
-stats_d <- read.csv("../abundance_visualization/data/pteropods_LIPID_univar_PLSDA_supplement.csv", stringsAsFactors = F)
+l_stats_d <- read.csv("../abundance_visualization/data/pteropods_LIPID_univar_PLSDA_supplement.csv", stringsAsFactors = F)
+
+m_stats_d <- read.csv("../abundance_visualization/data/pteropod_genmetab_univar_PLSDA_supplement.csv", stringsAsFactors = F)
 
 ```
 
@@ -200,41 +262,77 @@ apply stats thresholding
 
 #Plsda cut off of 1.5
 
+m_stats_d_cut <- m_stats_d[which((m_stats_d$Pr..Chisq._overall < 0.1 & m_stats_d$DO_p.value < 0.05 ) | (m_stats_d$Pr..Chisq._overall < 0.1 & m_stats_d$pH_p.value < 0.05 ) | (m_stats_d$Pr..Chisq._overall < 0.1 & m_stats_d$pH.DO_p.value < 0.05 ) | m_stats_d$VIP_PLSDA_VIP_comp6AVG >= 1.5),]
 
-stats_d_cut <- stats_d[which((stats_d$Pr..Chisq._overall < 0.1 & stats_d$DO_p.value < 0.05 ) | (stats_d$Pr..Chisq._overall < 0.1 & stats_d$pH_p.value < 0.05 ) | (stats_d$Pr..Chisq._overall < 0.1 & stats_d$pH.DO_p.value < 0.05 ) | stats_d$VIP_PLSDA_comp1 >= 1.5),]
+
+
+l_stats_d_cut <- l_stats_d[which((l_stats_d$Pr..Chisq._overall < 0.1 & l_stats_d$DO_p.value < 0.05 ) | (l_stats_d$Pr..Chisq._overall < 0.1 & l_stats_d$pH_p.value < 0.05 ) | (l_stats_d$Pr..Chisq._overall < 0.1 & l_stats_d$pH.DO_p.value < 0.05 ) | l_stats_d$VIP_PLSDA_comp1 >= 1.5),]
 
 ```
 
 add colors to describe significance
 
 ```{r}
-stats_d_cut$PLSDA <- ifelse(stats_d_cut$VIP_PLSDA_comp1 >= 1.5, "PLSDA", "NO") 
+m_stats_d_cut$PLSDA <- ifelse(m_stats_d_cut$VIP_PLSDA_VIP_comp6AVG >= 1.5, "PLSDA", "NO") 
 
-stats_d_cut$uniDO <- ifelse(stats_d_cut$DO_p.value < 0.05, "uniDO", "NO") 
+m_stats_d_cut$uniDO <- ifelse(m_stats_d_cut$DO_p.value < 0.05, "uniDO", "NO") 
 
-stats_d_cut$unipH <- ifelse(stats_d_cut$pH_p.value < 0.05, "unipH", "NO") 
+m_stats_d_cut$unipH <- ifelse(m_stats_d_cut$pH_p.value < 0.05, "unipH", "NO") 
 
-stats_d_cut$unipHxDO <- ifelse(stats_d_cut$pH.DO_p.value < 0.05, "unipHxDO", "NO") 
+m_stats_d_cut$unipHxDO <- ifelse(m_stats_d_cut$pH.DO_p.value < 0.05, "unipHxDO", "NO") 
 
-stats_d_cut$method <- paste(stats_d_cut$uniDO, stats_d_cut$unipH, stats_d_cut$unipHxDO, stats_d_cut$PLSDA, sep ="_")
+m_stats_d_cut$method <- paste(m_stats_d_cut$uniDO, m_stats_d_cut$unipH, m_stats_d_cut$unipHxDO, m_stats_d_cut$PLSDA, sep ="_")
 
-stats_d_cut$method <- gsub("_NO", "", stats_d_cut$method)
+m_stats_d_cut$method <- gsub("_NO", "", m_stats_d_cut$method)
 
-stats_d_cut$method <- gsub("NO_", "", stats_d_cut$method)
+m_stats_d_cut$method <- gsub("NO_", "", m_stats_d_cut$method)
 
-#see how many fall into the different stats categories
-table(stats_d_cut$method)
+
+
+
+
+l_stats_d_cut$PLSDA <- ifelse(l_stats_d_cut$VIP_PLSDA_comp1 >= 1.5, "PLSDA", "NO") 
+
+l_stats_d_cut$uniDO <- ifelse(l_stats_d_cut$DO_p.value < 0.05, "uniDO", "NO") 
+
+l_stats_d_cut$unipH <- ifelse(l_stats_d_cut$pH_p.value < 0.05, "unipH", "NO") 
+
+l_stats_d_cut$unipHxDO <- ifelse(l_stats_d_cut$pH.DO_p.value < 0.05, "unipHxDO", "NO") 
+
+l_stats_d_cut$method <- paste(l_stats_d_cut$uniDO, l_stats_d_cut$unipH, l_stats_d_cut$unipHxDO, l_stats_d_cut$PLSDA, sep ="_")
+
+l_stats_d_cut$method <- gsub("_NO", "", l_stats_d_cut$method)
+
+l_stats_d_cut$method <- gsub("NO_", "", l_stats_d_cut$method)
+
+#see how many fall into the different l_stats categories
+table(l_stats_d_cut$method)
+table(m_stats_d_cut$method)
+
 
 #create a simplified methods column
-for(i in 1:nrow(stats_d_cut)){
-  if(grepl("PLSDA",stats_d_cut$method[i]) & grepl("uni", stats_d_cut$method[i])){
-    stats_d_cut$method_simple[i] <- "both"
+for(i in 1:nrow(m_stats_d_cut)){
+  if(grepl("PLSDA",m_stats_d_cut$method[i]) & grepl("uni", m_stats_d_cut$method[i])){
+    m_stats_d_cut$method_simple[i] <- "both"
   }
-  if(!(grepl("PLSDA",stats_d_cut$method[i])) & grepl("uni", stats_d_cut$method[i])){
-    stats_d_cut$method_simple[i] <- "uni"
+  if(!(grepl("PLSDA",m_stats_d_cut$method[i])) & grepl("uni", m_stats_d_cut$method[i])){
+    m_stats_d_cut$method_simple[i] <- "uni"
   }
-  if(grepl("PLSDA",stats_d_cut$method[i]) & (!(grepl("uni", stats_d_cut$method[i])))){
-    stats_d_cut$method_simple[i] <- "PLSDA"
+  if(grepl("PLSDA",m_stats_d_cut$method[i]) & (!(grepl("uni", m_stats_d_cut$method[i])))){
+    m_stats_d_cut$method_simple[i] <- "PLSDA"
+  }
+}
+
+#create a simplified methods column
+for(i in 1:nrow(l_stats_d_cut)){
+  if(grepl("PLSDA",l_stats_d_cut$method[i]) & grepl("uni", l_stats_d_cut$method[i])){
+    l_stats_d_cut$method_simple[i] <- "both"
+  }
+  if(!(grepl("PLSDA",l_stats_d_cut$method[i])) & grepl("uni", l_stats_d_cut$method[i])){
+    l_stats_d_cut$method_simple[i] <- "uni"
+  }
+  if(grepl("PLSDA",l_stats_d_cut$method[i]) & (!(grepl("uni", l_stats_d_cut$method[i])))){
+    l_stats_d_cut$method_simple[i] <- "PLSDA"
   }
 }
 
@@ -243,52 +341,85 @@ for(i in 1:nrow(stats_d_cut)){
 convert names to identifiers only
 ```{r}
 #read in data with R names 
+metab_r_data <- read.csv("../MetamappAnalysis/data/mx338976_pteropod_genmetab0917_phxDO.csv", stringsAsFactors = F)
+
 
 lipid_r_data <- read.csv("../MetamappAnalysis/data/mx339045_lipid_sampleTRTlipidsonly.csv", stringsAsFactors = F)
 
+
+
 #create key
+
+metab_name_key <- cbind(metab_data[order(metab_data$`BinBase name`),c("BB id", "BinBase name")],r_names = colnames(metab_r_data[,-c(1:2)]))
+
+
 
 lipid_name_key <- cbind(lipid_data[order(lipid_data$Annotation),c("Identifier", "Annotation")],r_names = colnames(lipid_r_data[,-c(1:2)]))
 
+colnames(m_stats_d_cut)[1] <- "r_names"
+colnames(l_stats_d_cut)[1] <- "r_names"
 
-colnames(stats_d_cut)[1] <- "r_names"
+m_stats_d_cut <- merge(metab_name_key, m_stats_d_cut, by = "r_names")
+#replace bb id column with "Identifier"
+colnames(m_stats_d_cut)[2] <- "Identifier"
 
-stats_d_cut <- merge(lipid_name_key, stats_d_cut, by = "r_names")
+l_stats_d_cut <- merge(lipid_name_key, l_stats_d_cut, by = "r_names")
 ```
 
 
 subset RSD data for significant compoounds
 ```{r}
-ag_RSD_sig <- merge(stats_d_cut, ag_RSD, by = "Identifier", all.y = T)
+ag_m_RSD_sig <- merge(m_stats_d_cut, ag_RSD_m, by = "Identifier", all.y = T)
+
+ag_l_RSD_sig <- merge(l_stats_d_cut, ag_RSD_l, by = "Identifier", all.y = T)
 
 #convert NAs to not_sig
-ag_RSD_sig$method_simple[is.na(ag_RSD_sig$method_simple)] <- "not_sig"
+ag_m_RSD_sig$method_simple[is.na(ag_m_RSD_sig$method_simple)] <- "not_sig"
+
+ag_l_RSD_sig$method_simple[is.na(ag_l_RSD_sig$method_simple)] <- "not_sig"
 
 #create a column denoting sig or not sig
-ag_RSD_sig$sig <- ifelse(ag_RSD_sig$method_simple == "not_sig","not_sig", "sig")
+ag_m_RSD_sig$sig <- ifelse(ag_m_RSD_sig$method_simple == "not_sig","not_sig", "sig")
+
+ag_l_RSD_sig$sig <- ifelse(ag_l_RSD_sig$method_simple == "not_sig","not_sig", "sig")
 
 #create column for plotting sig and non.sig sidexside
+ag_m_RSD_sig$meth_sig <- paste(ag_m_RSD_sig$Treatment,ag_m_RSD_sig$sig, sep = "_" )
 
-ag_RSD_sig$meth_sig <- paste(ag_RSD_sig$Treatment,ag_RSD_sig$sig, sep = "_" )
+
+ag_l_RSD_sig$meth_sig <- paste(ag_l_RSD_sig$Treatment,ag_l_RSD_sig$sig, sep = "_" )
 
 ```
 
 plot significant compounds with colors
 ```{r}
 #plot distribution as boxplots
-ggplot(ag_RSD_sig[which(ag_RSD_sig$method_simple!="not_sig"),], aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple),width = 0.2, alpha = 0.4) + theme_bw() + scale_color_manual(values = c("black", "orange", "blue")) + ggtitle("RSD x treatment for significant lipids")
+a <- ggplot(ag_m_RSD_sig[which(ag_m_RSD_sig$method_simple!="not_sig"),], aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple),width = 0.2, alpha = 0.4) + theme_bw() + scale_color_manual(values = c("black", "orange", "blue")) + ggtitle("RSD x treatment for significant metabs")
+
+b<- ggplot(ag_l_RSD_sig[which(ag_l_RSD_sig$method_simple!="not_sig"),], aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple),width = 0.2, alpha = 0.4) + theme_bw() + scale_color_manual(values = c("black", "orange", "blue")) + ggtitle("RSD x treatment for significant lipids")
+
+ggarrange(a,b)
 ```
 
 plot with all compounds 
 ```{r}
 #plot distribution as boxplots
-ggplot(ag_RSD_sig, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple, size = method_simple),width = 0.2, alpha = 0.4) + theme_bw() + scale_color_manual(values = c("black", "gray", "orange", "blue")) + scale_size_manual(values = c(1,0.5,1,1)) 
+c <- ggplot(ag_m_RSD_sig, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple, size = method_simple),width = 0.2, alpha = 0.4) + theme_bw() + scale_color_manual(values = c("black", "gray", "orange", "blue")) + scale_size_manual(values = c(1,0.5,1,1)) + ggtitle("RSD x treatment for metabs")
+
+#plot distribution as boxplots
+d <- ggplot(ag_l_RSD_sig, aes(Treatment,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple, size = method_simple),width = 0.2, alpha = 0.4) + theme_bw() + scale_color_manual(values = c("black", "gray", "orange", "blue")) + scale_size_manual(values = c(1,0.5,1,1)) + ggtitle("RSD x treatment for lipids")
 ```
 
 plot with all compounds side x side
 ```{r}
 #plot distribution as boxplots
-ggplot(ag_RSD_sig, aes(meth_sig,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple),size = 0.8,width = 0.2, alpha = 0.5) + theme_bw() + scale_color_manual(values = c("black", "gray", "orange", "blue")) + xlab("Treatment")
+e <- ggplot(ag_m_RSD_sig, aes(meth_sig,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple),size = 0.8,width = 0.2, alpha = 0.5) + theme_bw() + scale_color_manual(values = c("black", "gray", "orange", "blue")) + xlab("Treatment") + theme(axis.text.x= element_blank(), axis.ticks.x = element_blank()) + ggtitle("RSD x treatment for metabs")
+
+f <- ggplot(ag_l_RSD_sig, aes(meth_sig,RSD, fill = Treatment)) + geom_boxplot(outlier.shape = NA, alpha = 0.5) + geom_jitter(aes(color = method_simple),size = 0.8,width = 0.2, alpha = 0.5) + theme_bw() + scale_color_manual(values = c("black", "gray", "orange", "blue")) + xlab("Treatment") + theme(axis.text.x= element_blank(), axis.ticks.x = element_blank()) + ggtitle("RSD x treatment for lipids")
+
+jpeg("RSDxtreatment.jpg", width = 10, height = 5, units = "in", res = 300)
+ggarrange(e,f, common.legend = T,legend = "right")
+dev.off()
 ```
 
 
