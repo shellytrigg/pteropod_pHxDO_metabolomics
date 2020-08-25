@@ -376,6 +376,18 @@ chemrich_input <- RSD_FC_cohen_pub[,c("Identifier_R","InChI.Key.y","PubChem", "S
 colnames(chemrich_input) <- c("Compound Name", "InChiKeys",	"Pubchem ID",	"SMILES", "pvalue",	"foldchange")
 write.table(chemrich_input, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/chemrich_input.csv", sep = "\t",quote = FALSE, row.names = FALSE)
 
+#for DO (20200824)
+### manually added the SMILES IDs from PUBCHEM database to guanosine, inosine, and X2.hydroxypyrazinyl.2.propenoic.acid.ethyl.ester.NIST
+
+# X2.hydroxypyrazinyl.2.propenoic.acid.ethyl.ester.NIST, CCOC(=O)C(=O)C=C1C=NC=CN1
+# guanosine, C1=NC2=C(N1[C@H]3[C@@H]([C@@H]([C@H](O3)CO)O)O)NC(=NC2=O)N
+# inosine, C1=NC(=O)C2=C(N1)N(C=N2)[C@H]3[C@@H]([C@@H]([C@H](O3)CO)O)O
+
+chemrich_input_DO <- RSD_FC_cohen_pub[,c("Identifier_R","InChI.Key.y","PubChem", "SMILES","DO_p.value","logFC_HL")]
+colnames(chemrich_input_DO) <- c("Compound Name", "InChiKeys",	"Pubchem ID",	"SMILES", "pvalue",	"foldchange")
+write.table(chemrich_input_DO, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/chemrich_input.csv", sep = "\t",quote = FALSE, row.names = FALSE)
+
+
 
 ########################################################
 ####################### STEP 5 #########################
