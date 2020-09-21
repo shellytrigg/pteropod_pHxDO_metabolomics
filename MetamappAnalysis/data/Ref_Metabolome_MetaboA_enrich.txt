@@ -1,0 +1,199 @@
+1-Hexadecanol
+1,2,4-Trihydroxybenzene
+11,14,17-Eicosatrienoic acid
+11Z-Eicosenoic acid
+13,16-Docosadienoic acid
+15-Methylpalmitate
+1D-4-O-Methyl-myo-inositol
+2-hydroxypropanoic acid
+2-Piperidinone
+2-Pyrrolidinone
+4-Hydroxybutyric acid
+5-Aminopentanoic acid
+5-Methoxytryptamine
+8,11,14-Eicosatrienoic acid
+9E-Heptadecenoic acid
+Adenine
+Adenosine
+Aldehydo-L-iduronate
+Alpha-Linolenic acid
+Arachidic acid
+Arachidonic acid
+Behenic acid
+Benzoic acid
+Beta-Alanine
+Beta-D-Fructose 6-phosphate
+Beta-D-Fucose
+Beta-D-Glucose
+Beta-Sitosterol
+Bovinic acid
+Capric acid
+Ceramide (d18:1/16:0)
+Cholesterol
+Ciliatine
+Citrulline
+Conduritol epoxide
+D-Fructose
+D-Galactose
+D-Ribopyranose
+D-Ribose
+D-Xylitol
+Dehydroabietic acid
+DG(18:3(9Z,12Z,15Z)/20:2(11Z,14Z)/0:0)
+Diacetone alcohol
+Docosahexaenoic acid
+Dodecanoic acid
+Dodecanol
+Eicosadienoic acid
+Eicosapentaenoic acid
+Epi-coprostanol
+Epsilon-caprolactam
+Ergosterol
+Ethanolamine
+Fumaric acid
+Galactonic acid
+Gamma-Aminobutyric acid
+GlcCer(d14:1(4E)/20:0(OH))
+Glucose 6-phosphate
+Glutaric acid
+Gly-Pro
+Glyceric acid
+Glycerol
+Glycerol 1-hexadecanoate
+Glycerol 1-octadecanoate
+Glycine
+Glycolic acid
+Guanosine
+Guattegaumerine
+Heptadecanoic acid
+Hexacosanoic acid
+Hexadecane
+Hydroxycarbamic acid
+Hydroxylamine
+Inosine
+Isobutene glycol
+Isomaltose
+L-Alanine
+L-Arabitol
+L-Aspartic acid
+L-Glutamic acid
+L-Isoleucine
+L-Leucine
+L-Lysine
+L-Methionine
+L-Phenylalanine
+L-Serine
+L-threonic Acid
+L-Threonine
+L-Tryptophan
+L-Tyrosine
+L-Valine
+Lactitol
+Lactose
+Lactulose
+Linoleic acid
+LysoPC(14:0)
+LysoPC(15:0)
+LysoPC(16:0)
+LysoPC(16:1(9Z))
+LysoPC(18:1(9Z))
+LysoPC(18:2(9Z,12Z))
+LysoPC(20:3(8Z,11Z,14Z))
+LysoPC(20:4(8Z,11Z,14Z,17Z))
+LysoPC(20:5(5Z,8Z,11Z,14Z,17Z))
+LysoPC(22:6(4Z,7Z,10Z,13Z,16Z,19Z))
+LysoPE(0:0/16:0)
+LysoPE(20:4(8Z,11Z,14Z,17Z)/0:0)
+Maltose
+Maltotriose
+Mannitol
+Myristic acid
+Naringenin 7-O-beta-D-glucoside
+Nicotinic acid
+Nonadecanoic acid
+O-Phosphoethanolamine
+Octadecanol
+Oleic acid
+Ornithine
+Oxoadipic acid
+Palmitic acid
+Palmitoleic acid
+PC(14:0/14:0)
+PC(14:0/16:0)
+PC(14:1(9Z)/16:0)
+PC(15:0/16:1(9Z))
+PC(15:0/22:6(4Z,7Z,10Z,13Z,16Z,19Z))
+PC(16:0/15:0)
+PC(16:0/16:0)
+PC(16:0/16:1(9Z))
+PC(16:0/18:1(9Z))
+PC(16:0/18:2(9Z,12Z))
+PC(16:0/18:3(6Z,9Z,12Z))
+PC(16:0/20:4(5Z,8Z,11Z,14Z))
+PC(16:0/P-16:0)
+PC(16:1(9Z)/16:1(9Z))
+PC(16:1(9Z)/20:4(5Z,8Z,11Z,14Z))
+PC(18:0/18:3(9Z,12Z,15Z))
+PC(18:2(9Z,12Z)/22:5(4Z,7Z,10Z,13Z,16Z))
+PC(18:3(6Z,9Z,12Z)/18:1(9Z))
+PC(18:3(9Z,12Z,15Z)/18:3(6Z,9Z,12Z))
+PC(18:4(6Z,9Z,12Z,15Z)/16:0)
+PC(20:3(8Z,11Z,14Z)/14:0)
+PC(20:3(8Z,11Z,14Z)/18:2(9Z,12Z))
+PC(20:4(5Z,8Z,11Z,14Z)/18:2(9Z,12Z))
+PC(20:4(8Z,11Z,14Z,17Z)/18:3(6Z,9Z,12Z))
+PC(20:4(8Z,11Z,14Z,17Z)/20:1(11Z))
+PC(20:4(8Z,11Z,14Z,17Z)/P-18:1(9Z))
+PC(20:5(5Z,8Z,11Z,14Z,17Z)/16:0)
+PC(20:5(5Z,8Z,11Z,14Z,17Z)/20:3(5Z,8Z,11Z))
+PC(22:2(13Z,16Z)/18:4(6Z,9Z,12Z,15Z))
+PC(o-16:0/20:4(8Z,11Z,14Z,17Z))
+PC(o-18:1(11Z)/16:0)
+PC(P-16:0/22:5(4Z,7Z,10Z,13Z,16Z))
+PC(P-18:1(11Z)/16:0)
+PC(P-18:1(11Z)/18:3(6Z,9Z,12Z))
+PC(P-18:1(11Z)/20:3(8Z,11Z,14Z))
+PE(16:0/18:2(9Z,12Z))
+PE(18:0/20:4(5Z,8Z,11Z,14Z))
+PE(18:2(9Z,12Z)/20:4(5Z,8Z,11Z,14Z))
+PE(20:3(8Z,11Z,14Z)/18:0)
+PE(20:4(5Z,8Z,11Z,14Z)/16:0)
+PE(20:4(5Z,8Z,11Z,14Z)/18:2(9Z,12Z))
+PE(20:4(8Z,11Z,14Z,17Z)/P-18:1(9Z))
+PE(O-16:1(1Z)/22:6(4Z,7Z,10Z,13Z,16Z,19Z))
+PE(P-16:0/20:4(5Z,8Z,11Z,14Z))
+PE(P-16:0/20:5(5Z,8Z,11Z,14Z,17Z))
+PE(P-18:0/18:2(9Z,12Z))
+PE(P-18:0/20:4(8Z,11Z,14Z,17Z))
+PE(P-18:0/20:5(5Z,8Z,11Z,14Z,17Z))
+PE(P-18:0/22:5(4Z,7Z,10Z,13Z,16Z))
+PE(P-18:1(11Z)/18:3(6Z,9Z,12Z))
+PE(P-18:1(11Z)/22:4(7Z,10Z,13Z,16Z))
+PE(P-18:1(9Z)/18:0)
+PE(P-18:1(9Z)/18:1(9Z))
+Pelargonic acid
+Pentadecanoic acid
+Phenylethylamine
+Phosphoric acid
+Putrescine
+Pyroglutamic acid
+Pyrrole-2-carboxylic acid
+scyllo-Inositol
+SM(d18:1/18:1(9Z))
+SM(d18:2/18:1)
+Sorbitol
+Spermidine
+Spermine
+Squalene
+Stearic acid
+Stigmasterol
+Succinic acid
+Sucrose
+Taurine
+Tetracosanoic acid
+TG(18:1(9Z)/18:1(9Z)/18:3(9Z,12Z,15Z))
+Thymidine
+Thymine
+Urea
+Uridine diphosphate-N-acetylglucosamine
+Zymosterol intermediate 2

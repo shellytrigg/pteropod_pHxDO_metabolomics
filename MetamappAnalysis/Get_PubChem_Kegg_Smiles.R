@@ -383,9 +383,24 @@ write.table(chemrich_input, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/Meta
 # guanosine, C1=NC2=C(N1[C@H]3[C@@H]([C@@H]([C@H](O3)CO)O)O)NC(=NC2=O)N
 # inosine, C1=NC(=O)C2=C(N1)N(C=N2)[C@H]3[C@@H]([C@@H]([C@H](O3)CO)O)O
 
+RSD_FC_cohen_pub[which(RSD_FC_cohen_pub$Annotation == "guanosine"),"SMILES"] <- "C1=NC2=C(N1[C@H]3[C@@H]([C@@H]([C@H](O3)CO)O)O)NC(=NC2=O)N"
+RSD_FC_cohen_pub[which(RSD_FC_cohen_pub$Annotation == "inosine"),"SMILES"] <- "C1=NC(=O)C2=C(N1)N(C=N2)[C@H]3[C@@H]([C@@H]([C@H](O3)CO)O)O"
+RSD_FC_cohen_pub[which(RSD_FC_cohen_pub$Annotation == "2-hydroxypyrazinyl-2-propenoic acid ethyl ester NIST"),"SMILES"] <- "CCOC(=O)C(=O)C=C1C=NC=CN1"
+
+
+
 chemrich_input_DO <- RSD_FC_cohen_pub[,c("Identifier_R","InChI.Key.y","PubChem", "SMILES","DO_p.value","logFC_HL")]
+chemrich_input_pH <- RSD_FC_cohen_pub[,c("Identifier_R","InChI.Key.y","PubChem", "SMILES","pH_p.value","logFC_LH")]
+chemrich_input_pH_DO <- RSD_FC_cohen_pub[,c("Identifier_R","InChI.Key.y","PubChem", "SMILES","pH:DO_p.value","logFC_LL")]
+
 colnames(chemrich_input_DO) <- c("Compound Name", "InChiKeys",	"Pubchem ID",	"SMILES", "pvalue",	"foldchange")
-write.table(chemrich_input_DO, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/chemrich_input.csv", sep = "\t",quote = FALSE, row.names = FALSE)
+colnames(chemrich_input_pH) <- c("Compound Name", "InChiKeys",	"Pubchem ID",	"SMILES", "pvalue",	"foldchange")
+colnames(chemrich_input_pH_DO) <- c("Compound Name", "InChiKeys",	"Pubchem ID",	"SMILES", "pvalue",	"foldchange")
+
+
+write.table(chemrich_input_DO, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/chemrich_input_HL.csv", sep = "\t",quote = FALSE, row.names = FALSE)
+write.table(chemrich_input_pH, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/chemrich_input_LH.csv", sep = "\t",quote = FALSE, row.names = FALSE)
+write.table(chemrich_input_pH_DO, "~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/chemrich_input_LL.csv", sep = "\t",quote = FALSE, row.names = FALSE)
 
 
 
@@ -422,6 +437,25 @@ for (i in 1:nrow(node_attr)){
 }
 
 write.table(node_attr, "data/node_attributes_chemsim_krp_07-1.tsv", sep = "\t", row.names = FALSE, quote = FALSE)
+
+
+#############################
+
+#get pubchem IDs for AOV and PLSDA sig compounds
+
+#read in data 
+PLSDA_aov_cmpds <- read.csv("data/PLSDA_AOV_sig_cmpds.csv", stringsAsFactors = F)
+
+
+#merge with pubchem IDs
+
+pubchem_PLSDA_aov_cmpds <- merge(RSD_FC_cohen_pub,PLSDA_aov_cmpds[,c(1,5,24:30)], by = "Identifier")
+
+#order by sig compounds
+pubchem_PLSDA_aov_cmpds <- pubchem_PLSDA_aov_cmpds[order(pubchem_PLSDA_aov_cmpds$method),]
+
+#wrtie out file so pubchem IDs can be uplodaded to metaboAnalyst enrichment analysis
+write.csv(pubchem_PLSDA_aov_cmpds, "pubchem_PLSDA_aov_cmpds.csv", quote = F, row.names = F)
 
 ####################################################
 ############### OLD ANALYSIS #######################

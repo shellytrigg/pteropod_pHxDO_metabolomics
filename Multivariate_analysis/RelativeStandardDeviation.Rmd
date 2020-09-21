@@ -389,6 +389,15 @@ ag_m_RSD_sig$meth_sig <- paste(ag_m_RSD_sig$Treatment,ag_m_RSD_sig$sig, sep = "_
 
 ag_l_RSD_sig$meth_sig <- paste(ag_l_RSD_sig$Treatment,ag_l_RSD_sig$sig, sep = "_" )
 
+
+
+colnames(ag_m_RSD_sig)[25] <- "VIP_PLSDA"
+colnames(ag_l_RSD_sig)[25] <- "VIP_PLSDA"
+
+
+#write out data table with sig. compounds denoted
+
+write.csv(unique(rbind(ag_m_RSD_sig[,c(1,2,4:31)], ag_l_RSD_sig[,c(1,2,4:31)])), "../MetamappAnalysis/data/PLSDA_AOV_sig_cmpds.csv", row.names = F, quote = F)
 ```
 
 plot significant compounds with colors
