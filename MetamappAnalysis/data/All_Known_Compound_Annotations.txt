@@ -1,0 +1,228 @@
+InChI.Key	Super.Class.x	Main.Class.x	Sub.Class.x	Molecular.Framework	PubChem.ID	Annotation	Super.Class.y	Main.Class.y	Sub.Class.y	KEGG
+ADWDFBQPQIEGRZ-XBICFDGKSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	53480870	PE (p-36:4) or PE (o-36:5) 	NA	NA	NA	NA
+AEMRFAOFKBGASW-UHFFFAOYSA-N	Organic acids and derivatives	Hydroxy acids and derivatives	Alpha hydroxy acids and derivatives	Aliphatic acyclic compounds	757	glycolic acid	NA	NA	NA	C00160
+AGPKZVBTJJNPAG-WHFBIAKZSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	6306	isoleucine	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Amino fatty acids [FA0110]	C00407
+AHANXAKGNAKFSK-PDBXOOCHSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	5312529	FA (20:3) (eicosatrienoicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C16522
+AHLPHDHHMVZTML-BYPYZUCNSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	6262	ornithine	NA	NA	NA	C00077
+AHWDQDMGFXRVFB-UHFFFAOYSA-N	NA	NA	NA	NA	13225	1,3,5-trimethylcyanuric acid	NA	NA	NA	NA
+ANKCYRKQDLQXGL-NRDDHZETSA-N	NA	NA	NA	NA	NA	PC (30:1) 	NA	NA	NA	NA
+ANRKEHNWXKCXDB-BHFWLYLHSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	5289133	PE (38:4) B 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	Diacylglycerophosphoethanolamines [GP0201]	NA
+ASWBNKHCZGQVJV-HSZRJFAPSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	460602	LPC (16:0) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Monoacylglycerophosphocholines [GP0105]	C04230
+ATHGHQPFGPMSJY-UHFFFAOYSA-N	Organic nitrogen compounds	Organonitrogen compounds	Amines	Aliphatic acyclic compounds	1102	spermidine	NA	NA	NA	C00315
+ATTCDOPAYPGSLE-LQULQHAGSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53479121	PC (p-38:5) or PC (o-38:6) 	NA	NA	NA	C00157
+AVXURJPOCDRRFD-UHFFFAOYSA-N	Homogeneous non-metal compounds	Homogeneous other non-metal compounds	NA	NA	787	hydroxylamine	NA	NA	NA	C00192
+AWUCVROLDVIAJX-UHFFFAOYSA-N	NA	NA	NA	NA	754	glycerol-alpha-phosphate	NA	NA	NA	C03189
+AYFVYJQAPQTCCC-GBXIJSLDSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	6288	threonine	NA	NA	NA	C00188
+AYXGHIQPMDYMJC-AHMBLZLYSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	52924614	PC (35:3) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	Diacylglycerophosphoethanolamines [GP0201]	C00350
+BBNHCUBQEQJHIG-FZZJNMCHSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	52924055	LPC (20:3) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Monoacylglycerophosphocholines [GP0105]	NA
+BGWGXPAPYGQALX-ARQDHWQXSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic heteromonocyclic compounds	440641	fructose-6-phosphate	NA	NA	NA	C05345
+BHHGXPLMPWCGHP-UHFFFAOYSA-N	Benzenoids	Benzene and substituted derivatives	Phenethylamines	Aromatic homomonocyclic compounds	1001	phenylethylamine	NA	NA	NA	C05332
+BITHHVVYSMSWAG-KTKRTIGZSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	5282768	FA (20:1) (eicosenoicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C16526
+BNNUJTATKJXKJP-XCDHYEIISA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53479075	PC (38:7) 	NA	NA	NA	C00157
+BPUROMFCPFGBOT-ZEGPSQTJSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	24778982	PC (40:7) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+BTCSSZJGUNDROE-UHFFFAOYSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	119	4-aminobutyric acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Amino fatty acids [FA0110]	C00334
+BTVWZWFKMIUSGS-UHFFFAOYSA-N	NA	NA	NA	NA	68410	isobutene glycol NIST	NA	NA	NA	NA
+BXWNKGSJHAJOGX-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty alcohols	Aliphatic acyclic compounds	2682	1-hexadecanol	Fatty Acyls [FA]	Fatty alcohols [FA05]	NA	C00823
+CDAISMWEOUEBRE-UHFFFAOYSA-N	NA	NA	NA	NA	892	myo-inositol	NA	NA	NA	C00137
+CFANDHZPOSNKNO-UDHSZFGOSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	53480897	PE (p-36:2) or PE (o-36:3) 	NA	NA	NA	NA
+CGSJXLIKVBJVRY-XTGBIJOFSA-N	Lipids and lipid-like molecules	Steroids and steroid derivatives	Cholestane steroids	Aliphatic homopolycyclic compounds	92746	zymosterol	Sterol Lipids [ST]	Sterols [ST01]	Cholesterol and derivatives [ST0101]	C05437
+CITHEXJVPOWHKC-UUWRZZSWSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	5459377	PC (28:0) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+CKLJMWTZIZZHCS-REOHCLBHSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	5960	aspartic acid	NA	NA	NA	C00049
+CKPBBEOJHAPPBT-HXUWFJFHSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	53480922	LPE (16:0) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	Monoacylglycerophosphoethanolamines [GP0205]	NA
+CNNSEHUKQJCGTE-UPPWDXJYSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	24778699	PC (34:3) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+COLNVLDHVKWLRT-QMMMGPOBSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aromatic homomonocyclic compounds	6140	phenylalanine	NA	NA	NA	C00079
+CZMRCDWAGMRECN-UGDNZRGBSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic heteromonocyclic compounds	5988	sucrose	NA	NA	NA	C00089
+DBQMOXDLWKVKKG-REWQMPQJSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53480761	PC (p-38:4) or PC (o-38:5) A 	NA	NA	NA	C00157
+DCAYPVUWAIABOU-UHFFFAOYSA-N	Hydrocarbons	Saturated hydrocarbons	Alkanes	Aliphatic acyclic compounds	11006	hexadecane	Fatty Acyls [FA]	Hydrocarbons [FA11]	NA	C14499
+DHMQDGOQFOQNFH-UHFFFAOYSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	750	glycine	NA	NA	NA	C00037
+DLIKSSGEMUFQOK-SFTVRKLSSA-N	NA	NA	NA	NA	92794	4',5-dihydroxy-7-glucosyloxyflavanone	NA	NA	NA	C09099
+DLRVVLDZNNYCBX-RTPHMHGBSA-N	NA	NA	NA	NA	439193	isomaltose	NA	NA	NA	C00252
+DNVPQKQSNYMLRS-APGDWVJJSA-N	Lipids and lipid-like molecules	Steroids and steroid derivatives	Ergostane steroids	Aliphatic homopolycyclic compounds	444679	ergosterol	Sterol Lipids [ST]	Sterols [ST01]	Ergosterols and C24-methyl derivatives [ST0103]	C01694
+DRAJWRKLRBNJRQ-UHFFFAOYSA-N	NA	NA	NA	NA	16639161	hydroxycarbamate NIST	NA	NA	NA	NA
+DSCFFEYYQKSRSV-FEPQRWDDSA-N	NA	NA	NA	NA	164619	pinitol	NA	NA	NA	NA
+DTOSIQBPPRVQHS-PDBXOOCHSA-N	Lipids and lipid-like molecules	Fatty Acyls	Lineolic acids and derivatives	Aliphatic acyclic compounds	5280934	FA (18:3) (linolenicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C06427
+DUQDVNACTOXOJA-KTKXOIIHSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	52924875	PE (36:4) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	Diacylglycerophosphoethanolamines [GP0201]	C00350
+DYDDZDMJSQYFGN-OIVUZXIWSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	24778771	PC (36:5) B 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	NA
+DZPHTQGGRSWHLG-USOCFQKQSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	53480884	PE (p-40:5) or PE (o-40:6) 	NA	NA	NA	NA
+FAKYQMLQEAQOLK-LHZZQLRFSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53480695	PC (p-38:5) or PC (o-38:6) 	NA	NA	NA	C00157
+FBPFZTCFMRRESA-JGWLITMVSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic acyclic compounds	5780	sorbitol	NA	NA	NA	C00794
+FBPFZTCFMRRESA-KVTDHHQDSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic acyclic compounds	6251	mannitol	NA	NA	NA	C00392
+FBPFZTCFMRRESA-UHFFFAOYSA-N	NA	NA	NA	NA	453	hexitol	NA	NA	NA	C00392
+FBUKVWPVBMHYJY-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	8158	pelargonic acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C01601
+FFEARJCKVFRZRR-BYPYZUCNSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	NA	6137	methionine	NA	NA	NA	C00073
+FGSBNBBHOZHUBO-UHFFFAOYSA-N	Organic acids and derivatives	Keto acids and derivatives	Medium-chain keto acids and derivatives	Aliphatic acyclic compounds	71	2-ketoadipic acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Dicarboxylic acids [FA0117]	C00322
+FIJFPUAJUDAZEY-NNDXXDKYSA-N	NA	NA	NA	NA	NA	PE (p-40:6) or PE (o-40:7) 	NA	NA	NA	NA
+FVXDQWZBHIXIEJ-ZPPAUJSGNA-N	NA	NA	NA	NA	NA	PC 36:4; 	NA	NA	NA	NA
+FYGDTMLNYKFZSV-DZOUCCHMSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic heteromonocyclic compounds	439586	maltotriose	NA	NA	NA	C01835
+GEINPYKZLFHHIL-HEXXMCQTSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	52922342	PC (37:6) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+GFFGJBXGBJISGV-UHFFFAOYSA-N	Organoheterocyclic compounds	Imidazopyrimidines	Purines and purine derivatives	NA	190	adenine	NA	NA	NA	C00147
+GGNQRNBDZQJCCN-UHFFFAOYSA-N	Benzenoids	Phenols	Benzenetriols and derivatives	Aromatic homomonocyclic compounds	10787	1,2,4-benzenetriol	NA	NA	NA	C02814
+GHVNFZFCNZKVNT-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	2969	capric acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C01571
+GLDOVTGHNKAZLK-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty alcohols	Aliphatic acyclic compounds	8221	octadecanol	Fatty Acyls [FA]	Fatty alcohols [FA05]	NA	D01924
+GOMVPVRDBLLHQC-VEJNOCSESA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53480469	LPC (20:4) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Monoacylglycerophosphocholines [GP0105]	C04230
+GPWHCUUIQMGELX-VHQDNGOZSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	24778764	PC (32:2) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+GRGDLDNREYVILP-CNWVQWJYSA-N	Lipids and lipid-like molecules	Glycerolipids	Diradylglycerols	Aliphatic acyclic compounds	9543784	DG (38:5) 	Glycerolipids [GL]	Diradylglycerols [GL02]	Diacylglycerols [GL0201]	NA
+GUBGYTABKSRVRQ-PICCSMPSSA-N	NA	NA	NA	NA	439186	maltose	NA	NA	NA	C00208
+GUBGYTABKSRVRQ-QKKXKWKRSA-N	NA	NA	NA	NA	440995	lactose	NA	NA	NA	C00243
+GUBGYTABKSRVRQ-QUYVBRFLSA-N	NA	NA	NA	NA	6255	cellobiose	NA	NA	NA	C01971
+HBZNVZIRJWODIB-NHCUFCNUSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	9546747	PE (34:2) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	Diacylglycerophosphoethanolamines [GP0201]	NA
+HCXVJBMSMIARIN-PHZDYDNGSA-N	Lipids and lipid-like molecules	Steroids and steroid derivatives	Stigmastanes and derivatives	Aliphatic homopolycyclic compounds	5280794	stigmasterol	Sterol Lipids [ST]	Sterols [ST01]	Stigmasterols and C24-ethyl derivatives [ST0104]	C05442
+HEBKCHPVOIAQTA-IMJSIDKUSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic acyclic compounds	439255	lyxitol	NA	NA	NA	C00532
+HEBKCHPVOIAQTA-NGQZWQHPSA-N	NA	NA	NA	NA	6912	xylitol	NA	NA	NA	C00379
+HHQFKPJXVYWLLJ-ABYSKWQHSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	53480857	PE (p-40:5) or PE (o-40:6) 	NA	NA	NA	NA
+HLIJNIKSBCIDGO-QKLMXXKVSA-N	Lipids and lipid-like molecules	Sphingolipids	Glycosphingolipids	Aliphatic heteromonocyclic compounds	53477895	Gal-Gal-Cer(d18:1/16:0)	NA	NA	NA	C01290
+HLVHJOGDHOONHN-PHUKJIMTNA-N	NA	NA	NA	NA	NA	PC 37:5; PC(19:1/18:4); 	NA	NA	NA	NA
+HMFHBZSHGGEWLO-SOOFDHNKSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic heteromonocyclic compounds	5779	ribose	NA	NA	NA	C00121
+HNJBEVLQSNELDL-UHFFFAOYSA-N	Organoheterocyclic compounds	Pyrrolidines	Pyrrolidones	Aliphatic heteromonocyclic compounds	12025	butyrolactam NIST	NA	NA	NA	C11118
+HOBAELRKJCKHQD-QNEBEIHSSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	5280581	FA (20:3) (homo-gamma-linolenicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C03242
+HVGRZDASOHMCSK-AVQMFFATSA-N	NA	NA	NA	NA	5282807	FA (22:2) (docosadienoicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C16533
+HVYWMOMLDIMFJA-DPAQBDIFSA-N	Lipids and lipid-like molecules	Steroids and steroid derivatives	Cholestane steroids	Aliphatic homopolycyclic compounds	5997	cholesterol	Sterol Lipids [ST]	Sterols [ST01]	Cholesterol and derivatives [ST0101]	C00187
+HZAXFHJVJLSVMW-UHFFFAOYSA-N	Organic nitrogen compounds	Organonitrogen compounds	Amines	Aliphatic acyclic compounds	700	ethanolamine	NA	NA	NA	C00189
+IAJILQKETJEXLJ-UHFFFAOYSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic acyclic compounds	152867	hexuronic acid	NA	NA	NA	C08348
+IIZPXYDJLKNOIY-JXPKJXOSSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	10747814	PC (36:4) A 	NA	NA	NA	C00157
+IJTJDJOOHZVSAC-NDRUHXFFSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53479083	PC (40:5) A 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+IPCSVZSSVZVIGE-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	985	palmitic acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C00249
+IQFYYKKMVGJFEH-XLPZGREQSA-N	Nucleosides, nucleotides, and analogues	Pyrimidine nucleosides	Pyrimidine 2'-deoxyribonucleosides	Aromatic heteromonocyclic compounds	5789	thymidine	NA	NA	NA	C00214
+IQSPCSIULMCRPM-ZAJUHDLGSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	53479831	PE (p-38:5) or PE (o-38:6) 	NA	NA	NA	C00350
+ISYWECDDZWTKFF-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	12591	nonadecanoic acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C16535
+JAZBEHYOTPTENJ-JLNKQSITSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	446284	FA (20:5) (eicosapentaenoicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C06428
+JBKVHLHDHHXQEQ-UHFFFAOYSA-N	Organoheterocyclic compounds	Lactams	Caprolactams	Aliphatic heteromonocyclic compounds	7768	epsilon-caprolactam	NA	NA	NA	C06593
+JBYXPOFIGCOSSB-XBLVEGMJSA-N	Lipids and lipid-like molecules	Fatty Acyls	Lineolic acids and derivatives	Aliphatic acyclic compounds	5282796	FA (18:2) (linoleicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C01595
+JCQLYHFGKNRPGE-FCVZTGTOSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic heteromonocyclic compounds	11333	lactulose	NA	NA	NA	C07064
+JFCQEDHGNNZCLN-UHFFFAOYSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Dicarboxylic acids and derivatives	Aliphatic acyclic compounds	743	glutaric acid	NA	NA	NA	C00489
+JJMDCOVWQOJGCB-UHFFFAOYSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	138	5-aminovaleric acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Amino fatty acids [FA0110]	C00431
+JLPULHDHAOZNQI-ZTIMHPMXSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	5287971	PC (34:2) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+JPIJQSOTBSSVTP-STHAYSLISA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic acyclic compounds	5460407	threonic acid	NA	NA	NA	C01620
+JPNPIRVRGLGTRE-YSKCIPFOSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	53480952	LPE (20:4) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	Monoacylglycerophosphoethanolamines [GP0205]	NA
+JTEJPPKMYBDEMY-UHFFFAOYSA-N	Organoheterocyclic compounds	Indoles and derivatives	Tryptamines and derivatives	Aromatic heteropolycyclic compounds	1833	5-methoxytryptamine	NA	NA	NA	C05659
+JVTAAEKCZFNVCJ-UHFFFAOYSA-N	Organic acids and derivatives	Hydroxy acids and derivatives	Alpha hydroxy acids and derivatives	Aliphatic acyclic compounds	612	lactic acid	NA	NA	NA	C01432
+JXOHGGNKMLTUBP-HSUXUTPPSA-N	Organic oxygen compounds	Organooxygen compounds	Alcohols and polyols	Aliphatic homomonocyclic compounds	8742	shikimic acid	NA	NA	NA	C00493
+KCNBSSYOJRUKOM-JALPNNRCSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	52925089	PE (p-38:5) or PE (o-38:6) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	1-(1Z-alkenyl),2-acylglycerophosphoethanolamines [GP0203]	NA
+KDXKERNSBIXSRK-YFKPBYRVSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	5962	lysine	NA	NA	NA	C00047
+KDYFGRWQOYBRFD-UHFFFAOYSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Dicarboxylic acids and derivatives	Aliphatic acyclic compounds	1110	succinic acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Dicarboxylic acids [FA0117]	C00042
+KEMQGTRYUADPNZ-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	10465	FA (17:0) (margaricacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	NA
+KEVGQWGZKKFGDC-JCUPVDEDSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53478671	PC (p-32:0) or PC (o-32:1) 	NA	NA	NA	NA
+KIDHWZJUCRJVML-UHFFFAOYSA-N	Organic nitrogen compounds	Organonitrogen compounds	Amines	Aliphatic acyclic compounds	1045	putrescine	NA	NA	NA	C00134
+KILNVBDSWZSGLL-KXQOOQHDSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	452110	PC (32:0) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+KZJWDPNRJALLNS-VJSFXXLFSA-N	Lipids and lipid-like molecules	Steroids and steroid derivatives	Stigmastanes and derivatives	Aliphatic homopolycyclic compounds	222284	beta-sitosterol	Sterol Lipids [ST]	Sterols [ST01]	Stigmasterols and C24-ethyl derivatives [ST0104]	C01753
+KZNQNBZMBZJQJO-YFKPBYRVSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic heteromonocyclic compounds	3013625	glycyl proline	NA	NA	NA	NA
+KZSNJWFQEVHDMF-BYPYZUCNSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	6287	valine	NA	NA	NA	C00183
+KZSXWBSDQDXESU-PPEVQBTRSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	52923579	PC (40:6) A 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+LFGBKOUQHCWBQI-BZGLIJSBSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	52924893	PE (38:6) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	Diacylglycerophosphoethanolamines [GP0201]	C00350
+LFTYTUAZOPRMMI-CFRASDGPSA-N	Nucleosides, nucleotides, and analogues	Pyrimidine nucleotides	Pyrimidine nucleotide sugars	Aromatic heteromonocyclic compounds	445675	UDP GlcNAc	NA	NA	NA	C00043
+LFUDDCMNKWEORN-ZXEGGCGDSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	24779461	LPC (16:1) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Monoacylglycerophosphocholines [GP0105]	C04230
+LKDRXBCSQODPBY-OEXCPVAWSA-N	NA	NA	NA	NA	439312	tagatose	NA	NA	NA	C00795
+LQZZUXJYWNFBMV-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty alcohols	Aliphatic acyclic compounds	8193	dodecanol	Fatty Acyls [FA]	Fatty alcohols [FA05]	NA	C02277
+LSOWKZULVQWMLY-APPDJCNMSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	10415542	LPC (22:6) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Monoacylglycerophosphocholines [GP0105]	C04230
+LZGIKQZCPKHHMV-NANSGXCVSA-N	NA	NA	NA	NA	52924991	PE (p-38:2) or PE (o-38:3) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	1-alkyl,2-acylglycerophosphoethanolamines [GP0202]	NA
+MBMBGCFOFBJSGT-KUBAVDMBSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	445580	FA (22:6) (docosahexaenoicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C06429
+MBRHHFWRXQYYAN-RTVLTNFHSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53480735	PC (p-34:1) or PC (o-34:2) B 	NA	NA	NA	C00157
+MDRFMTLYKHBJTF-NQYLGBTJSA-N	Lipids and lipid-like molecules	Sphingolipids	Phosphosphingolipids	Aliphatic acyclic compounds	52931179	SM (d38:2) 	Sphingolipids [SP]	Phosphosphingolipids [SP03]	Ceramide phosphocholines (sphingomyelins) [SP0301]	C00550
+MTCFGRXMJLQNBG-REOHCLBHSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	5951	serine	NA	NA	NA	C00065
+NBEADXWAAWCCDG-QDDWGVBQSA-N	Lipids and lipid-like molecules	Sphingolipids	Phosphosphingolipids	Aliphatic acyclic compounds	6443882	SM (d36:2) 	Sphingolipids [SP]	Phosphosphingolipids [SP03]	Ceramide phosphocholines (sphingomyelins) [SP0301]	C00550
+NBIIXXVUZAFLBC-UHFFFAOYSA-N	Homogeneous non-metal compounds	Non-metal oxoanionic compounds	Non-metal phosphates	NA	1004	phosphate	NA	NA	NA	C00009
+NBSCHQHZLSJFNQ-GASJEMHNSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic heteromonocyclic compounds	5958	glucose-6-phosphate	NA	NA	NA	C00092
+NFWKVWVWBFBAOV-NISYRCLQSA-N	NA	NA	NA	NA	NA	dehydroabietic acid	NA	NA	NA	NA
+NKQPOVROGSWLTO-NVPMBMBWSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	52922783	PC (36:4) A 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+NPGWXTIWUUFYAB-DIPNUNPCSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	24778680	PC (31:0) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+NYHBQMYGNKIUIF-UUOKFMHZSA-N	Nucleosides, nucleotides, and analogues	Purine nucleosides	NA	Aromatic heteropolycyclic compounds	6802	guanosine	NA	NA	NA	C00387
+OBAAWAYLQLYWNN-KHFVPPDWSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	53480895	PE (p-36:1) or PE (o-36:2) 	NA	NA	NA	NA
+ODHCTXKNWHHXJC-VKHMYHEASA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic heteromonocyclic compounds	7405	oxoproline	NA	NA	NA	C01879
+OEJXMJPFOHYSIU-GRLFFVHSSA-N	NA	NA	NA	NA	9544294	TG (54:5) A 	Glycerolipids [GL]	Triradylglycerols [GL03]	Triacylglycerols [GL0301]	NA
+OIRDTQYFTABQOQ-KQYNXXCUSA-N	Nucleosides, nucleotides, and analogues	Purine nucleosides	NA	Aromatic heteropolycyclic compounds	60961	adenosine	NA	NA	NA	C00212
+OOWQBDFWEXAXPB-UHFFFAOYSA-N	NA	NA	NA	NA	72733	hexadecylglycerol NIST	NA	NA	NA	C13859
+OROZWUJCDDCYAU-IPUAOQJZSA-N	NA	NA	NA	NA	52922204	PC (35:4) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	NA
+OUYCCCASQSFEME-QMMMGPOBSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aromatic homomonocyclic compounds	6057	tyrosine	NA	NA	NA	C00082
+PDIGSOAOQOXRDU-WJPZTBRDSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	11757087	LPC (20:5) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Monoacylglycerophosphocholines [GP0105]	C04230
+PEDCQBHIVMGVHV-UHFFFAOYSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic acyclic compounds	753	glycerol	NA	NA	NA	C00116
+PFNFFQXMRSDOHW-UHFFFAOYSA-N	Organic nitrogen compounds	Organonitrogen compounds	Amines	Aliphatic acyclic compounds	1103	spermine	NA	NA	NA	C00750
+POULHZVOKOAJMA-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	3893	lauric acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C02679
+PRAHGYJIPXTSPA-XQSFYUSANA-N	NA	NA	NA	NA	NA	PC 42:11; PC(20:5/22:6); 	NA	NA	NA	NA
+PVNIIMVLHYAWGP-UHFFFAOYSA-N	Organoheterocyclic compounds	Pyridines and derivatives	Pyridinecarboxylic acids and derivatives	Aromatic heteromonocyclic compounds	938	nicotinic acid	NA	NA	NA	C00253
+QAOWNCQODCNURD-UHFFFAOYSA-N	Homogeneous non-metal compounds	Non-metal oxoanionic compounds	Non-metal sulfates	NA	1118	sulfuric acid	NA	NA	NA	C00059
+QCGUXAIDEOWPBV-SNKLRXETSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53481719	PC (p-34:0) or PC (o-34:1) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	1-alkyl,2-acylglycerophosphocholines [GP0102]	C00157
+QEFRNWWLZKMPFJ-YGVKFDHGSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	158980	methionine sulfoxide	NA	NA	NA	C02989
+QFVHCMLUKNHDSH-WTWBAFHPSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	24778657	PC (31:1) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	NA
+QHZLMUACJMDIAE-UHFFFAOYSA-N	NA	NA	NA	NA	14900	1-monopalmitin	Glycerolipids [GL]	Monoradylglycerols [GL01]	Monoacylglycerols [GL0101]	NA
+QIBZFHLFHCIUOT-NPBIGWJUSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	6443788	PC (32:1) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+QIQXTHQIDYTFRH-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	5281	FA (18:0) (stearicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C01530
+QIVBCDIJIAJPQS-VIFPVBQESA-N	Organoheterocyclic compounds	Indoles and derivatives	Indolyl carboxylic acids and derivatives	Aromatic heteropolycyclic compounds	6305	tryptophan	NA	NA	NA	C00078
+QMCWOGICYCFNBF-BWHZRABLSA-N	NA	NA	NA	NA	52922637	PC (39:6) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+QNAYBMKLOCPYGJ-REOHCLBHSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	5950	alanine	NA	NA	NA	C00041
+QQVDJLLNRSOCEL-UHFFFAOYSA-N	Organic acids and derivatives	Organic phosphonic acids and derivatives	Organic phosphonic acids	Aliphatic acyclic compounds	339	ciliatine	NA	NA	NA	C03557
+QRPUCJXFPYFTMB-FBFLODOBSA-N	NA	NA	NA	NA	52922853	PC (37:4) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+QSBYPNXLFMSGKH-CMDGGOBGSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	5312440	FA (17:1) (heptadecenoicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C16536
+QYIXCDOBOSTCEI-FBVYSKEZSA-N	Lipids and lipid-like molecules	Steroids and steroid derivatives	Cholestane steroids	Aliphatic homopolycyclic compounds	66066	dihydrocholesterol	Sterol Lipids [ST]	Sterols [ST01]	Cholesterol and derivatives [ST0101]	C12978
+QZZGJDVWLFXDLK-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	11197	lignoceric acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C08320
+RBNPOMFGQQGHHO-UWTATZPHSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic acyclic compounds	439194	glyceric acid	NA	NA	NA	C00258
+RFSUNEUAIZKAJO-ARQDHWQXSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic heteromonocyclic compounds	439709	fructose	NA	NA	NA	C02336
+RFVFQQWKPSOBED-PSXMRANNSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	129657	PC (30:0) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+RGHNJXZEOKUKBD-NGCNEYSASA-N	NA	NA	NA	NA	NA	galactonic acid	NA	NA	NA	NA
+RGHNJXZEOKUKBD-QTBDOELSSA-N	NA	NA	NA	NA	6857417	gluconic acid	NA	NA	NA	C00800
+RHGKLRLOHDJJDR-BYPYZUCNSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	9750	citrulline	NA	NA	NA	C00327
+RJZVWDTYEWCUAR-JOCHJYFZSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	24779458	LPC (15:0) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Monoacylglycerophosphocholines [GP0105]	NA
+RLLOITCRNQRGJD-DFAKUSJGSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	52925061	PE (p-36:5) or PE (o-36:6) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	1-(1Z-alkenyl),2-acylglycerophosphoethanolamines [GP0203]	NA
+ROHFNLRQFUQHCH-YFKPBYRVSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	6106	leucine	NA	NA	NA	C00123
+RWQNBRDOKXIBIV-UHFFFAOYSA-N	Organoheterocyclic compounds	Diazines	Pyrimidines and pyrimidine derivatives	Aromatic heteromonocyclic compounds	1135	thymine	NA	NA	NA	C00178
+RWVKPDIHPPTVRQ-HWGQMOSASA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53480747	PC (p-36:4) or PC (o-36:5) 	NA	NA	NA	C00157
+SECPZKHBENQXJG-FPLPWBNLSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	445638	FA (16:1) (palmitoleicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C08362
+SHZGCJCMOBCMKK-FPRJBGLDSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic heteromonocyclic compounds	439650	fucose	NA	NA	NA	C02095
+SIMZOWLEIOYZJX-VRCXRDLJSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53479127	PC (40:8) 	NA	NA	NA	C00157
+SJZRECIVHVDYJC-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	10413	4-hydroxybutyric acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Hydroxy fatty acids [FA0105]	C00989
+SOUZQPFUXRVDGK-KCTKZSJBSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53481701	PC (p-36:3) or PC (o-36:4) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	1-alkyl,2-acylglycerophosphocholines [GP0102]	C00157
+SPJFYYJXNPEZDW-FTJOPAKQSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	11005824	LPC (18:2) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Monoacylglycerophosphocholines [GP0105]	NA
+SPWBDEZMKCRQSX-NGPPOSSDSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	52922847	PC (36:6) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+SRBFZHDQGSBBOR-SOOFDHNKSA-N	NA	NA	NA	NA	10975657	isoribose	NA	NA	NA	NA
+SUACBSWYGWBPFC-GPUJSUHJSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	52923235	PC (38:5) A 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+SUHOOTKUPISOBE-UHFFFAOYSA-N	Organic acids and derivatives	Organic phosphoric acids and derivatives	Phosphate esters	Aliphatic acyclic compounds	1015	phosphoethanolamine	NA	NA	NA	C00346
+SUZYROYNFNQALJ-NHEIZRSESA-N	NA	NA	NA	NA	NA	PC (36:5) B 	NA	NA	NA	NA
+SVWBXNAUENUONE-LDLOPFEMSA-N	NA	NA	NA	NA	173570	PC (o-32:0) 	NA	NA	NA	C00157
+SWXVUIWOUIDPGS-UHFFFAOYSA-N	Organic oxygen compounds	Organooxygen compounds	Carbonyl compounds	Aliphatic acyclic compounds	31256	diacetone alcohol NIST	Fatty Acyls [FA]	Oxygenated hydrocarbons [FA12]	NA	NA
+TUNFSRHWOTWDNC-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	11005	myristic acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C06424
+UCMIRNVEIXFBKS-UHFFFAOYSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	239	beta-alanine	NA	NA	NA	C00099
+UGQMRVRMYYASKQ-KQYNXXCUSA-N	Nucleosides, nucleotides, and analogues	Purine nucleosides	NA	Aromatic heteropolycyclic compounds	6021	inosine	NA	NA	NA	C00294
+UKMSUNONTOPOIO-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	8215	FA (22:0) (behenicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C08281
+UUYSKERSKRMYME-NAIXUNBTSA-N	NA	NA	NA	NA	NA	PE (p-36:4) or PE (o-36:5) 	NA	NA	NA	NA
+VBICKXHEKHSIBG-UHFFFAOYSA-N	NA	NA	NA	NA	24699	1-monostearin	Glycerolipids [GL]	Monoradylglycerols [GL01]	Monoacylglycerols [GL0101]	D01947
+VKOBVWXKNCXXDE-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	10467	FA (20:0) (arachidicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C06425
+VKVSSDKCKXJFIM-AFYHZPHLSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	52923213	PC (34:3) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+VQHSOMBJVWLPSR-JVCRWLNRSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acyl glycosides	Aliphatic heteromonocyclic compounds	157355	lactitol	NA	NA	NA	C13542
+VRBJSZDBPQLNEM-PFTGJCAASA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	52924646	PE (38:6) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	Diacylglycerophosphoethanolamines [GP0201]	NA
+VXUOFDJKYGDUJI-OAQYLSRUSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	460604	LPC (14:0) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Monoacylglycerophosphocholines [GP0105]	NA
+VZCYOOQTPOCHFL-OWOJBTEDSA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Dicarboxylic acids and derivatives	Aliphatic acyclic compounds	444972	fumaric acid	NA	NA	NA	C00122
+WAIHGVAZVKEQGR-IYICPNJGNA-N	NA	NA	NA	NA	NA	PC 40:10; 	NA	NA	NA	NA
+WAIHGVAZVKEQGR-IYICPNJGNA-N	NA	NA	NA	NA	NA	Plasmenyl-PC 38:6; 	NA	NA	NA	NA
+WFZVBCSNPDDHDI-FNORWQNLSA-N	NA	NA	NA	NA	5371086	2-hydroxypyrazinyl-2-propenoic acid ethyl ester NIST	NA	NA	NA	NA
+WHUUTDBJXJRKMK-VKHMYHEASA-N	Organic acids and derivatives	Carboxylic acids and derivatives	Amino acids, peptides, and analogues	Aliphatic acyclic compounds	33032	glutamic acid	NA	NA	NA	C00025
+WNXKVVWJMAYRME-SVDXTHOFNA-N	NA	NA	NA	NA	NA	Plasmenyl-PC 36:4; 	NA	NA	NA	NA
+WPYMKLBDIGXBTP-UHFFFAOYSA-N	Benzenoids	Benzene and substituted derivatives	Benzoic acids and derivatives	Aromatic homomonocyclic compounds	243	benzoic acid	NA	NA	NA	C00180
+WQEPLUUGTLDZJY-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	13849	FA (15:0) (pentadecylicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C16537
+WQZGKKKJIJFFOK-PHYPRBDBSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic heteromonocyclic compounds	439357	galactose	NA	NA	NA	C00984
+WQZGKKKJIJFFOK-VFUOTHLCSA-N	Organic oxygen compounds	Organooxygen compounds	Carbohydrates and carbohydrate conjugates	Aliphatic heteromonocyclic compounds	64689	glucose	NA	NA	NA	C00221
+WRHZVMBBRYBTKZ-UHFFFAOYSA-N	Organoheterocyclic compounds	Pyrroles	Pyrrole carboxylic acids and derivatives	Aromatic heteromonocyclic compounds	12473	pyrrole-2-carboxylic acid	NA	NA	NA	C05942
+WSHCLKDGQAEXNQ-NRGADFHSSA-N	NA	NA	NA	NA	NA	PC (p-42:3) or PC (o-42:4) 	NA	NA	NA	NA
+WTJKGGKOPKCXLL-VYOBOKEXSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	5497103	PC (34:1) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+WVGALBKSWOUIEZ-XNHMFJFDSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	5283497	PE (p-38:6) or PE (o-38:7) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	1-(1Z-alkenyl),2-acylglycerophosphoethanolamines [GP0203]	NA
+WWZKQHOCKIZLMA-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	379	caprylic acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	C06423
+WZCLAXMADUBPSG-RIXBAXMTSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	52922657	PC (36:3) B 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	NA
+XMHIUKTWLZUKEX-UHFFFAOYSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	10469	cerotinic acid	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Straight chain fatty acids [FA0101]	NA
+XOAAWQZATWQOTB-UHFFFAOYSA-N	Organic acids and derivatives	Organic sulfonic acids and derivatives	Organosulfonic acids and derivatives	Aliphatic acyclic compounds	1123	taurine	NA	NA	NA	C00245
+XSQUKJJJFZCRTK-UHFFFAOYSA-N	Organic acids and derivatives	Organic carbonic acids and derivatives	Ureas	Aliphatic acyclic compounds	1176	urea	NA	NA	NA	C00086
+XSXIVVZCUAHUJO-HZJYTTRNSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	6439848	FA (20:2) (eicosadienoicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C16525
+XUWHAWMETYGRKB-UHFFFAOYSA-N	Organoheterocyclic compounds	Piperidines	Piperidinones	Aliphatic heteromonocyclic compounds	12665	piperidone	NA	NA	NA	NA
+XVXISDREVDGQPX-PISDLAQISA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	52925079	PE (p-36:2) or PE (o-36:3) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	1-(1Z-alkenyl),2-acylglycerophosphoethanolamines [GP0203]	NA
+YAMUFBLWGFFICM-PTGWMXDISA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	16081932	LPC (18:1) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Monoacylglycerophosphocholines [GP0105]	C04230
+YDNKGFDKKRUKPY-TURZORIXSA-N	Lipids and lipid-like molecules	Sphingolipids	Ceramides	Aliphatic acyclic compounds	5283564	Ceramide (d34:1) 	Sphingolipids [SP]	Ceramides [SP02]	N-acylsphingosines (ceramides) [SP0201]	C00195
+YHSWSUHZIXJBHZ-OWTAGOBYSA-N	NA	NA	NA	NA	52924972	PE (p-38:3) or PE (o-38:4) 	Glycerophospholipids [GP]	Glycerophosphoethanolamines [GP02]	1-alkyl,2-acylglycerophosphoethanolamines [GP0202]	NA
+YLWBKBDNHWQEFU-YJXJLLHLSA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	53479033	PC (38:5) A 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+YMTVMVYOUDDTQJ-UOMMIRHQSA-N	NA	NA	NA	NA	52931155	SM (d36:3) 	Sphingolipids [SP]	Phosphosphingolipids [SP03]	Ceramide phosphocholines (sphingomyelins) [SP0301]	C00550
+YWDDIWXKFJEMKF-JTZVLWBESA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphocholines	Aliphatic acyclic compounds	52922891	PC (34:4) 	Glycerophospholipids [GP]	Glycerophosphocholines [GP01]	Diacylglycerophosphocholines [GP0101]	C00157
+YYGNTYWPHWGJRM-AAJYLUCBSA-N	Lipids and lipid-like molecules	Prenol lipids	Triterpenoids	Aliphatic acyclic compounds	638072	squalene	Prenol Lipids [PR]	Isoprenoids [PR01]	C30 isoprenoids (triterpenes) [PR0106]	C00751
+YYILQTLJZBSOCA-IMJQGFQJSA-N	NA	NA	NA	NA	70699246	GlcCer(d14:1(4E)/20:0(2OH)) 	Sphingolipids [SP]	Neutral glycosphingolipids [SP05]	Simple Glc series [SP0501]	NA
+YZXBAPSDXZZRGB-DOFZRALJSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	444899	FA (20:4) (arachidonicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C00219
+ZHMWOVGZCINIHW-SPHYCDKFSA-N	NA	NA	NA	NA	9989541	conduritol-beta-epoxide	NA	NA	NA	NA
+ZHSNQSQHEHDNBQ-CCMOXNBVNA-N	NA	NA	NA	NA	NA	Plasmenyl-PC 37:5; 	NA	NA	NA	NA
+ZQPPMHVWECSIRJ-KTKRTIGZSA-N	Lipids and lipid-like molecules	Fatty Acyls	Fatty acids and conjugates	Aliphatic acyclic compounds	445639	FA (18:1) (oleicacid) 	Fatty Acyls [FA]	Fatty Acids and Conjugates [FA01]	Unsaturated fatty acids [FA0103]	C00712
+ZTZQZGHJLWFLFQ-VZBWJDOASA-N	Lipids and lipid-like molecules	Glycerophospholipids	Glycerophosphoethanolamines	Aliphatic acyclic compounds	53480855	PE (p-38:4) or PE (o-38:5) 	NA	NA	NA	NA
+NA	NA	NA	NA	NA	NA	methionine minor	NA	NA	NA	NA
+NA	NA	NA	NA	NA	NA	cholesterol NIST	NA	NA	NA	NA

@@ -161,44 +161,295 @@ mv LMSDF_pubchem_inchi_nozeros.tsv /Users/Shelly/Documents/GitHub/pteropod_pHxDO
 
 # Read in data
 All_names <- read.csv("~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/All_known_compounds.csv", stringsAsFactors = FALSE)
-HMDB <- read.csv("~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/hmdb_entry_inchikey_pubchemID.tsv", header = FALSE, sep = "\t", stringsAsFactors = FALSE)
-LMDB <- read.csv("~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/LMSDF_pubchem_inchi.tsv", header = FALSE, sep = "\t", stringsAsFactors = FALSE)
-crab <- read.csv("~/Desktop/UCSD-SALK-UW/NOAA/metabolomics/all_cmpds_analyzed/2groups_compared_FC/name_files/All_known_444cmpds_pub_inch_kegg_binbase.csv", header = TRUE, stringsAsFactors = TRUE)
+#HMDB <- read.csv("~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/hmdb_entry_inchikey_pubchemID.tsv", header = FALSE, sep = "\t", stringsAsFactors = FALSE)
+#LMDB <- read.csv("~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data/LMSDF_pubchem_inchi.tsv", header = FALSE, sep = "\t", stringsAsFactors = FALSE)
+HMDB <- read.table("data/hmdb_metabolites_classes.txt", header = F, sep = "\t", stringsAsFactors = F,quote = "")
+
+LMDB <- read.table("data/LMSDF_lipid_classes.txt", header = F, sep = "\t", stringsAsFactors = F)
+crab <- read.csv("~/Documents/UCSD-SALK-UW/NOAA/metabolomics/all_cmpds_analyzed/2groups_compared_FC/name_files/All_known_444cmpds_pub_inch_kegg_binbase.csv", header = TRUE, stringsAsFactors = FALSE)
+
+CTS <- read.csv("data/cts-20201107221856.csv", header = T, stringsAsFactors = F)
 
 #STEP 4: format data
 #add headers
-colnames(HMDB) <- c("CreationDate","InChI.Key","PubChem", "NA")
-colnames(LMDB) <- c("PubChem", "InChI.Key")
+#colnames(HMDB) <- c("CreationDate","InChI.Key","PubChem", "NA")
+#colnames(LMDB) <- c("PubChem", "InChI.Key")
+
+colnames(HMDB) <- c("Creation.Date", "InChI.Key", "Super.Class", "Main.Class", "Sub.Class", "Molecular.Framework", "KEGG.ID","PubChem.ID")
+
+colnames(LMDB) <- c("LM.ID", "Super.Class", "Main.Class", "Sub.Class", "InChI.Key", "PubChem", "KEGG")
+
+colnames(crab)[4] <- "InChI.Key" 
+
+
+colnames(CTS) <- c("InChI.Key", "KEGG_CTS", "PubChem.CID")
+
+
+
+#replace the space preceding  FIJFPUAJUDAZEY-MNDXXDKYSA-N with nothing
+All_names$InChI.Key <- gsub(" ","", All_names$InChI.Key) 
+#remove ? at the end of inchi-key
+All_names$InChI.Key <- gsub("\\?","", All_names$InChI.Key) 
+#fix typo of -M to -N
+All_names$InChI.Key <- gsub("-M","-N", All_names$InChI.Key) 
+#fix typo of - to -N
+All_names$InChI.Key <- gsub("-$","-N", All_names$InChI.Key) 
+
+
+
+#try to find PubChem IDs for compounds that don't have them listed by searching 
+# the identifier exchange service (https://pubchem.ncbi.nlm.nih.gov/idexchange/idexchange.cgi)
+# using their InkChiKeys
+
+All_names[which(All_names$InChI.Key=="AHWDQDMGFXRVFB-UHFFFAOYSA-N"),"PubChem"] <- "13225"
+All_names[which(All_names$InChI.Key=="BTVWZWFKMIUSGS-UHFFFAOYSA-N"),"PubChem"] <- "68410"
+All_names[which(All_names$InChI.Key=="DLIKSSGEMUFQOK-SFTVRKLSSA-N"),"PubChem"] <- "92794"
+All_names[which(All_names$InChI.Key=="DSCFFEYYQKSRSV-FEPQRWDDSA-N"),"PubChem"] <- "164619"
+All_names[which(All_names$InChI.Key=="LKDRXBCSQODPBY-OEXCPVAWSA-N"),"PubChem"] <- "439312"
+All_names[which(All_names$InChI.Key=="OOWQBDFWEXAXPB-UHFFFAOYSA-N"),"PubChem"] <- "72733"
+All_names[which(All_names$InChI.Key=="SRBFZHDQGSBBOR-SOOFDHNKSA-N"),"PubChem"] <- "10975657"
+All_names[which(All_names$InChI.Key=="WSHCLKDGQAEXNQ-MRGADFHSSA-N"),"PubChem"] <- "52923862"
+
+
+
+
+
 
 #remove creation date and extra column in HMDB
-HMDB <- HMDB[,2:3]
+#HMDB <- HMDB[,2:3]
 
 # merge HMDB and LMDB files with All_names
+All_names_hmdb <- merge(HMDB,All_names,by = "InChI.Key", all.y = TRUE)
+#there are three compounds where the pubchem IDs don't match; so need to correct these
+# I manually looked them up on pubchem
+View(All_names_hmdb[which(All_names_hmdb$PubChem != All_names_hmdb$PubChem.ID),])
+#keep 1110 for succinic acid
+All_names_hmdb[which(All_names_hmdb$BinBase.name == "succinic acid"),"PubChem.ID"] <- 1110
+#keep 1118 for sulfuric acid
+All_names_hmdb[which(All_names_hmdb$BinBase.name == "sulfuric acid"),"PubChem.ID"] <- 1118
+#keep 6262 for ornithine
+All_names_hmdb[which(All_names_hmdb$BinBase.name == "ornithine"),"PubChem"] <- 6262
+#check to make sure conversions worked
+View(All_names_hmdb[which(All_names_hmdb$PubChem != All_names_hmdb$PubChem.ID),])
+#it did!
+#replace PubChem NAs with LMDB pubchem IDs
+All_names_hmdb_LMDB <- merge(All_names_hmdb, LMDB, by = "InChI.Key", all.x = TRUE)
 
-All_names <- merge(All_names, HMDB,by = "InChI.Key", all.x = TRUE)
-All_names <- merge(All_names, LMDB, by = "InChI.Key", all.x = TRUE)
-All_names <- merge(All_names, crab[,c(4:6)], by = "InChI.Key", all.x = TRUE)
+for (i in 1:nrow(All_names_hmdb_LMDB)){
+  if(is.na(All_names_hmdb_LMDB$PubChem.ID[i]) & !(is.na(All_names_hmdb_LMDB$PubChem.y[i]))){
+    All_names_hmdb_LMDB$PubChem.ID[i] <- All_names_hmdb_LMDB$PubChem.y[i]
+  }
+}
+
+#All_names <- merge(All_names, HMDB,by = "InChI.Key", all.x = TRUE)
+
+#remove pubchem columns from HMDB and LMDB now that the info is all saved in the PubChem.ID column
+All_names_hmdb_LMDB <- All_names_hmdb_LMDB[,!names(All_names_hmdb_LMDB) %in% c("PubChem.x", "PubChem.y")]
+All_names_hmdb_LMDB_crab <- merge(unique(All_names_hmdb_LMDB), unique(crab[,c(4:6)]), by = "InChI.Key", all.x = TRUE)
+
+#remove the compounds where the Crab pubchem ID does not match the HMDB/WCMC/LMDB PubChem ID:
+#this code keeps all lines where there was no crab pubchem ID and lines where the crab pubchem ID matched the other pubchem ID
+#All_names_hmdb_LMDB_crab <- All_names_hmdb_LMDB_crab[which(!(!(is.na(All_names_hmdb_LMDB_crab$PubChem.ID)) & All_names_hmdb_LMDB_crab$PubChem.ID!=All_names_hmdb_LMDB_crab$PubChem) | is.na(All_names_hmdb_LMDB_crab$PubChem)),]
+
+#replace NAs in PubChem.ID column with crab pubchem values
+for (i in 1:nrow(All_names_hmdb_LMDB_crab)){
+  if(is.na(All_names_hmdb_LMDB_crab$PubChem.ID[i]) & !(is.na(All_names_hmdb_LMDB_crab$PubChem[i]))){
+    All_names_hmdb_LMDB_crab$PubChem.ID[i] <- All_names_hmdb_LMDB_crab$PubChem[i]
+  }
+}
+
+#Save a data frame of compounds with discrepancies between PubChem.ID and PubChem columns
+pubchem_diff <- All_names_hmdb_LMDB_crab[which(All_names_hmdb_LMDB_crab$PubChem.ID != All_names_hmdb_LMDB_crab$PubChem & !(is.na(All_names_hmdb_LMDB_crab$PubChem))),c("InChI.Key","PubChem.ID", "BinBase.name", "PubChem")]
+
+#go through each line of the main data frame and substitute the PubChem.ID value for the PubChem value if the inchikey is in the discrepancy df
+# And doesn't contain the patterns LPE, PC (36 , and PC (38 in the BinBase.name
+for (i in 1:nrow(All_names_hmdb_LMDB_crab)){
+  if(All_names_hmdb_LMDB_crab$InChI.Key[i] %in% pubchem_diff[-grep("LPE|PC \\(36|PC \\(38", pubchem_diff$BinBase.name),"InChI.Key"]){
+    All_names_hmdb_LMDB_crab$PubChem.ID[i] <- All_names_hmdb_LMDB_crab$PubChem[i]
+  }
+}
+
+
+#replace empty KEGG fields with crab keggs
+
+All_names_hmdb_LMDB_crab$KEGG.y <- gsub("not found", NA, All_names_hmdb_LMDB_crab$KEGG.y)
+
+for (i in 1:nrow(All_names_hmdb_LMDB_crab)){
+  if(All_names_hmdb_LMDB_crab$KEGG.x[i]==""){
+    All_names_hmdb_LMDB_crab$KEGG.x[i] <- as.character(All_names_hmdb_LMDB_crab$KEGG.y[i])
+  }
+}
+
+#remove extra columns
+All_names_hmdb_LMDB_crab <- All_names_hmdb_LMDB_crab[,!names(All_names_hmdb_LMDB_crab) %in% c("PubChem", "KEGG.y", "LM.ID","Creation.Date")]
+
+#change binbase name to annotation
+
+colnames(All_names_hmdb_LMDB_crab)[8] <- "Annotation"
+
+#replace 'not found' with NA
+All_names_hmdb_LMDB_crab$KEGG <- gsub("not found",NA, All_names_hmdb_LMDB_crab$KEGG)
+
+
+#Find compounds with different KEGG IDs
+All_names_hmdb_LMDB_crab[which(All_names_hmdb_LMDB_crab$KEGG.ID!=All_names_hmdb_LMDB_crab$KEGG.x),c(6,9,13)]
+#there are 5 IDs that come up, one that has no value and 4 that are different:
+# C03547 : omega-Hydroxy fatty acid; other columns have C00160 Glycolate; should be glycolate
+# C00134 : putrescine; other columns have C00138 ferredoxin; should be putrescine as annotated by WCMC
+# C01991: 4-Hydroxyacid; other columns have 4-Hydroxybutanoate; compounds look identical and 4-Hydroxybutanoate has more biological info so keep that one 
+# C00539: aromatic acid; other columns have C00180 benzoate; benzoate is the more specific name with bio annotations so use that one
+# So only putrescine needs to be swapped
+All_names_hmdb_LMDB_crab[which(All_names_hmdb_LMDB_crab$Annotation == "putrescine"),c("KEGG.x","KEGG")] <- "C00134"
+#now remove the KEGG.ID column
+All_names_hmdb_LMDB_crab <- All_names_hmdb_LMDB_crab[,-grep("KEGG.ID",colnames(All_names_hmdb_LMDB_crab))]
+
+#now check other two KEGG columns
+All_names_hmdb_LMDB_crab[which(All_names_hmdb_LMDB_crab$KEGG.x!=All_names_hmdb_LMDB_crab$KEGG),c(8,12)]
+
+#there are no discrepancies so only keep one kegg column
+All_names_hmdb_LMDB_crab <- All_names_hmdb_LMDB_crab[,-grep("KEGG.x",colnames(All_names_hmdb_LMDB_crab))]
+
+#fill in empty fields with NAs
+All_names_hmdb_LMDB_crab[All_names_hmdb_LMDB_crab ==""] <- NA
+
+#See if CTS data shows different KEGG and CIDs
+
+#change no result to NA
+CTS[CTS=="No result"] <- NA
+
+#remove duplicates
+CTS <- unique(CTS)
+
+#remove rows with NA in KEGG and PubChem columns
+CTS <- CTS[which(!(is.na(CTS$KEGG_CTS)) & substr(CTS$KEGG_CTS,1,1)!="D" | !(is.na(CTS$PubChem.CID))),]
+
+#combine CTS data with all data
+All_names_hmdb_LMDB_crab_CTS <- merge(All_names_hmdb_LMDB_crab,CTS, by = "InChI.Key", all.x = T)
+
+#preview missing pubchem IDs and kegg ids that are in the CTS data
+View(All_names_hmdb_LMDB_crab_CTS[which(is.na(All_names_hmdb_LMDB_crab_CTS$KEGG)& !(is.na(All_names_hmdb_LMDB_crab_CTS$KEGG_CTS))),c("Annotation", "InChI.Key", "PubChem.ID", "PubChem.CID","KEGG", "KEGG_CTS")])
+
+#loop through and replace NAs in PubChem.ID and KEGG column with CTS data
+for (i in 1:nrow(All_names_hmdb_LMDB_crab_CTS)){
+  if(is.na(All_names_hmdb_LMDB_crab_CTS$PubChem.ID[i]) & !(is.na(All_names_hmdb_LMDB_crab_CTS$PubChem.CID[i]))){
+    All_names_hmdb_LMDB_crab_CTS$PubChem.ID[i] <- All_names_hmdb_LMDB_crab_CTS$PubChem.CID[i]
+  }
+  if(is.na(All_names_hmdb_LMDB_crab_CTS$KEGG[i]) & !(is.na(All_names_hmdb_LMDB_crab_CTS$KEGG_CTS[i]))){
+    All_names_hmdb_LMDB_crab_CTS$KEGG[i] <- All_names_hmdb_LMDB_crab_CTS$KEGG_CTS[i]
+  }
+}
+
+#confirm this shows nothing now
+View(All_names_hmdb_LMDB_crab_CTS[which(is.na(All_names_hmdb_LMDB_crab_CTS$KEGG)& !(is.na(All_names_hmdb_LMDB_crab_CTS$KEGG_CTS))),c("Annotation", "InChI.Key", "PubChem.ID", "PubChem.CID","KEGG", "KEGG_CTS")])
+#it does
+
+#remove CTS columns
+All_names_hmdb_LMDB_crab_CTS <- All_names_hmdb_LMDB_crab_CTS[,!names(All_names_hmdb_LMDB_crab_CTS) %in% c("KEGG_CTS", "PubChem.CID")]
+
+#need to convert inosine's pubchem ID
+All_names_hmdb_LMDB_crab_CTS[which(All_names_hmdb_LMDB_crab_CTS_SMILES$Annotation == "inosine"),"PubChem.ID"] <- "135398641"
+
+
 
 #rename columns
-
-colnames(All_names) <- c("InChI.Key", "BinBase.name", "PubChem", "KEGG", "HMDBpc", "LMDBpc", "CrabPC", "CrabKegg")
+#colnames(All_names) <- c("InChI.Key", "BinBase.name", "PubChem", "KEGG", "HMDBpc", "LMDBpc", "CrabPC", "CrabKegg")
 
 
 #remove duplicate lines with same pubchem IDs
-All_names_STACKED <-tidyr::gather(All_names, "source", "ID", c(3,5,6,7))
-All_names_STACKED <- All_names_STACKED[,-5]
-All_names_STACKED <- unique(All_names_STACKED)
+#All_names_STACKED <-tidyr::gather(All_names, "source", "ID", c(3,5,6,7))
+#All_names_STACKED <- All_names_STACKED[,-5]
+#All_names_STACKED <- unique(All_names_STACKED)
 
 #rename column back to pubchem
-colnames(All_names_STACKED)[5] <- "PubChem"
+#colnames(All_names_STACKED)[5] <- "PubChem"
 #convert back to wide format excluding KEGG ids and pubchem IDs = NA
-All_names_uniquePubChem <- All_names_STACKED[which(!(is.na(All_names_STACKED$PubChem))),]
+#All_names_uniquePubChem <- All_names_STACKED[which(!(is.na(All_names_STACKED$PubChem))),]
 
 
 
 ##compounds are sometimes detected in both lipidomics and metabolomics and don't have the same binbase name, but do have the same pubchem ID
 #these should probably be considered only once...
 
+
+dup_pubchem <- All_names_hmdb_LMDB_crab_CTS[duplicated(All_names_hmdb_LMDB_crab_CTS$PubChem.ID),"PubChem.ID"]
+View(All_names_hmdb_LMDB_crab_CTS[which(All_names_hmdb_LMDB_crab_CTS$PubChem.ID %in% dup_pubchem),])
+
+#for Fatty Acids, use only the compounds detected in lipidomics
+#for PCs, use 36:4A, 36:5B, 38:6B, 38:5A
+
+All_names_hmdb_LMDB_crab_CTS <- unique(All_names_hmdb_LMDB_crab_CTS[-grep("heptadecanoic acid|arachidic acid|pentadecanoic acid|arachidonic acid|palmitoleic acid|oleic acid|stearic acid|cis-gondoic acid|behenic acid|PC \\(38:5\\) B|PC \\(38:6\\)|PC \\(38:6\\) A|	
+PC \\(38:6\\) C|PC \\(36:4\\) B|PC \\(36:5\\) A",All_names_hmdb_LMDB_crab_CTS$Annotation),])
+
+
+#write out table
+write.table(All_names_hmdb_LMDB_crab_CTS, "data/All_Known_Compound_Annotations.txt", sep ="\t", quote = F, row.names = F)
+
+#go to PubChem Identifier Exchange and convert pubchem IDs to SMILES
+#https://pubchem.ncbi.nlm.nih.gov/idexchange/idexchange.cgi
+
+#read in table
+pubchem_SMILES <- read.table("data/237110758970980098.txt", sep ="\t", stringsAsFactors = FALSE,header = F, quote ="",comment.char = "")
+
+colnames(pubchem_SMILES) <- c("PubChem.ID", "SMILES")
+
+#merge SMILES with data
+All_names_hmdb_LMDB_crab_CTS_SMILES <- merge(All_names_hmdb_LMDB_crab_CTS, pubchem_SMILES, by = "PubChem.ID", all.x = T)
+
+#for some reason inosine and guanosine are missing their smiles so I looked them up manually,
+
+#guanosine C1=NC2=C(N1C3C(C(C(O3)CO)O)O)NC(=NC2=O)N
+#inosince C1=NC2=C(N1C3C(C(C(O3)CO)O)O)NC(=NC2=O)N
+
+# I updated these in these in the file 237110758970980098.txt
+
+#realized inosine had an incorrect pubchem ID so I updated it in the CTS file 
+All_names_hmdb_LMDB_crab_CTS[which(All_names_hmdb_LMDB_crab_CTS$InChI.Key=="UGQMRVRMYYASKQ-KQYNXXCUSA-N"),"PubChem.ID"] <- "135398641"
+All_names_hmdb_LMDB_crab_CTS[which(All_names_hmdb_LMDB_crab_CTS$InChI.Key=="RHGKLRLOHDJJDR-BYPYZUCNSA-N"),"PubChem.ID"] <- "9750"
+  
+
+
+#read in table
+pubchem_SMILES <- read.table("data/237110758970980098.txt", sep ="\t", stringsAsFactors = FALSE,header = F, quote ="",comment.char = "")
+
+colnames(pubchem_SMILES) <- c("PubChem.ID", "SMILES")
+
+#merge SMILES with data
+All_names_hmdb_LMDB_crab_CTS_SMILES <- merge(All_names_hmdb_LMDB_crab_CTS, pubchem_SMILES, by = "PubChem.ID", all.x = T)
+
+
+View(All_names_hmdb_LMDB_crab_CTS_SMILES[duplicated(All_names_hmdb_LMDB_crab_CTS_SMILES$SMILES),])
+View(All_names_hmdb_LMDB_crab_CTS_SMILES[duplicated(All_names_hmdb_LMDB_crab_CTS_SMILES$PubChem.ID),])
+View(All_names_hmdb_LMDB_crab_CTS_SMILES[duplicated(All_names_hmdb_LMDB_crab_CTS_SMILES$Annotation),])
+
+#There are duplicate annotations; this is because of adducts
+#assigning unique names for adducts
+All_names_hmdb_LMDB_crab_CTS_SMILES[which(All_names_hmdb_LMDB_crab_CTS_SMILES$InChI.Key=="IIZPXYDJLKNOIY-JXPKJXOSSA-N"),"Annotation"] <- "PC (36:4) A..M.Hac.H"
+All_names_hmdb_LMDB_crab_CTS_SMILES[which(All_names_hmdb_LMDB_crab_CTS_SMILES$InChI.Key=="CNNSEHUKQJCGTE-UPPWDXJYSA-N"),"Annotation"] <- "PC (34:3) M.Hac.H"
+All_names_hmdb_LMDB_crab_CTS_SMILES[which(All_names_hmdb_LMDB_crab_CTS_SMILES$InChI.Key=="VRBJSZDBPQLNEM-PFTGJCAASA-N"),"Annotation"] <- "PE (38:6) M-H"
+All_names_hmdb_LMDB_crab_CTS_SMILES[which(All_names_hmdb_LMDB_crab_CTS_SMILES$InChI.Key=="YLWBKBDNHWQEFU-YJXJLLHLSA-N"),"Annotation"] <- "PC (38:5) A..M.Hac.H"
+All_names_hmdb_LMDB_crab_CTS_SMILES[which(All_names_hmdb_LMDB_crab_CTS_SMILES$InChI.Key=="KCNBSSYOJRUKOM-JALPNNRCSA-N"),"Annotation"] <- "PE (p-38:5) or PE (o-38:6) M-H"
+All_names_hmdb_LMDB_crab_CTS_SMILES[which(All_names_hmdb_LMDB_crab_CTS_SMILES$InChI.Key=="ATTCDOPAYPGSLE-LQULQHAGSA-N"),"Annotation"] <- "PC (p-38:5) or PC (o-38:6) M.Hac.H"
+All_names_hmdb_LMDB_crab_CTS_SMILES[which(All_names_hmdb_LMDB_crab_CTS_SMILES$InChI.Key=="DZPHTQGGRSWHLG-USOCFQKQSA-N"),"Annotation"] <- "PE (p-40:5) or PE (o-40:6) M-H"
+All_names_hmdb_LMDB_crab_CTS_SMILES[which(All_names_hmdb_LMDB_crab_CTS_SMILES$InChI.Key=="XVXISDREVDGQPX-PISDLAQISA-N"),"Annotation"] <- "PE (p-36:2) or PE (o-36:3) M-H"
+
+#check names are unique
+View(All_names_hmdb_LMDB_crab_CTS_SMILES[duplicated(All_names_hmdb_LMDB_crab_CTS_SMILES$Annotation),])
+
+#they are except for the ones with no info
+#only keep rows with values in PubChem ID and and SMILES
+
+All_names_hmdb_LMDB_crab_CTS_SMILES_metamapp <- All_names_hmdb_LMDB_crab_CTS_SMILES[which(!(is.na(All_names_hmdb_LMDB_crab_CTS_SMILES$PubChem.ID))& !(is.na(All_names_hmdb_LMDB_crab_CTS_SMILES$SMILES))),]
+All_names_hmdb_LMDB_crab_CTS_SMILES_metamapp <- All_names_hmdb_LMDB_crab_CTS_SMILES_metamapp[,c("PubChem.ID","KEGG", "SMILES", "Annotation")]
+
+
+
+
+
+
+
+
+
+#prepare metamapp input
 
 #consolidate KEGG column
 All_names_uniquePubChem$CrabKegg <- gsub("not found","", All_names_uniquePubChem$CrabKegg)
@@ -277,6 +528,12 @@ pubch_kegg_smiles <- pubch_kegg_smiles[-which(pubch_kegg_smiles$PubChem=="24699"
 
 #read in RSD, FC, and Cohen D info
 RSD_FC_cohen <- read.table("../FoldChange_CohenD/all_cmpds_FC_RSD_cohen.tsv", sep = "\t",header = TRUE,stringsAsFactors = FALSE, quote = "", comment.char = "")
+
+
+#change name of column 2
+colnames(metab_ID_table)[2] <- "Identifier"
+
+
 
 
 #get names with decimals instead of spaces

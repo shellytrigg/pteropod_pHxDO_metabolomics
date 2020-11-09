@@ -1,0 +1,424 @@
+---
+title: "Class Enrichment"
+author: "Shelly Trigg"
+date: "10/19/2020"
+output: html_document
+---
+
+load libraries
+```{r}
+library(bc3net)
+library(readxl)
+library(KEGGREST)
+
+```
+
+
+prepare hmdb data base
+```{bash engine.opts='-l'}
+
+cd ~/Documents/GitHub/pteropod_pHxDO_metabolomics/MetamappAnalysis/data
+
+#create table with HMDB class info
+#download current HMDB database
+wget https://hmdb.ca/system/downloads/current/hmdb_metabolites.zip
+
+#parse HMDB database file for class information, pubchem IDs, and KEGG IDs
+
+cat hmdb_metabolites.xml `#open file`|\
+awk '{if($0~/<creation_date>/)print "@@@"$0;else print $0}' `#add @@@ prefix to each line with the pattern <creation_date> since this field marks unique entries`| \
+grep -E '<.{0,1}creation_date.{0,1}>|<.{0,1}inchikey.{0,1}>|<.{0,1}pubchem_compound_id.{0,1}>|<.{0,1}kegg_id.{0,1}>|<.{0,1}super_class.{0,1}>|<.{0,1}class.{0,1}>|<.{0,1}sub_class.{0,1}>|<.{0,1}molecular_framework.{0,1}>' `#scan through each line and extract each line in order that contain these patterns; the .{0,1} allows for any string to be extracted before or after the text `| \
+tr '\n' '\t' `#substitute new lines for tabs; this combines all lines into one big line`| \
+tr '@@@' '\n' `#substitute the prefix @@@ for new line; this break the one big line up into lines for each unique entry`| \
+awk '{if($0~/creation_date/)print $0}' `#remove the lines containing empty space and only keep lines that contain information for each unique entry` |\
+awk -F"\t" '{OFS=FS}{if($0!~/<inchikey>/)print $1,"NA",$2,$3,$4,$5,$6,$7;else print $0}' `#for lines that don't contain the inchikey field print NA`|\
+awk -F"\t" '{OFS=FS}{if($0!~/<super_class>/)print $1,$2,"NA",$3,$4,$5,$6,$7;else print $0}' `#for lines that don't contain the super class field, print NA`|\
+awk -F"\t" '{OFS=FS}{if($0!~/<class>/)print $1,$2,$3,"NA",$4,$5,$6,$7;else print $0}' `#for lines that don't contain the main class field, print NA`|\
+awk -F"\t" '{OFS=FS}{if($0!~/<sub_class>/)print $1,$2,$3,$4,"NA",$5,$6,$7;else print $0}' `#for lines the don't contain the sub class field, print NA`|\
+awk -F"\t" '{OFS=FS}{if($0!~/<molecular_framework>/)print $1,$2,$3,$4,$5,"NA",$6,$7;else print $0}' `#for lines that don't contain the molecular framework field, print NA`|\
+awk -F"\t" '{OFS=FS}{if($0!~/kegg_id/)print $1,$2,$3,$4,$5,$6,"NA",$7;else print $0}' `#for lines that don't contain the kegg ID field, print NA`|\
+awk -F"\t" '{OFS=FS}{if($8~/<kegg_id>/)print $1,$2,$3,$4,$5,$6,$8,$7;else print $0}' `#if the 8th field contains the kegg ID, switch this field position with the 7th field position; this is because some entries have the Kegg ID in field 8 and some have it in field 7. So this code puts all kegg IDs in field 7 and all pubchem entries in field 8 `|\
+awk -F"\t" '{OFS=FS}{if($0!~/<pubchem_compound_id>/)print $1,$2,$3,$4,$5,$6,$7,"NA";else print $0}' `#for lines that don't contain the pubchem field, print NA `|\
+sed 's/<//g' `#remove all less than signs`| sed 's/>//g' `#remove all greater than sings`| sed 's/\///g' `#remove all forward slashes`| sed 's/pubchem_compound_id//g' |\
+sed 's/inchikey//g' |sed 's/creation_date//g' | sed 's/super_class//g' |\
+sed 's/sub_class//g' | sed 's/class//g' | sed 's/molecular_framework//g'|\
+sed 's/kegg_id//g' `#all this code cleans up the text from the data`|\
+sed 's/  //g' `replace double spaces with nothing`| awk -F"\t" '{OFS=FS}{print $1,$2,$3,$4,$5,$6,$7,$8}' `#print only the tab separated fields 1:8 and remove the trailing tab at the end of the lines `> hmdb_metabolites_classes.txt
+```
+
+
+create data base table with lipid map class info
+```{bash }
+#download lipid maps database from https://www.lipidmaps.org/data/structure/download.php
+
+wget https://www.lipidmaps.org/files/?file=LMSD&ext=sdf.zip
+
+#parse lipid maps database file for class information, pubchem IDs, and KEGG IDs
+cat structures.sdf `#open file`| \
+awk '{if($0~/> <LM_ID>/)print "@@@> <LM_ID>";else print $0}' `#add @@@ prefix to each line with the pattern <creation_date> since this field marks unique entries`|\
+grep -E -A1 'LM_ID|PUBCHEM_CID|INCHI_KEY|KEGG_ID|CATEGORY|MAIN_CLASS|SUB_CLASS' `#scan through each line and extract each line in order that contain these patterns; the .{0,1} allows for any string to be extracted before or after the text `|\
+tr '\n' '\t' `#substitute new lines for tabs; this combines all lines into one big line`| tr '@@@' '\n' `#substitute the prefix @@@ for new line; this break the one big line up into lines for each unique entry`|  tr -d '\t' `#remove tabs`| sed 's/--//g' `#replace double dash pattern with nothing`|\
+sed 's/> <LM_ID>/<LM_ID>/g' `#remove the > from the <LM_ID> pattern`|\
+awk '{if($0~/>/)print $0}' `#print only lines containing >`|\
+awk -F"\t" '{OFS=FS="\t"}{gsub(/> </,">\t<");if($0!~/SUB_CLASS/)print $1,$2,$3,"<SUB_CLASS>NA>",$4,$5,$6;else print $0}' `#for lines that don't contain SUB_CLASS, print <SUB_CLASS>NA>`|\
+awk -F"\t" '{OFS=FS="\t"}{if($0!~/PUBCHEM_CID/)print $1,$2,$3,$4,$5,"<PUBCHEM_CID>NA>",$6;else print $0}' `#for lines that don't contain PUBCHEM_CID, print <PUBCHEM_CID>NA>`|\
+awk -F"\t" '{OFS=FS="\t"}{if($0!~/KEGG_ID/)print $1,$2,$3,$4,$5,$6,"<KEGG_ID>NA>";else print $0}' `#for lines that don't contain KEGG_ID, print <KEGG_ID>NA>`|\
+sed 's/<LM_ID>//g' |sed 's/<CATEGORY>//g' |sed 's/<MAIN_CLASS>//g'|\
+sed 's/<SUB_CLASS>//g'|sed 's/<PUBCHEM_CID>//g'|sed 's/<KEGG_ID>//g'|sed 's/<INCHI_KEY>//g' `#clean up these text patterns from the data`|\
+sed 's/>//g' `#replace > with nothing` > LMSDF_lipid_classes.txt
+
+```
+
+
+read in data
+```{r}
+#Import supplementary stats results tables 
+metab_stats <- read_xlsx("data/pteropod_univar_PLSDA_RF_supplement.xlsx", sheet = 1)
+
+lipid_stats <- read_xlsx("data/pteropod_univar_PLSDA_RF_supplement.xlsx", sheet = 2)
+
+#Import ID conversion tables (created through Create_ID_Key.Rmd script)
+metab_ID_table <- read.table("metab_ID_Key.txt", sep = "\t", stringsAsFactors = F, quote = "", comment.char = "", header = T)
+
+lipid_ID_table <- read.table("lipid_ID_Key.txt", sep = "\t", stringsAsFactors = F, quote = "", comment.char = "", header = T)
+ 
+#Import HMDB and LipidMaps data base tables
+HMDB_classes <- read.table("data/hmdb_metabolites_classes.txt", header = F, sep = "\t", stringsAsFactors = F,quote = "")
+
+LMSDF_classes <- read.table("data/LMSDF_lipid_classes.txt", header = F, sep = "\t", stringsAsFactors = F)
+
+#Import compound annotations file (generated by Get_PubChem_Kegg_Smiles.R script)
+
+All_names_hmdb_LMDB_crab <- read.table("data/All_Known_Compound_Annotations.txt", sep ="\t",stringsAsFactors = F, header = T, quote = "", comment.char = "")
+
+```
+
+Format data
+```{r}
+
+#rename columns for merging
+colnames(metab_ID_table)[1] <- "Annotation"
+colnames(metab_stats)[1] <- "Annotation"
+colnames(lipid_stats)[1] <- "Annotation"
+
+#add column names to database files
+colnames(HMDB_classes) <- c("Creation.Date", "InChiKey", "Super.Class", "Main.Class", "Sub.Class", "Molecular.Framework", "KEGG.ID","PubChem.ID")
+
+colnames(LMSDF_classes) <- c("LM.ID", "Super.Class", "Main.Class", "Sub.Class", "InChiKey", "PubChem", "KEGG")
+
+
+#remove all special characters from Annotation string
+All_names_hmdb_LMDB_crab$Annotation <- str_replace_all(All_names_hmdb_LMDB_crab$Annotation, "[^[:alnum:]]", "")  
+
+metab_ID_table$Annotation <- str_replace_all(metab_ID_table$Annotation, "[^[:alnum:]]", "")
+
+lipid_ID_table$Annotation <- str_replace_all(lipid_ID_table$Annotation, "[^[:alnum:]]", "")
+
+metab_stats$Annotation <- str_replace_all(metab_stats$Annotation, "[^[:alnum:]]", "")
+lipid_stats$Annotation <- str_replace_all(lipid_stats$Annotation, "[^[:alnum:]]", "")
+
+#merge annotation dataframe with ID dataframe; remove the kegg column from the metab ID file since these are already accounted for in the annotation dataframe
+metab_ID_All_names_hmdb_LMDB_crab <- merge(All_names_hmdb_LMDB_crab, metab_ID_table[,-grep("KEGG", colnames(metab_ID_table))], by = "Annotation")
+
+#merge annotation dataframe with ID dataframe
+lipid_ID_All_names_hmdb_LMDB_crab <- merge(All_names_hmdb_LMDB_crab, lipid_ID_table, by = "Annotation")
+
+
+#create a new column to denote which compounds are significant or not. This first step adds the values in the stats results binary columns
+metab_stats$sig_sum <- rowSums(metab_stats[,c("RF_select_00008","PLSDA_select", "univar_select")])
+
+lipid_stats$sig_sum <- rowSums(lipid_stats[,c("RF_select_00006","PLSDA_select", "univar_select")])
+
+#This step adds another column with text denoting whether a compound is significant or not based off the sum of the stats results binary columns
+metab_stats$sig <- ifelse(metab_stats$sig_sum > 0, "sig", "not_sig")
+
+lipid_stats$sig <- ifelse(lipid_stats$sig_sum > 0, "sig", "not_sig")
+
+#merges stats data with annotations by Annotation string
+metab_stats_IDs <- merge(metab_stats, metab_ID_All_names_hmdb_LMDB_crab, by = "Annotation")
+
+lipid_stats_IDs <- merge(lipid_stats, lipid_ID_All_names_hmdb_LMDB_crab, by = "Annotation")
+
+```
+
+
+enrichment for lipid classes and KEGG pathways
+
+```{r}
+#create character vector for background lipids using pubchem ID
+bkgd <- lipid_stats_IDs$PubChem.ID
+
+#create character vector for significant lipids
+sig <- lipid_stats_IDs[which(lipid_stats_IDs$sig!="not_sig"),"PubChem.ID"]
+
+
+#create named list for all super classes. First create a character vector with all elements that will be in the list
+set_list <- as.character(LMSDF_classes$PubChem)
+
+### Super class enrichment ###
+
+#add super class as names to elements
+names(set_list) <- LMSDF_classes$Super.Class
+#convert character vector to a list
+set_list <- as.list(set_list)
+#remove elements that contain NA
+set_list <- set_list[!is.na(set_list)]
+#collapse list elements by their names so that all names are unique and all elements associated with a name go under that name, rather than having the same name listed for each associated element
+set_list <- sapply(unique(names(set_list)), function(x) unname(unlist(set_list[names(set_list)==x])), simplify=FALSE)
+
+#perform hypergeometric test
+tab.hypg <- enrichment(sig, bkgd, set_list, adj = "fdr", verbose =T)
+
+#rename the generic output with super class suffix
+tab.hypg_SC <- tab.hypg
+
+
+### Main class enrichment ###
+
+#create named list for all super classes. First create a character vector with all elements that will be in the list
+set_list <- as.character(LMSDF_classes$PubChem)
+#add main class as names to elements
+names(set_list) <- LMSDF_classes$Main.Class
+#convert character vector to a list
+set_list <- as.list(set_list)
+#remove elements that contain NA
+set_list <- set_list[!is.na(set_list)]
+#collapse list elements by their names so that all names are unique and all elements associated with a name go under that name, rather than having the same name listed for each associated element
+set_list <- sapply(unique(names(set_list)), function(x) unname(unlist(set_list[names(set_list)==x])), simplify=FALSE)
+#perform hypergeometric test
+tab.hypg <- enrichment(sig, bkgd, set_list, adj = "fdr", verbose =T)
+#rename the generic output with main class suffix
+tab.hypg_MC <- tab.hypg
+
+### Sub class enrichment ###
+
+#create named list for all super classes. First create a character vector with all elements that will be in the list
+set_list <- as.character(LMSDF_classes$PubChem)
+#add sub class as names to elements
+names(set_list) <- LMSDF_classes$Sub.Class
+#convert character vector to a list
+set_list <- as.list(set_list)
+#remove elements that contain NA
+set_list <- set_list[!is.na(set_list)]
+#collapse list elements by their names so that all names are unique and all elements associated with a name go under that name, rather than having the same name listed for each associated element
+set_list <- sapply(unique(names(set_list)), function(x) unname(unlist(set_list[names(set_list)==x])), simplify=FALSE)
+#perform hypergeometric test
+tab.hypg <- enrichment(sig, bkgd, set_list, adj = "fdr", verbose =T)
+#rename the generic output with sub class suffix
+tab.hypg_Sb <- tab.hypg
+
+#create a column for class
+tab.hypg_SC$Class <- "Super.Class"
+tab.hypg_MC$Class <- "Main.Class"
+tab.hypg_Sb$Class <- "Sub.Class"
+
+#combine all lipid class enrichment results
+tab.hypg_all_lipid <- rbind(tab.hypg_SC, tab.hypg_MC, tab.hypg_Sb)
+#add column to denote lipid data
+tab.hypg_all_lipid$compound <- "lipid"
+
+###### KEGG enrichment of lipids #######
+
+#generate list for background KEGG compounds
+bkgd <- lipid_stats_IDs$KEGG
+
+#generate list for significant KEGG compounds
+sig <- lipid_stats_IDs[which(lipid_stats_IDs$sig!="not_sig"),"KEGG"]
+
+#retrieve a named list with KEGG compounds as elements and with pathways as the element names
+pathways <- keggLink("compound", "pathway")
+#remove "path:" from names
+names(pathways) <- gsub("path:","",names(pathways))
+#remove cpd: from elements
+pathways <- gsub("cpd:","", pathways)
+
+#assign pathways character vector to set_list
+set_list <- pathways
+
+#collapse list elements by their names so that all names are unique and all elements associated with a name go under that name, rather than having the same name listed for each associated element
+set_list <- sapply(unique(names(set_list)), function(x) unname(unlist(set_list[names(set_list)==x])), simplify=FALSE)
+
+
+#perform test
+tab.hypg <- enrichment(sig, bkgd, set_list, adj = "fdr", verbose =T)
+
+tab.hypg_KEGG_lipid <- tab.hypg
+
+#add columns for merging with metab data
+tab.hypg_KEGG_lipid$Class <- "KEGG_pathway"
+tab.hypg_KEGG_lipid$compound <- "lipid"
+
+#get full pathways names from pathway IDs
+for(i in 1:nrow(tab.hypg_KEGG_lipid)){
+  tab.hypg_KEGG_lipid$PathName[i] <- keggFind("pathway",tab.hypg_KEGG_lipid$TermID[i])  
+}
+
+#combine full pathway names with termID
+tab.hypg_KEGG_lipid$TermID <- paste0(tab.hypg_KEGG_lipid$PathName," [",tab.hypg_KEGG_lipid$TermID,"]")
+
+#remove path names
+tab.hypg_KEGG_lipid$PathName <- NULL
+
+```
+
+enrichment for metabolite classes and KEGG pathways
+
+```{r}
+#create character vector for background lipids using pubchem ID
+bkgd <- metab_stats_IDs$PubChem
+
+#create character vector for significant lipids
+sig <- metab_stats_IDs[which(metab_stats_IDs$sig!="not_sig"),"PubChem"]
+
+#create named list for all super classes. First create a character vector with all elements that will be in the list
+set_list <- as.character(HMDB_classes$PubChem.ID)
+
+### Super class enrichment ###
+
+#add super class as names to elements
+names(set_list) <- HMDB_classes$Super.Class
+
+#convert character vector to a list
+set_list <- as.list(set_list)
+
+#remove elements that contain NA
+set_list <- set_list[!is.na(set_list)]
+
+#collapse list elements by their names so that all names are unique and all elements associated with a name go under that name, rather than having the same name listed for each associated element
+set_list <- sapply(unique(names(set_list)), function(x) unname(unlist(set_list[names(set_list)==x])), simplify=FALSE)
+
+#perform hypergeometric test
+tab.hypg <- enrichment(sig, bkgd, set_list, adj = "fdr", verbose =T)
+
+#rename the generic output with super class suffix
+tab.hypg_SC <- tab.hypg
+
+### Main class enrichment ###
+
+#add main class as names to elements
+names(set_list) <- HMDB_classes$Main.Class
+
+#convert character vector to a list
+set_list <- as.list(set_list)
+
+#remove elements that contain NA
+set_list <- set_list[!is.na(set_list)]
+
+#collapse list elements by their names so that all names are unique and all elements associated with a name go under that name, rather than having the same name listed for each associated element
+set_list <- sapply(unique(names(set_list)), function(x) unname(unlist(set_list[names(set_list)==x])), simplify=FALSE)
+
+#perform hypergeometric test
+tab.hypg <- enrichment(sig, bkgd, set_list, adj = "fdr", verbose =T)
+#rename the generic output with super class suffix
+tab.hypg_MC <- tab.hypg
+
+### Sub class enrichment ###
+
+#add sub class as names to elements
+names(set_list) <- HMDB_classes$Sub.Class
+
+#convert character vector to a list
+set_list <- as.list(set_list)
+
+#remove elements that contain NA
+set_list <- set_list[!is.na(set_list)]
+
+#collapse list elements by their names so that all names are unique and all elements associated with a name go under that name, rather than having the same name listed for each associated element
+set_list <- sapply(unique(names(set_list)), function(x) unname(unlist(set_list[names(set_list)==x])), simplify=FALSE)
+
+#perform hypergeometric test
+tab.hypg <- enrichment(sig, bkgd, set_list, adj = "fdr", verbose =T)
+#rename the generic output with super class suffix
+tab.hypg_Sb <- tab.hypg
+
+### Molecular Framework enrichment ###
+
+#add molecular framework as names to elements
+names(set_list) <- HMDB_classes$Molecular.Framework
+
+#convert character vector to a list
+set_list <- as.list(set_list)
+
+#remove elements that contain NA
+set_list <- set_list[!is.na(set_list)]
+
+#collapse list elements by their names so that all names are unique and all elements associated with a name go under that name, rather than having the same name listed for each associated element
+set_list <- sapply(unique(names(set_list)), function(x) unname(unlist(set_list[names(set_list)==x])), simplify=FALSE)
+
+#perform hypergeometric test
+tab.hypg <- enrichment(sig, bkgd, set_list, adj = "fdr", verbose =T)
+#rename the generic output with super class suffix
+tab.hypg_Mf <- tab.hypg
+
+#create a column for class
+tab.hypg_SC$Class <- "Super.Class"
+tab.hypg_MC$Class <- "Main.Class"
+tab.hypg_Sb$Class <- "Sub.Class"
+tab.hypg_Mf$Class <- "Molec.Fmwrk"
+
+#combine all metab class enrichment results
+tab.hypg_all_metab <- rbind(tab.hypg_SC, tab.hypg_MC, tab.hypg_Sb, tab.hypg_Mf)
+#add column to denote metab data
+tab.hypg_all_metab$compound <- "metabolite"
+
+###### KEGG enrichment
+
+#generate list for background KEGG compounds
+bkgd <- metab_stats_IDs$KEGG
+#generate list for significant KEGG compounds
+sig <- metab_stats_IDs[which(metab_stats_IDs$sig!="not_sig"),"KEGG"]
+
+#retrieve a named list with KEGG compounds as elements and with pathways as the element names
+pathways <- keggLink("compound", "pathway")
+#remove "path:" from names
+names(pathways) <- gsub("path:","",names(pathways))
+#remove cpd: from compound names
+pathways <- gsub("cpd:","", pathways)
+
+#assign pathways character vector to set_list
+set_list <- pathways
+
+#collapse list elements by their names so that all names are unique and all elements associated with a name go under that name, rather than having the same name listed for each associated element
+set_list <- sapply(unique(names(set_list)), function(x) unname(unlist(set_list[names(set_list)==x])), simplify=FALSE)
+
+#perform test
+tab.hypg <- enrichment(sig, bkgd, set_list, adj = "fdr", verbose =T)
+
+#rename the generic output with prefix
+tab.hypg_KEGG_metab <- tab.hypg
+
+#add columns for merging with metab data
+tab.hypg_KEGG_metab$Class <- "KEGG_pathway"
+tab.hypg_KEGG_metab$compound <- "metabolite"
+
+#get pathways names from pathway IDs
+for(i in 1:nrow(tab.hypg_KEGG_metab)){
+  tab.hypg_KEGG_metab$PathName[i] <- keggFind("pathway",tab.hypg_KEGG_metab$TermID[i])  
+}
+
+
+#combine full pathway names with termID
+tab.hypg_KEGG_metab$TermID <- paste0(tab.hypg_KEGG_metab$PathName," [",tab.hypg_KEGG_metab$TermID,"]")
+
+#remove path names
+tab.hypg_KEGG_metab$PathName <- NULL
+
+```
+
+
+
+write out enrichment data to table
+```{r}
+
+#merge metab and lipid class and kegg enrichment
+tab.hypg_all <- rbind(tab.hypg_all_lipid,tab.hypg_KEGG_lipid,tab.hypg_all_metab, tab.hypg_KEGG_metab)
+
+#re-order columns
+tab.hypg_all <- tab.hypg_all[,c("compound", "Class", "TermID","genes", "all", "pval", "padj")]
+
+#rename some columns
+colnames(tab.hypg_all) <- c("compound.type", "class", "term","sig.compounds", "background.compounds", "pval", "padj")
+
+write.table(tab.hypg_all, "Class_Kegg_Enrichment.txt", row.names = F, quote = F, sep = "\t")
+
+```

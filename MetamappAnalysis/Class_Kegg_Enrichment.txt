@@ -1,0 +1,1325 @@
+compound.type	class	term	sig.compounds	background.compounds	pval	padj
+lipid	Super.Class	Glycerophospholipids [GP]	35	77	0.00333124500936339	0.0266499600749071
+lipid	Super.Class	Sphingolipids [SP]	1	5	0.891642574647798	1
+lipid	Super.Class	Fatty Acyls [FA]	3	18	0.984294100486165	1
+lipid	Super.Class	Glycerolipids [GL]	0	2	1	1
+lipid	Super.Class	Sterol Lipids [ST]	0	0	1	1
+lipid	Super.Class	Prenol Lipids [PR]	0	0	1	1
+lipid	Super.Class	Saccharolipids [SL]	0	0	1	1
+lipid	Super.Class	Polyketides [PK]	0	0	1	1
+lipid	Main.Class	Glycerophosphocholines [GP01]	35	58	1.09714417137989e-07	8.66743895390113e-06
+lipid	Main.Class	Neutral glycosphingolipids [SP05]	1	1	0.353383458646617	1
+lipid	Main.Class	Fatty Acids and Conjugates [FA01]	3	18	0.984294100486165	1
+lipid	Main.Class	Other Fatty Acyls [FA00]	0	0	1	1
+lipid	Main.Class	Octadecanoids [FA02]	0	0	1	1
+lipid	Main.Class	Eicosanoids [FA03]	0	0	1	1
+lipid	Main.Class	Docosanoids [FA04]	0	0	1	1
+lipid	Main.Class	Fatty alcohols [FA05]	0	0	1	1
+lipid	Main.Class	Fatty aldehydes [FA06]	0	0	1	1
+lipid	Main.Class	Fatty esters [FA07]	0	0	1	1
+lipid	Main.Class	Fatty amides [FA08]	0	0	1	1
+lipid	Main.Class	Fatty nitriles [FA09]	0	0	1	1
+lipid	Main.Class	Fatty ethers [FA10]	0	0	1	1
+lipid	Main.Class	Hydrocarbons [FA11]	0	0	1	1
+lipid	Main.Class	Oxygenated hydrocarbons [FA12]	0	0	1	1
+lipid	Main.Class	Fatty acyl glycosides [FA13]	0	0	1	1
+lipid	Main.Class	Other Glycerolipids [GL00]	0	0	1	1
+lipid	Main.Class	Monoradylglycerols [GL01]	0	0	1	1
+lipid	Main.Class	Diradylglycerols [GL02]	0	1	1	1
+lipid	Main.Class	Triradylglycerols [GL03]	0	1	1	1
+lipid	Main.Class	Glycosylmonoradylglycerols [GL04]	0	0	1	1
+lipid	Main.Class	Glycosyldiradylglycerols [GL05]	0	0	1	1
+lipid	Main.Class	Other Glycerophospholipids [GP00]	0	0	1	1
+lipid	Main.Class	Glycerophosphoethanolamines [GP02]	0	19	1	1
+lipid	Main.Class	Glycerophosphoserines [GP03]	0	0	1	1
+lipid	Main.Class	Glycerophosphoglycerols [GP04]	0	0	1	1
+lipid	Main.Class	Glycerophosphoglycerophosphates [GP05]	0	0	1	1
+lipid	Main.Class	Glycerophosphoinositols [GP06]	0	0	1	1
+lipid	Main.Class	Glycerophosphoinositol monophosphates [GP07]	0	0	1	1
+lipid	Main.Class	Glycerophosphoinositol bisphosphates [GP08]	0	0	1	1
+lipid	Main.Class	Glycerophosphoinositol trisphosphates [GP09]	0	0	1	1
+lipid	Main.Class	Glycerophosphates [GP10]	0	0	1	1
+lipid	Main.Class	Glyceropyrophosphates [GP11]	0	0	1	1
+lipid	Main.Class	Glycerophosphoglycerophosphoglycerols [GP12]	0	0	1	1
+lipid	Main.Class	CDP-Glycerols [GP13]	0	0	1	1
+lipid	Main.Class	Glycosylglycerophospholipids [GP14]	0	0	1	1
+lipid	Main.Class	Glycerophosphoinositolglycans [GP15]	0	0	1	1
+lipid	Main.Class	Glycerophosphonocholines [GP16]	0	0	1	1
+lipid	Main.Class	Glycerophosphonoethanolamines [GP17]	0	0	1	1
+lipid	Main.Class	Di-glycerol tetraether phospholipids (caldarchaeols) [GP18]	0	0	1	1
+lipid	Main.Class	Glycerol-nonitol tetraether phospholipids [GP19]	0	0	1	1
+lipid	Main.Class	Oxidized glycerophospholipids [GP20]	0	0	1	1
+lipid	Main.Class	Other Sphingolipids [SP00]	0	0	1	1
+lipid	Main.Class	Sphingoid bases [SP01]	0	0	1	1
+lipid	Main.Class	Ceramides [SP02]	0	1	1	1
+lipid	Main.Class	Phosphosphingolipids [SP03]	0	3	1	1
+lipid	Main.Class	Phosphonosphingolipids [SP04]	0	0	1	1
+lipid	Main.Class	Acidic glycosphingolipids [SP06]	0	0	1	1
+lipid	Main.Class	Basic glycosphingolipids [SP07]	0	0	1	1
+lipid	Main.Class	Amphoteric glycosphingolipids [SP08]	0	0	1	1
+lipid	Main.Class	Sterols [ST01]	0	0	1	1
+lipid	Main.Class	Steroids [ST02]	0	0	1	1
+lipid	Main.Class	Secosteroids [ST03]	0	0	1	1
+lipid	Main.Class	Bile acids and derivatives [ST04]	0	0	1	1
+lipid	Main.Class	Steroid conjugates [ST05]	0	0	1	1
+lipid	Main.Class	Isoprenoids [PR01]	0	0	1	1
+lipid	Main.Class	Quinones and hydroquinones [PR02]	0	0	1	1
+lipid	Main.Class	Polyprenols [PR03]	0	0	1	1
+lipid	Main.Class	Hopanoids [PR04]	0	0	1	1
+lipid	Main.Class	Acylaminosugars [SL01]	0	0	1	1
+lipid	Main.Class	Acylaminosugar glycans [SL02]	0	0	1	1
+lipid	Main.Class	Acyltrehaloses [SL03]	0	0	1	1
+lipid	Main.Class	Other acyl sugars [SL05]	0	0	1	1
+lipid	Main.Class	Other Polyketides [PK00]	0	0	1	1
+lipid	Main.Class	Linear polyketides [PK01]	0	0	1	1
+lipid	Main.Class	Halogenated acetogenins [PK02]	0	0	1	1
+lipid	Main.Class	Annonaceae acetogenins [PK03]	0	0	1	1
+lipid	Main.Class	Macrolides and lactone polyketides [PK04]	0	0	1	1
+lipid	Main.Class	Ansamycins and related polyketides [PK05]	0	0	1	1
+lipid	Main.Class	Polyenes [PK06]	0	0	1	1
+lipid	Main.Class	Linear tetracyclines [PK07]	0	0	1	1
+lipid	Main.Class	Angucyclines [PK08]	0	0	1	1
+lipid	Main.Class	Polyether antibiotics [PK09]	0	0	1	1
+lipid	Main.Class	Aflatoxins and related substances [PK10]	0	0	1	1
+lipid	Main.Class	Cytochalasins [PK11]	0	0	1	1
+lipid	Main.Class	Flavonoids [PK12]	0	0	1	1
+lipid	Main.Class	Aromatic polyketides [PK13]	0	0	1	1
+lipid	Main.Class	Non-ribosomal peptide/polyketide hybrids [PK14]	0	0	1	1
+lipid	Main.Class	Phenolic lipids [PK15]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphocholines [GP0101]	33	43	7.7086798768194e-12	2.08905224661806e-09
+lipid	Sub.Class	Straight chain fatty acids [FA0101]	3	5	0.23689689177837	1
+lipid	Sub.Class	Simple Glc series [SP0501]	1	1	0.353383458646617	1
+lipid	Sub.Class	Monoacylglycerophosphocholines [GP0105]	2	12	0.966039062010548	1
+lipid	Sub.Class	NA	0	0	1	1
+lipid	Sub.Class	Branched fatty acids [FA0102]	0	0	1	1
+lipid	Sub.Class	Unsaturated fatty acids [FA0103]	0	13	1	1
+lipid	Sub.Class	Hydroperoxy fatty acids [FA0104]	0	0	1	1
+lipid	Sub.Class	Hydroxy fatty acids [FA0105]	0	0	1	1
+lipid	Sub.Class	Oxo fatty acids [FA0106]	0	0	1	1
+lipid	Sub.Class	Epoxy fatty acids [FA0107]	0	0	1	1
+lipid	Sub.Class	Methoxy fatty acids [FA0108]	0	0	1	1
+lipid	Sub.Class	Halogenated fatty acids [FA0109]	0	0	1	1
+lipid	Sub.Class	Amino fatty acids [FA0110]	0	0	1	1
+lipid	Sub.Class	Cyano fatty acids [FA0111]	0	0	1	1
+lipid	Sub.Class	Nitro fatty acids [FA0112]	0	0	1	1
+lipid	Sub.Class	Thia fatty acids [FA0113]	0	0	1	1
+lipid	Sub.Class	Carbocyclic fatty acids [FA0114]	0	0	1	1
+lipid	Sub.Class	Heterocyclic fatty acids [FA0115]	0	0	1	1
+lipid	Sub.Class	Mycolic acids [FA0116]	0	0	1	1
+lipid	Sub.Class	Dicarboxylic acids [FA0117]	0	0	1	1
+lipid	Sub.Class	Other Octadecanoids [FA0200]	0	0	1	1
+lipid	Sub.Class	12-oxophytodienoic acid metabolites [FA0201]	0	0	1	1
+lipid	Sub.Class	Jasmonic acids [FA0202]	0	0	1	1
+lipid	Sub.Class	Phytoprostanes [FA0203]	0	0	1	1
+lipid	Sub.Class	Phytofurans [FA0204]	0	0	1	1
+lipid	Sub.Class	Octadeca-1,2-dioxolanes [FA0205]	0	0	1	1
+lipid	Sub.Class	Other Eicosanoids [FA0300]	0	0	1	1
+lipid	Sub.Class	Prostaglandins [FA0301]	0	0	1	1
+lipid	Sub.Class	Leukotrienes [FA0302]	0	0	1	1
+lipid	Sub.Class	Thromboxanes [FA0303]	0	0	1	1
+lipid	Sub.Class	Lipoxins [FA0304]	0	0	1	1
+lipid	Sub.Class	Hydroxy/hydroperoxyeicosatrienoic acids [FA0305]	0	0	1	1
+lipid	Sub.Class	Hydroxy/hydroperoxyeicosatetraenoic acids [FA0306]	0	0	1	1
+lipid	Sub.Class	Hydroxy/hydroperoxyeicosapentaenoic acids [FA0307]	0	0	1	1
+lipid	Sub.Class	Epoxyeicosatrienoic acids [FA0308]	0	0	1	1
+lipid	Sub.Class	Hepoxilins [FA0309]	0	0	1	1
+lipid	Sub.Class	Levuglandins [FA0310]	0	0	1	1
+lipid	Sub.Class	Isoprostanes [FA0311]	0	0	1	1
+lipid	Sub.Class	Clavulones [FA0312]	0	0	1	1
+lipid	Sub.Class	Isofurans [FA0313]	0	0	1	1
+lipid	Sub.Class	Resolvin Es [FA0314]	0	0	1	1
+lipid	Sub.Class	Eicosa-1,2-dioxolanes [FA0315]	0	0	1	1
+lipid	Sub.Class	Other Docosanoids [FA0400]	0	0	1	1
+lipid	Sub.Class	Neuroprostanes [FA0401]	0	0	1	1
+lipid	Sub.Class	Neurofurans [FA0402]	0	0	1	1
+lipid	Sub.Class	Resolvin Ds [FA0403]	0	0	1	1
+lipid	Sub.Class	Protectins [FA0404]	0	0	1	1
+lipid	Sub.Class	Maresins [FA0405]	0	0	1	1
+lipid	Sub.Class	Docosa-1,2-dioxolanes [FA0406]	0	0	1	1
+lipid	Sub.Class	Wax monoesters [FA0701]	0	0	1	1
+lipid	Sub.Class	Wax diesters [FA0702]	0	0	1	1
+lipid	Sub.Class	Cyano esters [FA0703]	0	0	1	1
+lipid	Sub.Class	Lactones [FA0704]	0	0	1	1
+lipid	Sub.Class	Fatty acyl CoAs [FA0705]	0	0	1	1
+lipid	Sub.Class	Fatty acyl carnitines [FA0707]	0	0	1	1
+lipid	Sub.Class	Fatty acyl adenylates [FA0708]	0	0	1	1
+lipid	Sub.Class	Primary amides [FA0801]	0	0	1	1
+lipid	Sub.Class	N-acyl amines [FA0802]	0	0	1	1
+lipid	Sub.Class	Fatty acyl homoserine lactones [FA0803]	0	0	1	1
+lipid	Sub.Class	N-acyl ethanolamines (endocannabinoids) [FA0804]	0	0	1	1
+lipid	Sub.Class	Fatty acyl glycosides of mono- and disaccharides [FA1301]	0	0	1	1
+lipid	Sub.Class	Sophorolipids [FA1302]	0	0	1	1
+lipid	Sub.Class	Rhamnolipids [FA1303]	0	0	1	1
+lipid	Sub.Class	Monoacylglycerols [GL0101]	0	0	1	1
+lipid	Sub.Class	Monoalkylglycerols [GL0102]	0	0	1	1
+lipid	Sub.Class	Diacylglycerols [GL0201]	0	1	1	1
+lipid	Sub.Class	1-alkyl,2-acylglycerols [GL0202]	0	0	1	1
+lipid	Sub.Class	Dialkylglycerols [GL0203]	0	0	1	1
+lipid	Sub.Class	1Z-alkenylacylglycerols [GL0204]	0	0	1	1
+lipid	Sub.Class	Di-glycerol tetraethers [GL0205]	0	0	1	1
+lipid	Sub.Class	Di-glycerol tetraether glycans [GL0206]	0	0	1	1
+lipid	Sub.Class	1-acyl,2-alkylglycerols [GL0207]	0	0	1	1
+lipid	Sub.Class	Triacylglycerols [GL0301]	0	1	1	1
+lipid	Sub.Class	Estolides [GL0305]	0	0	1	1
+lipid	Sub.Class	Glycosylmonoacylglycerols [GL0401]	0	0	1	1
+lipid	Sub.Class	Glycosyldiacylglycerols [GL0501]	0	0	1	1
+lipid	Sub.Class	Glycosylalkylacylglycerols [GL0502]	0	0	1	1
+lipid	Sub.Class	Glycosyldialkylglycerols [GL0503]	0	0	1	1
+lipid	Sub.Class	1-alkyl,2-acylglycerophosphocholines [GP0102]	0	3	1	1
+lipid	Sub.Class	1-(1Z-alkenyl),2-acylglycerophosphocholines [GP0103]	0	0	1	1
+lipid	Sub.Class	Dialkylglycerophosphocholines [GP0104]	0	0	1	1
+lipid	Sub.Class	Monoalkylglycerophosphocholines [GP0106]	0	0	1	1
+lipid	Sub.Class	1Z-alkenylglycerophosphocholines [GP0107]	0	0	1	1
+lipid	Sub.Class	1-acyl,2-alkylglycerophosphocholines [GP0108]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphoethanolamines [GP0201]	0	8	1	1
+lipid	Sub.Class	1-alkyl,2-acylglycerophosphoethanolamines [GP0202]	0	2	1	1
+lipid	Sub.Class	1-(1Z-alkenyl),2-acylglycerophosphoethanolamines [GP0203]	0	8	1	1
+lipid	Sub.Class	Dialkylglycerophosphoethanolamines [GP0204]	0	0	1	1
+lipid	Sub.Class	Monoacylglycerophosphoethanolamines [GP0205]	0	1	1	1
+lipid	Sub.Class	Monoalkylglycerophosphoethanolamines [GP0206]	0	0	1	1
+lipid	Sub.Class	1Z-alkenylglycerophosphoethanolamines [GP0207]	0	0	1	1
+lipid	Sub.Class	1-acyl,2-alkylglycerophosphoethanolamines [GP0208]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphoserines [GP0301]	0	0	1	1
+lipid	Sub.Class	1-alkyl,2-acylglycerophosphoserines [GP0302]	0	0	1	1
+lipid	Sub.Class	1-(1Z-alkenyl),2-acylglycerophosphoserines [GP0303]	0	0	1	1
+lipid	Sub.Class	Monoacylglycerophosphoserines [GP0305]	0	0	1	1
+lipid	Sub.Class	Monoalkylglycerophosphoserines [GP0306]	0	0	1	1
+lipid	Sub.Class	1Z-alkenylglycerophosphoserines [GP0307]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphoglycerols [GP0401]	0	0	1	1
+lipid	Sub.Class	1-alkyl,2-acylglycerophosphoglycerols [GP0402]	0	0	1	1
+lipid	Sub.Class	1-(1Z-alkenyl),2-acylglycerophosphoglycerols [GP0403]	0	0	1	1
+lipid	Sub.Class	Dialkylglycerophosphoglycerols [GP0404]	0	0	1	1
+lipid	Sub.Class	Monoacylglycerophosphoglycerols [GP0405]	0	0	1	1
+lipid	Sub.Class	Monoalkylglycerophosphoglycerols [GP0406]	0	0	1	1
+lipid	Sub.Class	1Z-alkenylglycerophosphoglycerols [GP0407]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphomonoradylglycerols [GP0409]	0	0	1	1
+lipid	Sub.Class	Monoacylglycerophosphomonoradylglycerols [GP0410]	0	0	1	1
+lipid	Sub.Class	1-acyl,2-alkylglycerophosphoglycerols [GP0411]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphoglycerophosphates [GP0501]	0	0	1	1
+lipid	Sub.Class	Dialkylglycerophosphoglycerophosphates [GP0504]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphoinositols [GP0601]	0	0	1	1
+lipid	Sub.Class	1-alkyl,2-acylglycerophosphoinositols [GP0602]	0	0	1	1
+lipid	Sub.Class	1-(1Z-alkenyl),2-acylglycerophosphoinositols [GP0603]	0	0	1	1
+lipid	Sub.Class	Dialkylglycerophosphoinositols [GP0604]	0	0	1	1
+lipid	Sub.Class	Monoacylglycerophosphoinositols [GP0605]	0	0	1	1
+lipid	Sub.Class	Monoalkylglycerophosphoinositols [GP0606]	0	0	1	1
+lipid	Sub.Class	1Z-alkenylglycerophosphoinositols [GP0607]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphoinositol monophosphates [GP0701]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphoinositol bisphosphates [GP0801]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphoinositol trisphosphates [GP0901]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphates [GP1001]	0	0	1	1
+lipid	Sub.Class	1-alkyl,2-acylglycerophosphates [GP1002]	0	0	1	1
+lipid	Sub.Class	1-(1Z-alkenyl),2-acylglycerophosphates [GP1003]	0	0	1	1
+lipid	Sub.Class	Monoacylglycerophosphates [GP1005]	0	0	1	1
+lipid	Sub.Class	Monoalkylglycerophosphates [GP1006]	0	0	1	1
+lipid	Sub.Class	1Z-alkenylglycerophosphates [GP1007]	0	0	1	1
+lipid	Sub.Class	Diacylglyceropyrophosphates [GP1101]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphoglycerophosphodiradylglycerols [GP1201]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphoglycerophosphomonoradylglycerols [GP1202]	0	0	1	1
+lipid	Sub.Class	Monoacylglycerophosphoglycerophosphomonoradylglycerols [GP1207]	0	0	1	1
+lipid	Sub.Class	Dialkylglycerophosphoglycerophosphodiradylglycerols [GP1212]	0	0	1	1
+lipid	Sub.Class	CDP-diacylglycerols [GP1301]	0	0	1	1
+lipid	Sub.Class	Diacylglycosylglycerophospholipids [GP1401]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphoinositolglycans [GP1501]	0	0	1	1
+lipid	Sub.Class	Monoacylglycerophosphoinositolglycans [GP1504]	0	0	1	1
+lipid	Sub.Class	Dialkylglycerophosphoinositolglycans [GP1507]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphonocholines [GP1601]	0	0	1	1
+lipid	Sub.Class	Diacylglycerophosphonoethanolamines [GP1701]	0	0	1	1
+lipid	Sub.Class	Oxidized glycerophosphocholines [GP2001]	0	0	1	1
+lipid	Sub.Class	Oxidized glycerophosphoethanolamines [GP2002]	0	0	1	1
+lipid	Sub.Class	Oxidized Cardiolipins [GP2003]	0	0	1	1
+lipid	Sub.Class	Oxidized glycerophosphoserines [GP2004]	0	0	1	1
+lipid	Sub.Class	Oxidized glycerophosphoinositols [GP2005]	0	0	1	1
+lipid	Sub.Class	Oxidized glycerophosphates [GP2006]	0	0	1	1
+lipid	Sub.Class	Oxidized glycerophosphoglycerols [GP2007]	0	0	1	1
+lipid	Sub.Class	Sphing-4-enines (Sphingosines) [SP0101]	0	0	1	1
+lipid	Sub.Class	Sphinganines [SP0102]	0	0	1	1
+lipid	Sub.Class	4-Hydroxysphinganines (Phytosphingosines) [SP0103]	0	0	1	1
+lipid	Sub.Class	Sphingoid base homologs and variants [SP0104]	0	0	1	1
+lipid	Sub.Class	Sphingoid base 1-phosphates [SP0105]	0	0	1	1
+lipid	Sub.Class	Lysosphingomyelins and lysoglycosphingolipids [SP0106]	0	0	1	1
+lipid	Sub.Class	N-methylated sphingoid bases [SP0107]	0	0	1	1
+lipid	Sub.Class	Sphingoid base analogs [SP0108]	0	0	1	1
+lipid	Sub.Class	N-acylsphingosines (ceramides) [SP0201]	0	1	1	1
+lipid	Sub.Class	N-acylsphinganines (dihydroceramides) [SP0202]	0	0	1	1
+lipid	Sub.Class	N-acyl-4-hydroxysphinganines (phytoceramides) [SP0203]	0	0	1	1
+lipid	Sub.Class	Acylceramides [SP0204]	0	0	1	1
+lipid	Sub.Class	Ceramide 1-phosphates [SP0205]	0	0	1	1
+lipid	Sub.Class	Ceramide phosphocholines (sphingomyelins) [SP0301]	0	3	1	1
+lipid	Sub.Class	Ceramide phosphoethanolamines [SP0302]	0	0	1	1
+lipid	Sub.Class	Ceramide phosphoinositols [SP0303]	0	0	1	1
+lipid	Sub.Class	Other Neutral glycosphingolipids [SP0500]	0	0	1	1
+lipid	Sub.Class	Galalpha1-4Galbeta1-4Glc- (Globo series) [SP0502]	0	0	1	1
+lipid	Sub.Class	GalNAcbeta1-4Galbeta1-4Glc- (Ganglio series) [SP0503]	0	0	1	1
+lipid	Sub.Class	Galbeta1-3GlcNAcbeta1-3Galbeta1-4Glc- (Lacto series) [SP0504]	0	0	1	1
+lipid	Sub.Class	Galbeta1-4GlcNAcbeta1-3Galbeta1-4Glc- (Neolacto series) [SP0505]	0	0	1	1
+lipid	Sub.Class	Galalpha1-3Galbeta1-4Glc- (Isoglobo series) [SP0506]	0	0	1	1
+lipid	Sub.Class	Manalpha1-3Manbeta1-4Glc- (Mollu series) [SP0507]	0	0	1	1
+lipid	Sub.Class	GlcNAcbeta1-3Manbeta1-4Glc- (Arthro series) [SP0508]	0	0	1	1
+lipid	Sub.Class	Gal- (Gala series) [SP0509]	0	0	1	1
+lipid	Sub.Class	Gangliosides [SP0601]	0	0	1	1
+lipid	Sub.Class	Sulfoglycosphingolipids (sulfatides) [SP0602]	0	0	1	1
+lipid	Sub.Class	Glucuronosphingolipids [SP0603]	0	0	1	1
+lipid	Sub.Class	Phosphoglycosphingolipids [SP0604]	0	0	1	1
+lipid	Sub.Class	Cholesterol and derivatives [ST0101]	0	0	1	1
+lipid	Sub.Class	Steryl esters [ST0102]	0	0	1	1
+lipid	Sub.Class	Ergosterols and C24-methyl derivatives [ST0103]	0	0	1	1
+lipid	Sub.Class	Stigmasterols and C24-ethyl derivatives [ST0104]	0	0	1	1
+lipid	Sub.Class	C24-propyl sterols and derivatives [ST0105]	0	0	1	1
+lipid	Sub.Class	Gorgosterols and derivatives [ST0106]	0	0	1	1
+lipid	Sub.Class	Furostanols and derivatives [ST0107]	0	0	1	1
+lipid	Sub.Class	Spirostanols and derivatives [ST0108]	0	0	1	1
+lipid	Sub.Class	Furospirostanols and derivatives [ST0109]	0	0	1	1
+lipid	Sub.Class	Cycloartanols and derivatives [ST0110]	0	0	1	1
+lipid	Sub.Class	Calysterols and cyclopropyl sidechain derivatives [ST0111]	0	0	1	1
+lipid	Sub.Class	Cardanolides and derivatives [ST0112]	0	0	1	1
+lipid	Sub.Class	Bufanolides and derivatives [ST0113]	0	0	1	1
+lipid	Sub.Class	Brassinolides and derivatives [ST0114]	0	0	1	1
+lipid	Sub.Class	Solanidines and alkaloid derivatives [ST0115]	0	0	1	1
+lipid	Sub.Class	Withanolides and derivatives [ST0116]	0	0	1	1
+lipid	Sub.Class	C18 steroids (estrogens) and derivatives [ST0201]	0	0	1	1
+lipid	Sub.Class	C19 steroids (androgens) and derivatives [ST0202]	0	0	1	1
+lipid	Sub.Class	C21 steroids (gluco/mineralocorticoids, progestogins) and derivatives [ST0203]	0	0	1	1
+lipid	Sub.Class	Vitamin D2 and derivatives [ST0301]	0	0	1	1
+lipid	Sub.Class	Vitamin D3 and derivatives [ST0302]	0	0	1	1
+lipid	Sub.Class	Vitamin D4 and derivatives [ST0303]	0	0	1	1
+lipid	Sub.Class	Vitamin D5 and derivatives [ST0304]	0	0	1	1
+lipid	Sub.Class	Vitamin D6 and derivatives [ST0305]	0	0	1	1
+lipid	Sub.Class	Vitamin D7 and derivatives [ST0306]	0	0	1	1
+lipid	Sub.Class	C24 bile acids, alcohols, and derivatives [ST0401]	0	0	1	1
+lipid	Sub.Class	C26 bile acids, alcohols, and derivatives [ST0402]	0	0	1	1
+lipid	Sub.Class	C27 bile acids, alcohols, and derivatives [ST0403]	0	0	1	1
+lipid	Sub.Class	C28 bile acids, alcohols, and derivatives [ST0404]	0	0	1	1
+lipid	Sub.Class	C22 bile acids, alcohols, and derivatives [ST0405]	0	0	1	1
+lipid	Sub.Class	C23 bile acids, alcohols, and derivatives [ST0406]	0	0	1	1
+lipid	Sub.Class	C25 bile acids, alcohols, and derivatives [ST0407]	0	0	1	1
+lipid	Sub.Class	C29 bile acids, alcohols, and derivatives [ST0408]	0	0	1	1
+lipid	Sub.Class	Glucuronides [ST0501]	0	0	1	1
+lipid	Sub.Class	Sulfates [ST0502]	0	0	1	1
+lipid	Sub.Class	Glycine conjugates [ST0503]	0	0	1	1
+lipid	Sub.Class	Taurine conjugates [ST0504]	0	0	1	1
+lipid	Sub.Class	Other Steroid conjugates [ST0505]	0	0	1	1
+lipid	Sub.Class	C5 isoprenoids (hemiterpenes) [PR0101]	0	0	1	1
+lipid	Sub.Class	C10 isoprenoids (monoterpenes) [PR0102]	0	0	1	1
+lipid	Sub.Class	C15 isoprenoids (sesquiterpenes) [PR0103]	0	0	1	1
+lipid	Sub.Class	C20 isoprenoids (diterpenes) [PR0104]	0	0	1	1
+lipid	Sub.Class	C25 isoprenoids (sesterterpenes) [PR0105]	0	0	1	1
+lipid	Sub.Class	C30 isoprenoids (triterpenes) [PR0106]	0	0	1	1
+lipid	Sub.Class	C40 isoprenoids (tetraterpenes) [PR0107]	0	0	1	1
+lipid	Sub.Class	Polyterpenes [PR0108]	0	0	1	1
+lipid	Sub.Class	Retinoids [PR0109]	0	0	1	1
+lipid	Sub.Class	Ubiquinones [PR0201]	0	0	1	1
+lipid	Sub.Class	Vitamin E [PR0202]	0	0	1	1
+lipid	Sub.Class	Vitamin K [PR0203]	0	0	1	1
+lipid	Sub.Class	Bactoprenols [PR0301]	0	0	1	1
+lipid	Sub.Class	Bactoprenol monophosphates [PR0302]	0	0	1	1
+lipid	Sub.Class	Bactoprenol diphosphates [PR0303]	0	0	1	1
+lipid	Sub.Class	Phytoprenols [PR0304]	0	0	1	1
+lipid	Sub.Class	Dolichols [PR0307]	0	0	1	1
+lipid	Sub.Class	Dolichol monophosphates [PR0308]	0	0	1	1
+lipid	Sub.Class	Dolichol diphosphates [PR0309]	0	0	1	1
+lipid	Sub.Class	Monoacylaminosugars [SL0101]	0	0	1	1
+lipid	Sub.Class	Diacylaminosugars [SL0102]	0	0	1	1
+lipid	Sub.Class	Tetraacylaminosugars [SL0104]	0	0	1	1
+lipid	Sub.Class	Pentaacylaminosugars [SL0105]	0	0	1	1
+lipid	Sub.Class	Hexaacylaminosugars [SL0106]	0	0	1	1
+lipid	Sub.Class	Heptaacylaminosugars [SL0107]	0	0	1	1
+lipid	Sub.Class	Anthocyanidins [PK1201]	0	0	1	1
+lipid	Sub.Class	Flavans, Flavanols and Leucoanthocyanidins [PK1202]	0	0	1	1
+lipid	Sub.Class	Proanthocyanidins [PK1203]	0	0	1	1
+lipid	Sub.Class	Biflavonoids and polyflavonoids [PK1204]	0	0	1	1
+lipid	Sub.Class	Isoflavonoids [PK1205]	0	0	1	1
+lipid	Sub.Class	Rotenoid flavonoids [PK1206]	0	0	1	1
+lipid	Sub.Class	Pterocarpans [PK1207]	0	0	1	1
+lipid	Sub.Class	Isoflavans [PK1208]	0	0	1	1
+lipid	Sub.Class	Coumestan flavonoids [PK1209]	0	0	1	1
+lipid	Sub.Class	Neoflavonoids [PK1210]	0	0	1	1
+lipid	Sub.Class	Flavones and Flavonols [PK1211]	0	0	1	1
+lipid	Sub.Class	Chalcones and dihydrochalcones [PK1212]	0	0	1	1
+lipid	Sub.Class	Aurone flavonoids [PK1213]	0	0	1	1
+lipid	Sub.Class	Flavanones [PK1214]	0	0	1	1
+lipid	Sub.Class	Dihydroflavonols [PK1215]	0	0	1	1
+lipid	Sub.Class	Other Flavonoids [PK1216]	0	0	1	1
+lipid	Sub.Class	Monocyclic aromatic polyketides [PK1301]	0	0	1	1
+lipid	Sub.Class	Naphthalenes and naphthoquinones [PK1302]	0	0	1	1
+lipid	Sub.Class	Benzoisochromanquinones [PK1303]	0	0	1	1
+lipid	Sub.Class	Anthracenes and phenanthrenes [PK1304]	0	0	1	1
+lipid	Sub.Class	Anthracyclinones [PK1305]	0	0	1	1
+lipid	Sub.Class	Dibenzofurans, griseofulvins, dibenzopyrans and xanthones [PK1306]	0	0	1	1
+lipid	Sub.Class	Diphenylmethanes, acylphloroglucinols and benzophenones [PK1307]	0	0	1	1
+lipid	Sub.Class	Depsides and depsidones [PK1308]	0	0	1	1
+lipid	Sub.Class	Diphenyl ethers, biphenyls, dibenzyls and stilbenes [PK1309]	0	0	1	1
+lipid	Sub.Class	Benzofuranoids [PK1310]	0	0	1	1
+lipid	Sub.Class	Benzopyranoids [PK1311]	0	0	1	1
+lipid	Sub.Class	Other aromatic polyketides [PK1312]	0	0	1	1
+lipid	Sub.Class	Alkyl phenols and derivatives [PK1501]	0	0	1	1
+lipid	Sub.Class	Alkyl catechols and derivatives [PK1502]	0	0	1	1
+lipid	Sub.Class	Alkyl resorcinols and derivatives [PK1503]	0	0	1	1
+lipid	Sub.Class	Anacardic acids and derivatives [PK1504]	0	0	1	1
+lipid	Sub.Class	Alkyl hydroquinones and derivatives [PK1505]	0	0	1	1
+lipid	KEGG_pathway	Choline metabolism in cancer [map05231]	34	34	6.72141518999499e-10	2.92381560764782e-07
+lipid	KEGG_pathway	Arachidonic acid metabolism [map00590]	32	33	9.81518658173273e-08	1.42320205435125e-05
+lipid	KEGG_pathway	alpha-Linolenic acid metabolism [map00592]	32	33	9.81518658173273e-08	1.42320205435125e-05
+lipid	KEGG_pathway	Linoleic acid metabolism [map00591]	32	35	7.31727772958156e-06	0.000795753953091995
+lipid	KEGG_pathway	Glycerophospholipid metabolism [map00564]	34	40	0.000168433806773584	0.0146537411893018
+lipid	KEGG_pathway	Biosynthesis of secondary metabolites [map01110]	32	39	0.0019733812149834	0.122631546931111
+lipid	KEGG_pathway	Retrograde endocannabinoid signaling [map04723]	32	39	0.0019733812149834	0.122631546931111
+lipid	KEGG_pathway	Metabolic pathways [map01100]	32	46	0.289010256117884	1
+lipid	KEGG_pathway	Cutin, suberine and wax biosynthesis [map00073]	1	2	0.888933601609658	1
+lipid	KEGG_pathway	Phototransduction - fly [map04745]	1	2	0.888933601609658	1
+lipid	KEGG_pathway	Fatty acid biosynthesis [map00061]	1	3	0.964587525150905	1
+lipid	KEGG_pathway	Biosynthesis of plant secondary metabolites [map01060]	1	4	0.989063794531897	1
+lipid	KEGG_pathway	Biosynthesis of unsaturated fatty acids [map01040]	3	14	0.999987360926315	1
+lipid	KEGG_pathway	Glycolysis / Gluconeogenesis [map00010]	0	0	1	1
+lipid	KEGG_pathway	Citrate cycle (TCA cycle) [map00020]	0	0	1	1
+lipid	KEGG_pathway	Pentose phosphate pathway [map00030]	0	0	1	1
+lipid	KEGG_pathway	Pentose and glucuronate interconversions [map00040]	0	0	1	1
+lipid	KEGG_pathway	Fructose and mannose metabolism [map00051]	0	0	1	1
+lipid	KEGG_pathway	Galactose metabolism [map00052]	0	0	1	1
+lipid	KEGG_pathway	Ascorbate and aldarate metabolism [map00053]	0	0	1	1
+lipid	KEGG_pathway	Fatty acid elongation [map00062]	0	0	1	1
+lipid	KEGG_pathway	Fatty acid degradation [map00071]	0	0	1	1
+lipid	KEGG_pathway	Synthesis and degradation of ketone bodies [map00072]	0	0	1	1
+lipid	KEGG_pathway	Steroid biosynthesis [map00100]	0	0	1	1
+lipid	KEGG_pathway	Primary bile acid biosynthesis [map00120]	0	0	1	1
+lipid	KEGG_pathway	Secondary bile acid biosynthesis [map00121]	0	0	1	1
+lipid	KEGG_pathway	Ubiquinone and other terpenoid-quinone biosynthesis [map00130]	0	0	1	1
+lipid	KEGG_pathway	Steroid hormone biosynthesis [map00140]	0	0	1	1
+lipid	KEGG_pathway	Oxidative phosphorylation [map00190]	0	0	1	1
+lipid	KEGG_pathway	Photosynthesis [map00195]	0	0	1	1
+lipid	KEGG_pathway	Arginine biosynthesis [map00220]	0	0	1	1
+lipid	KEGG_pathway	Purine metabolism [map00230]	0	0	1	1
+lipid	KEGG_pathway	Caffeine metabolism [map00232]	0	0	1	1
+lipid	KEGG_pathway	Pyrimidine metabolism [map00240]	0	0	1	1
+lipid	KEGG_pathway	Alanine, aspartate and glutamate metabolism [map00250]	0	0	1	1
+lipid	KEGG_pathway	Tetracycline biosynthesis [map00253]	0	0	1	1
+lipid	KEGG_pathway	Aflatoxin biosynthesis [map00254]	0	0	1	1
+lipid	KEGG_pathway	Glycine, serine and threonine metabolism [map00260]	0	0	1	1
+lipid	KEGG_pathway	Monobactam biosynthesis [map00261]	0	0	1	1
+lipid	KEGG_pathway	Cysteine and methionine metabolism [map00270]	0	0	1	1
+lipid	KEGG_pathway	Valine, leucine and isoleucine degradation [map00280]	0	0	1	1
+lipid	KEGG_pathway	Geraniol degradation [map00281]	0	0	1	1
+lipid	KEGG_pathway	Valine, leucine and isoleucine biosynthesis [map00290]	0	0	1	1
+lipid	KEGG_pathway	Lysine biosynthesis [map00300]	0	0	1	1
+lipid	KEGG_pathway	Lysine degradation [map00310]	0	0	1	1
+lipid	KEGG_pathway	Penicillin and cephalosporin biosynthesis [map00311]	0	0	1	1
+lipid	KEGG_pathway	Arginine and proline metabolism [map00330]	0	0	1	1
+lipid	KEGG_pathway	Clavulanic acid biosynthesis [map00331]	0	0	1	1
+lipid	KEGG_pathway	Carbapenem biosynthesis [map00332]	0	0	1	1
+lipid	KEGG_pathway	Prodigiosin biosynthesis [map00333]	0	0	1	1
+lipid	KEGG_pathway	Histidine metabolism [map00340]	0	0	1	1
+lipid	KEGG_pathway	Tyrosine metabolism [map00350]	0	0	1	1
+lipid	KEGG_pathway	Phenylalanine metabolism [map00360]	0	0	1	1
+lipid	KEGG_pathway	Chlorocyclohexane and chlorobenzene degradation [map00361]	0	0	1	1
+lipid	KEGG_pathway	Benzoate degradation [map00362]	0	0	1	1
+lipid	KEGG_pathway	Bisphenol degradation [map00363]	0	0	1	1
+lipid	KEGG_pathway	Fluorobenzoate degradation [map00364]	0	0	1	1
+lipid	KEGG_pathway	Furfural degradation [map00365]	0	0	1	1
+lipid	KEGG_pathway	Tryptophan metabolism [map00380]	0	0	1	1
+lipid	KEGG_pathway	Phenylalanine, tyrosine and tryptophan biosynthesis [map00400]	0	0	1	1
+lipid	KEGG_pathway	Novobiocin biosynthesis [map00401]	0	0	1	1
+lipid	KEGG_pathway	Benzoxazinoid biosynthesis [map00402]	0	0	1	1
+lipid	KEGG_pathway	Indole diterpene alkaloid biosynthesis [map00403]	0	0	1	1
+lipid	KEGG_pathway	Staurosporine biosynthesis [map00404]	0	0	1	1
+lipid	KEGG_pathway	Phenazine biosynthesis [map00405]	0	0	1	1
+lipid	KEGG_pathway	beta-Alanine metabolism [map00410]	0	0	1	1
+lipid	KEGG_pathway	Taurine and hypotaurine metabolism [map00430]	0	0	1	1
+lipid	KEGG_pathway	Phosphonate and phosphinate metabolism [map00440]	0	0	1	1
+lipid	KEGG_pathway	Selenocompound metabolism [map00450]	0	0	1	1
+lipid	KEGG_pathway	Cyanoamino acid metabolism [map00460]	0	0	1	1
+lipid	KEGG_pathway	D-Glutamine and D-glutamate metabolism [map00471]	0	0	1	1
+lipid	KEGG_pathway	D-Arginine and D-ornithine metabolism [map00472]	0	0	1	1
+lipid	KEGG_pathway	D-Alanine metabolism [map00473]	0	0	1	1
+lipid	KEGG_pathway	Glutathione metabolism [map00480]	0	0	1	1
+lipid	KEGG_pathway	Starch and sucrose metabolism [map00500]	0	0	1	1
+lipid	KEGG_pathway	N-Glycan biosynthesis [map00510]	0	0	1	1
+lipid	KEGG_pathway	Mucin type O-glycan biosynthesis [map00512]	0	0	1	1
+lipid	KEGG_pathway	Mannose type O-glycan biosynthesis [map00515]	0	0	1	1
+lipid	KEGG_pathway	Amino sugar and nucleotide sugar metabolism [map00520]	0	0	1	1
+lipid	KEGG_pathway	Streptomycin biosynthesis [map00521]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of 12-, 14- and 16-membered macrolides [map00522]	0	0	1	1
+lipid	KEGG_pathway	Polyketide sugar unit biosynthesis [map00523]	0	0	1	1
+lipid	KEGG_pathway	Neomycin, kanamycin and gentamicin biosynthesis [map00524]	0	0	1	1
+lipid	KEGG_pathway	Acarbose and validamycin biosynthesis [map00525]	0	0	1	1
+lipid	KEGG_pathway	Glycosaminoglycan degradation [map00531]	0	0	1	1
+lipid	KEGG_pathway	Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate [map00532]	0	0	1	1
+lipid	KEGG_pathway	Glycosaminoglycan biosynthesis - heparan sulfate / heparin [map00534]	0	0	1	1
+lipid	KEGG_pathway	Lipopolysaccharide biosynthesis [map00540]	0	0	1	1
+lipid	KEGG_pathway	O-Antigen nucleotide sugar biosynthesis [map00541]	0	0	1	1
+lipid	KEGG_pathway	Peptidoglycan biosynthesis [map00550]	0	0	1	1
+lipid	KEGG_pathway	Glycerolipid metabolism [map00561]	0	0	1	1
+lipid	KEGG_pathway	Inositol phosphate metabolism [map00562]	0	0	1	1
+lipid	KEGG_pathway	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis [map00563]	0	6	1	1
+lipid	KEGG_pathway	Ether lipid metabolism [map00565]	0	0	1	1
+lipid	KEGG_pathway	Lipoarabinomannan (LAM) biosynthesis [map00571]	0	0	1	1
+lipid	KEGG_pathway	Arabinogalactan biosynthesis - Mycobacterium [map00572]	0	0	1	1
+lipid	KEGG_pathway	Sphingolipid metabolism [map00600]	0	4	1	1
+lipid	KEGG_pathway	Pyruvate metabolism [map00620]	0	0	1	1
+lipid	KEGG_pathway	Dioxin degradation [map00621]	0	0	1	1
+lipid	KEGG_pathway	Xylene degradation [map00622]	0	0	1	1
+lipid	KEGG_pathway	Toluene degradation [map00623]	0	0	1	1
+lipid	KEGG_pathway	Polycyclic aromatic hydrocarbon degradation [map00624]	0	0	1	1
+lipid	KEGG_pathway	Chloroalkane and chloroalkene degradation [map00625]	0	0	1	1
+lipid	KEGG_pathway	Naphthalene degradation [map00626]	0	0	1	1
+lipid	KEGG_pathway	Aminobenzoate degradation [map00627]	0	0	1	1
+lipid	KEGG_pathway	Glyoxylate and dicarboxylate metabolism [map00630]	0	0	1	1
+lipid	KEGG_pathway	Nitrotoluene degradation [map00633]	0	0	1	1
+lipid	KEGG_pathway	Propanoate metabolism [map00640]	0	0	1	1
+lipid	KEGG_pathway	Ethylbenzene degradation [map00642]	0	0	1	1
+lipid	KEGG_pathway	Styrene degradation [map00643]	0	0	1	1
+lipid	KEGG_pathway	Butanoate metabolism [map00650]	0	0	1	1
+lipid	KEGG_pathway	C5-Branched dibasic acid metabolism [map00660]	0	0	1	1
+lipid	KEGG_pathway	One carbon pool by folate [map00670]	0	0	1	1
+lipid	KEGG_pathway	Methane metabolism [map00680]	0	0	1	1
+lipid	KEGG_pathway	Carbon fixation in photosynthetic organisms [map00710]	0	0	1	1
+lipid	KEGG_pathway	Carbon fixation pathways in prokaryotes [map00720]	0	0	1	1
+lipid	KEGG_pathway	Thiamine metabolism [map00730]	0	0	1	1
+lipid	KEGG_pathway	Riboflavin metabolism [map00740]	0	0	1	1
+lipid	KEGG_pathway	Vitamin B6 metabolism [map00750]	0	0	1	1
+lipid	KEGG_pathway	Nicotinate and nicotinamide metabolism [map00760]	0	0	1	1
+lipid	KEGG_pathway	Pantothenate and CoA biosynthesis [map00770]	0	0	1	1
+lipid	KEGG_pathway	Biotin metabolism [map00780]	0	0	1	1
+lipid	KEGG_pathway	Lipoic acid metabolism [map00785]	0	0	1	1
+lipid	KEGG_pathway	Folate biosynthesis [map00790]	0	0	1	1
+lipid	KEGG_pathway	Atrazine degradation [map00791]	0	0	1	1
+lipid	KEGG_pathway	Retinol metabolism [map00830]	0	0	1	1
+lipid	KEGG_pathway	Porphyrin and chlorophyll metabolism [map00860]	0	0	1	1
+lipid	KEGG_pathway	Terpenoid backbone biosynthesis [map00900]	0	0	1	1
+lipid	KEGG_pathway	Indole alkaloid biosynthesis [map00901]	0	0	1	1
+lipid	KEGG_pathway	Monoterpenoid biosynthesis [map00902]	0	0	1	1
+lipid	KEGG_pathway	Limonene and pinene degradation [map00903]	0	0	1	1
+lipid	KEGG_pathway	Diterpenoid biosynthesis [map00904]	0	0	1	1
+lipid	KEGG_pathway	Brassinosteroid biosynthesis [map00905]	0	0	1	1
+lipid	KEGG_pathway	Carotenoid biosynthesis [map00906]	0	0	1	1
+lipid	KEGG_pathway	Zeatin biosynthesis [map00908]	0	0	1	1
+lipid	KEGG_pathway	Sesquiterpenoid and triterpenoid biosynthesis [map00909]	0	0	1	1
+lipid	KEGG_pathway	Nitrogen metabolism [map00910]	0	0	1	1
+lipid	KEGG_pathway	Sulfur metabolism [map00920]	0	0	1	1
+lipid	KEGG_pathway	Caprolactam degradation [map00930]	0	0	1	1
+lipid	KEGG_pathway	Phenylpropanoid biosynthesis [map00940]	0	0	1	1
+lipid	KEGG_pathway	Flavonoid biosynthesis [map00941]	0	0	1	1
+lipid	KEGG_pathway	Anthocyanin biosynthesis [map00942]	0	0	1	1
+lipid	KEGG_pathway	Isoflavonoid biosynthesis [map00943]	0	0	1	1
+lipid	KEGG_pathway	Flavone and flavonol biosynthesis [map00944]	0	0	1	1
+lipid	KEGG_pathway	Stilbenoid, diarylheptanoid and gingerol biosynthesis [map00945]	0	0	1	1
+lipid	KEGG_pathway	Isoquinoline alkaloid biosynthesis [map00950]	0	0	1	1
+lipid	KEGG_pathway	Tropane, piperidine and pyridine alkaloid biosynthesis [map00960]	0	0	1	1
+lipid	KEGG_pathway	Betalain biosynthesis [map00965]	0	0	1	1
+lipid	KEGG_pathway	Glucosinolate biosynthesis [map00966]	0	0	1	1
+lipid	KEGG_pathway	Aminoacyl-tRNA biosynthesis [map00970]	0	0	1	1
+lipid	KEGG_pathway	Metabolism of xenobiotics by cytochrome P450 [map00980]	0	0	1	1
+lipid	KEGG_pathway	Insect hormone biosynthesis [map00981]	0	0	1	1
+lipid	KEGG_pathway	Drug metabolism - cytochrome P450 [map00982]	0	0	1	1
+lipid	KEGG_pathway	Drug metabolism - other enzymes [map00983]	0	0	1	1
+lipid	KEGG_pathway	Steroid degradation [map00984]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of various secondary metabolites - part 3 [map00997]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of various secondary metabolites - part 2 [map00998]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of various secondary metabolites - part 1 [map00999]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of ansamycins [map01051]	0	0	1	1
+lipid	KEGG_pathway	Type I polyketide structures [map01052]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of siderophore group nonribosomal peptides [map01053]	0	0	1	1
+lipid	KEGG_pathway	Nonribosomal peptide structures [map01054]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of vancomycin group antibiotics [map01055]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of type II polyketide backbone [map01056]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of type II polyketide products [map01057]	0	0	1	1
+lipid	KEGG_pathway	Acridone alkaloid biosynthesis [map01058]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of enediyne antibiotics [map01059]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of phenylpropanoids [map01061]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of terpenoids and steroids [map01062]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of alkaloids derived from shikimate pathway [map01063]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of alkaloids derived from ornithine, lysine and nicotinic acid [map01064]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of alkaloids derived from histidine and purine [map01065]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of alkaloids derived from terpenoid and polyketide [map01066]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of plant hormones [map01070]	0	1	1	1
+lipid	KEGG_pathway	Microbial metabolism in diverse environments [map01120]	0	0	1	1
+lipid	KEGG_pathway	Carbon metabolism [map01200]	0	0	1	1
+lipid	KEGG_pathway	2-Oxocarboxylic acid metabolism [map01210]	0	0	1	1
+lipid	KEGG_pathway	Fatty acid metabolism [map01212]	0	0	1	1
+lipid	KEGG_pathway	Degradation of aromatic compounds [map01220]	0	0	1	1
+lipid	KEGG_pathway	Biosynthesis of amino acids [map01230]	0	0	1	1
+lipid	KEGG_pathway	beta-Lactam resistance [map01501]	0	0	1	1
+lipid	KEGG_pathway	Vancomycin resistance [map01502]	0	0	1	1
+lipid	KEGG_pathway	Cationic antimicrobial peptide (CAMP) resistance [map01503]	0	0	1	1
+lipid	KEGG_pathway	EGFR tyrosine kinase inhibitor resistance [map01521]	0	0	1	1
+lipid	KEGG_pathway	Endocrine resistance [map01522]	0	0	1	1
+lipid	KEGG_pathway	Antifolate resistance [map01523]	0	0	1	1
+lipid	KEGG_pathway	ABC transporters [map02010]	0	0	1	1
+lipid	KEGG_pathway	Two-component system [map02020]	0	0	1	1
+lipid	KEGG_pathway	Quorum sensing [map02024]	0	0	1	1
+lipid	KEGG_pathway	Biofilm formation - Pseudomonas aeruginosa [map02025]	0	0	1	1
+lipid	KEGG_pathway	Biofilm formation - Escherichia coli [map02026]	0	0	1	1
+lipid	KEGG_pathway	Bacterial chemotaxis [map02030]	0	0	1	1
+lipid	KEGG_pathway	Phosphotransferase system (PTS) [map02060]	0	0	1	1
+lipid	KEGG_pathway	RNA transport [map03013]	0	0	1	1
+lipid	KEGG_pathway	Bacterial secretion system [map03070]	0	0	1	1
+lipid	KEGG_pathway	PPAR signaling pathway [map03320]	0	0	1	1
+lipid	KEGG_pathway	MAPK signaling pathway [map04010]	0	0	1	1
+lipid	KEGG_pathway	ErbB signaling pathway [map04012]	0	0	1	1
+lipid	KEGG_pathway	Ras signaling pathway [map04014]	0	0	1	1
+lipid	KEGG_pathway	Rap1 signaling pathway [map04015]	0	0	1	1
+lipid	KEGG_pathway	Calcium signaling pathway [map04020]	0	0	1	1
+lipid	KEGG_pathway	cGMP-PKG signaling pathway [map04022]	0	0	1	1
+lipid	KEGG_pathway	cAMP signaling pathway [map04024]	0	0	1	1
+lipid	KEGG_pathway	Chemokine signaling pathway [map04062]	0	0	1	1
+lipid	KEGG_pathway	NF-kappa B signaling pathway [map04064]	0	0	1	1
+lipid	KEGG_pathway	HIF-1 signaling pathway [map04066]	0	0	1	1
+lipid	KEGG_pathway	FoxO signaling pathway [map04068]	0	0	1	1
+lipid	KEGG_pathway	Phosphatidylinositol signaling system [map04070]	0	0	1	1
+lipid	KEGG_pathway	Sphingolipid signaling pathway [map04071]	0	4	1	1
+lipid	KEGG_pathway	Phospholipase D signaling pathway [map04072]	0	0	1	1
+lipid	KEGG_pathway	Plant hormone signal transduction [map04075]	0	0	1	1
+lipid	KEGG_pathway	Neuroactive ligand-receptor interaction [map04080]	0	0	1	1
+lipid	KEGG_pathway	Cell cycle - yeast [map04111]	0	0	1	1
+lipid	KEGG_pathway	Cell cycle - Caulobacter [map04112]	0	0	1	1
+lipid	KEGG_pathway	Meiosis - yeast [map04113]	0	0	1	1
+lipid	KEGG_pathway	Oocyte meiosis [map04114]	0	0	1	1
+lipid	KEGG_pathway	Sulfur relay system [map04122]	0	0	1	1
+lipid	KEGG_pathway	Autophagy - other [map04136]	0	6	1	1
+lipid	KEGG_pathway	Autophagy - yeast [map04138]	0	6	1	1
+lipid	KEGG_pathway	Autophagy - animal [map04140]	0	6	1	1
+lipid	KEGG_pathway	Protein processing in endoplasmic reticulum [map04141]	0	0	1	1
+lipid	KEGG_pathway	Lysosome [map04142]	0	0	1	1
+lipid	KEGG_pathway	Endocytosis [map04144]	0	0	1	1
+lipid	KEGG_pathway	Phagosome [map04145]	0	0	1	1
+lipid	KEGG_pathway	mTOR signaling pathway [map04150]	0	0	1	1
+lipid	KEGG_pathway	PI3K-Akt signaling pathway [map04151]	0	0	1	1
+lipid	KEGG_pathway	AMPK signaling pathway [map04152]	0	0	1	1
+lipid	KEGG_pathway	Apoptosis [map04210]	0	0	1	1
+lipid	KEGG_pathway	Longevity regulating pathway [map04211]	0	0	1	1
+lipid	KEGG_pathway	Longevity regulating pathway - worm [map04212]	0	1	1	1
+lipid	KEGG_pathway	Longevity regulating pathway - multiple species [map04213]	0	0	1	1
+lipid	KEGG_pathway	Apoptosis - fly [map04214]	0	0	1	1
+lipid	KEGG_pathway	Ferroptosis [map04216]	0	1	1	1
+lipid	KEGG_pathway	Necroptosis [map04217]	0	5	1	1
+lipid	KEGG_pathway	Cellular senescence [map04218]	0	0	1	1
+lipid	KEGG_pathway	Cardiac muscle contraction [map04260]	0	0	1	1
+lipid	KEGG_pathway	Adrenergic signaling in cardiomyocytes [map04261]	0	0	1	1
+lipid	KEGG_pathway	Vascular smooth muscle contraction [map04270]	0	1	1	1
+lipid	KEGG_pathway	Wnt signaling pathway [map04310]	0	0	1	1
+lipid	KEGG_pathway	Hedgehog signaling pathway [map04340]	0	0	1	1
+lipid	KEGG_pathway	Axon guidance [map04360]	0	0	1	1
+lipid	KEGG_pathway	Axon regeneration [map04361]	0	0	1	1
+lipid	KEGG_pathway	VEGF signaling pathway [map04370]	0	0	1	1
+lipid	KEGG_pathway	Apelin signaling pathway [map04371]	0	0	1	1
+lipid	KEGG_pathway	Osteoclast differentiation [map04380]	0	0	1	1
+lipid	KEGG_pathway	Focal adhesion [map04510]	0	0	1	1
+lipid	KEGG_pathway	Tight junction [map04530]	0	0	1	1
+lipid	KEGG_pathway	Gap junction [map04540]	0	0	1	1
+lipid	KEGG_pathway	Complement and coagulation cascades [map04610]	0	0	1	1
+lipid	KEGG_pathway	Platelet activation [map04611]	0	1	1	1
+lipid	KEGG_pathway	Renin-angiotensin system [map04614]	0	0	1	1
+lipid	KEGG_pathway	NOD-like receptor signaling pathway [map04621]	0	0	1	1
+lipid	KEGG_pathway	Cytosolic DNA-sensing pathway [map04623]	0	0	1	1
+lipid	KEGG_pathway	Toll and Imd signaling pathway [map04624]	0	0	1	1
+lipid	KEGG_pathway	C-type lectin receptor signaling pathway [map04625]	0	0	1	1
+lipid	KEGG_pathway	Plant-pathogen interaction [map04626]	0	0	1	1
+lipid	KEGG_pathway	Natural killer cell mediated cytotoxicity [map04650]	0	0	1	1
+lipid	KEGG_pathway	Th1 and Th2 cell differentiation [map04658]	0	0	1	1
+lipid	KEGG_pathway	Th17 cell differentiation [map04659]	0	0	1	1
+lipid	KEGG_pathway	T cell receptor signaling pathway [map04660]	0	0	1	1
+lipid	KEGG_pathway	B cell receptor signaling pathway [map04662]	0	0	1	1
+lipid	KEGG_pathway	Fc epsilon RI signaling pathway [map04664]	0	1	1	1
+lipid	KEGG_pathway	Fc gamma R-mediated phagocytosis [map04666]	0	1	1	1
+lipid	KEGG_pathway	Leukocyte transendothelial migration [map04670]	0	0	1	1
+lipid	KEGG_pathway	Intestinal immune network for IgA production [map04672]	0	0	1	1
+lipid	KEGG_pathway	Circadian rhythm [map04710]	0	0	1	1
+lipid	KEGG_pathway	Circadian entrainment [map04713]	0	0	1	1
+lipid	KEGG_pathway	Thermogenesis [map04714]	0	0	1	1
+lipid	KEGG_pathway	Long-term potentiation [map04720]	0	0	1	1
+lipid	KEGG_pathway	Synaptic vesicle cycle [map04721]	0	0	1	1
+lipid	KEGG_pathway	Neurotrophin signaling pathway [map04722]	0	1	1	1
+lipid	KEGG_pathway	Glutamatergic synapse [map04724]	0	0	1	1
+lipid	KEGG_pathway	Cholinergic synapse [map04725]	0	0	1	1
+lipid	KEGG_pathway	Serotonergic synapse [map04726]	0	1	1	1
+lipid	KEGG_pathway	GABAergic synapse [map04727]	0	0	1	1
+lipid	KEGG_pathway	Dopaminergic synapse [map04728]	0	0	1	1
+lipid	KEGG_pathway	Long-term depression [map04730]	0	1	1	1
+lipid	KEGG_pathway	Olfactory transduction [map04740]	0	0	1	1
+lipid	KEGG_pathway	Taste transduction [map04742]	0	0	1	1
+lipid	KEGG_pathway	Phototransduction [map04744]	0	0	1	1
+lipid	KEGG_pathway	Inflammatory mediator regulation of TRP channels [map04750]	0	1	1	1
+lipid	KEGG_pathway	Regulation of actin cytoskeleton [map04810]	0	0	1	1
+lipid	KEGG_pathway	Insulin signaling pathway [map04910]	0	0	1	1
+lipid	KEGG_pathway	Insulin secretion [map04911]	0	0	1	1
+lipid	KEGG_pathway	GnRH signaling pathway [map04912]	0	1	1	1
+lipid	KEGG_pathway	Ovarian steroidogenesis [map04913]	0	1	1	1
+lipid	KEGG_pathway	Progesterone-mediated oocyte maturation [map04914]	0	0	1	1
+lipid	KEGG_pathway	Estrogen signaling pathway [map04915]	0	0	1	1
+lipid	KEGG_pathway	Melanogenesis [map04916]	0	0	1	1
+lipid	KEGG_pathway	Prolactin signaling pathway [map04917]	0	0	1	1
+lipid	KEGG_pathway	Thyroid hormone synthesis [map04918]	0	0	1	1
+lipid	KEGG_pathway	Thyroid hormone signaling pathway [map04919]	0	0	1	1
+lipid	KEGG_pathway	Adipocytokine signaling pathway [map04920]	0	1	1	1
+lipid	KEGG_pathway	Oxytocin signaling pathway [map04921]	0	1	1	1
+lipid	KEGG_pathway	Glucagon signaling pathway [map04922]	0	0	1	1
+lipid	KEGG_pathway	Regulation of lipolysis in adipocytes [map04923]	0	1	1	1
+lipid	KEGG_pathway	Renin secretion [map04924]	0	0	1	1
+lipid	KEGG_pathway	Aldosterone synthesis and secretion [map04925]	0	1	1	1
+lipid	KEGG_pathway	Relaxin signaling pathway [map04926]	0	0	1	1
+lipid	KEGG_pathway	Cortisol synthesis and secretion [map04927]	0	0	1	1
+lipid	KEGG_pathway	Parathyroid hormone synthesis, secretion and action [map04928]	0	0	1	1
+lipid	KEGG_pathway	GnRH secretion [map04929]	0	0	1	1
+lipid	KEGG_pathway	Type II diabetes mellitus [map04930]	0	0	1	1
+lipid	KEGG_pathway	Insulin resistance [map04931]	0	1	1	1
+lipid	KEGG_pathway	Non-alcoholic fatty liver disease [map04932]	0	0	1	1
+lipid	KEGG_pathway	AGE-RAGE signaling pathway in diabetic complications [map04933]	0	1	1	1
+lipid	KEGG_pathway	Cushing syndrome [map04934]	0	0	1	1
+lipid	KEGG_pathway	Growth hormone synthesis, secretion and action [map04935]	0	0	1	1
+lipid	KEGG_pathway	Type I diabetes mellitus [map04940]	0	0	1	1
+lipid	KEGG_pathway	Aldosterone-regulated sodium reabsorption [map04960]	0	0	1	1
+lipid	KEGG_pathway	Endocrine and other factor-regulated calcium reabsorption [map04961]	0	0	1	1
+lipid	KEGG_pathway	Vasopressin-regulated water reabsorption [map04962]	0	0	1	1
+lipid	KEGG_pathway	Proximal tubule bicarbonate reclamation [map04964]	0	0	1	1
+lipid	KEGG_pathway	Collecting duct acid secretion [map04966]	0	0	1	1
+lipid	KEGG_pathway	Salivary secretion [map04970]	0	0	1	1
+lipid	KEGG_pathway	Gastric acid secretion [map04971]	0	0	1	1
+lipid	KEGG_pathway	Pancreatic secretion [map04972]	0	0	1	1
+lipid	KEGG_pathway	Carbohydrate digestion and absorption [map04973]	0	0	1	1
+lipid	KEGG_pathway	Protein digestion and absorption [map04974]	0	0	1	1
+lipid	KEGG_pathway	Fat digestion and absorption [map04975]	0	0	1	1
+lipid	KEGG_pathway	Bile secretion [map04976]	0	0	1	1
+lipid	KEGG_pathway	Vitamin digestion and absorption [map04977]	0	0	1	1
+lipid	KEGG_pathway	Mineral absorption [map04978]	0	0	1	1
+lipid	KEGG_pathway	Cholesterol metabolism [map04979]	0	0	1	1
+lipid	KEGG_pathway	Alzheimer disease [map05010]	0	0	1	1
+lipid	KEGG_pathway	Parkinson disease [map05012]	0	0	1	1
+lipid	KEGG_pathway	Amyotrophic lateral sclerosis [map05014]	0	0	1	1
+lipid	KEGG_pathway	Huntington disease [map05016]	0	0	1	1
+lipid	KEGG_pathway	Spinocerebellar ataxia [map05017]	0	0	1	1
+lipid	KEGG_pathway	Prion disease [map05020]	0	0	1	1
+lipid	KEGG_pathway	Pathways of neurodegeneration - multiple diseases [map05022]	0	0	1	1
+lipid	KEGG_pathway	Cocaine addiction [map05030]	0	0	1	1
+lipid	KEGG_pathway	Amphetamine addiction [map05031]	0	0	1	1
+lipid	KEGG_pathway	Morphine addiction [map05032]	0	0	1	1
+lipid	KEGG_pathway	Nicotine addiction [map05033]	0	0	1	1
+lipid	KEGG_pathway	Alcoholism [map05034]	0	0	1	1
+lipid	KEGG_pathway	Vibrio cholerae infection [map05110]	0	0	1	1
+lipid	KEGG_pathway	Biofilm formation - Vibrio cholerae [map05111]	0	0	1	1
+lipid	KEGG_pathway	Epithelial cell signaling in Helicobacter pylori infection [map05120]	0	0	1	1
+lipid	KEGG_pathway	Pathogenic Escherichia coli infection [map05130]	0	6	1	1
+lipid	KEGG_pathway	Shigellosis [map05131]	0	0	1	1
+lipid	KEGG_pathway	Salmonella infection [map05132]	0	0	1	1
+lipid	KEGG_pathway	Pertussis [map05133]	0	0	1	1
+lipid	KEGG_pathway	Legionellosis [map05134]	0	0	1	1
+lipid	KEGG_pathway	Yersinia infection [map05135]	0	0	1	1
+lipid	KEGG_pathway	Leishmaniasis [map05140]	0	2	1	1
+lipid	KEGG_pathway	Chagas disease [map05142]	0	0	1	1
+lipid	KEGG_pathway	African trypanosomiasis [map05143]	0	0	1	1
+lipid	KEGG_pathway	Malaria [map05144]	0	0	1	1
+lipid	KEGG_pathway	Toxoplasmosis [map05145]	0	0	1	1
+lipid	KEGG_pathway	Amoebiasis [map05146]	0	1	1	1
+lipid	KEGG_pathway	Staphylococcus aureus infection [map05150]	0	0	1	1
+lipid	KEGG_pathway	Tuberculosis [map05152]	0	0	1	1
+lipid	KEGG_pathway	Hepatitis C [map05160]	0	0	1	1
+lipid	KEGG_pathway	Hepatitis B [map05161]	0	0	1	1
+lipid	KEGG_pathway	Measles [map05162]	0	0	1	1
+lipid	KEGG_pathway	Human cytomegalovirus infection [map05163]	0	0	1	1
+lipid	KEGG_pathway	Influenza A [map05164]	0	0	1	1
+lipid	KEGG_pathway	Human papillomavirus infection [map05165]	0	0	1	1
+lipid	KEGG_pathway	Human T-cell leukemia virus 1 infection [map05166]	0	0	1	1
+lipid	KEGG_pathway	Kaposi sarcoma-associated herpesvirus infection [map05167]	0	6	1	1
+lipid	KEGG_pathway	Herpes simplex virus 1 infection [map05168]	0	0	1	1
+lipid	KEGG_pathway	Epstein-Barr virus infection [map05169]	0	0	1	1
+lipid	KEGG_pathway	Human immunodeficiency virus 1 infection [map05170]	0	0	1	1
+lipid	KEGG_pathway	Pathways in cancer [map05200]	0	0	1	1
+lipid	KEGG_pathway	Chemical carcinogenesis [map05204]	0	0	1	1
+lipid	KEGG_pathway	Proteoglycans in cancer [map05205]	0	0	1	1
+lipid	KEGG_pathway	Colorectal cancer [map05210]	0	0	1	1
+lipid	KEGG_pathway	Renal cell carcinoma [map05211]	0	0	1	1
+lipid	KEGG_pathway	Pancreatic cancer [map05212]	0	0	1	1
+lipid	KEGG_pathway	Endometrial cancer [map05213]	0	0	1	1
+lipid	KEGG_pathway	Glioma [map05214]	0	0	1	1
+lipid	KEGG_pathway	Prostate cancer [map05215]	0	0	1	1
+lipid	KEGG_pathway	Basal cell carcinoma [map05217]	0	0	1	1
+lipid	KEGG_pathway	Melanoma [map05218]	0	0	1	1
+lipid	KEGG_pathway	Chronic myeloid leukemia [map05220]	0	0	1	1
+lipid	KEGG_pathway	Acute myeloid leukemia [map05221]	0	0	1	1
+lipid	KEGG_pathway	Small cell lung cancer [map05222]	0	0	1	1
+lipid	KEGG_pathway	Non-small cell lung cancer [map05223]	0	0	1	1
+lipid	KEGG_pathway	Breast cancer [map05224]	0	0	1	1
+lipid	KEGG_pathway	Hepatocellular carcinoma [map05225]	0	0	1	1
+lipid	KEGG_pathway	Gastric cancer [map05226]	0	0	1	1
+lipid	KEGG_pathway	Central carbon metabolism in cancer [map05230]	0	0	1	1
+lipid	KEGG_pathway	PD-L1 expression and PD-1 checkpoint pathway in cancer [map05235]	0	0	1	1
+lipid	KEGG_pathway	Asthma [map05310]	0	0	1	1
+lipid	KEGG_pathway	Autoimmune thyroid disease [map05320]	0	0	1	1
+lipid	KEGG_pathway	Systemic lupus erythematosus [map05322]	0	0	1	1
+lipid	KEGG_pathway	Rheumatoid arthritis [map05323]	0	0	1	1
+lipid	KEGG_pathway	Allograft rejection [map05330]	0	0	1	1
+lipid	KEGG_pathway	Graft-versus-host disease [map05332]	0	0	1	1
+lipid	KEGG_pathway	Hypertrophic cardiomyopathy [map05410]	0	0	1	1
+lipid	KEGG_pathway	Arrhythmogenic right ventricular cardiomyopathy [map05412]	0	0	1	1
+lipid	KEGG_pathway	Dilated cardiomyopathy [map05414]	0	0	1	1
+lipid	KEGG_pathway	Fluid shear stress and atherosclerosis [map05418]	0	0	1	1
+lipid	KEGG_pathway	Penicillins [map07011]	0	0	1	1
+lipid	KEGG_pathway	Cephalosporins - parenteral agents [map07012]	0	0	1	1
+lipid	KEGG_pathway	Cephalosporins - oral agents [map07013]	0	0	1	1
+lipid	KEGG_pathway	Quinolones [map07014]	0	0	1	1
+lipid	KEGG_pathway	Local analgesics [map07015]	0	0	1	1
+lipid	KEGG_pathway	Sulfonamide derivatives - sulfa drugs [map07016]	0	0	1	1
+lipid	KEGG_pathway	Rifamycins [map07023]	0	0	1	1
+lipid	KEGG_pathway	HMG-CoA reductase inhibitors [map07024]	0	0	1	1
+lipid	KEGG_pathway	Antifungal agents [map07026]	0	0	1	1
+lipid	KEGG_pathway	Anxiolytics [map07030]	0	0	1	1
+lipid	KEGG_pathway	Hypnotics [map07032]	0	0	1	1
+lipid	KEGG_pathway	Anticonvulsants [map07033]	0	0	1	1
+lipid	KEGG_pathway	Eicosanoids [map07034]	0	1	1	1
+lipid	KEGG_pathway	Prostaglandins [map07035]	0	0	1	1
+lipid	KEGG_pathway	Antiarrhythmic drugs [map07037]	0	0	1	1
+lipid	KEGG_pathway	Opioid analgesics [map07039]	0	0	1	1
+lipid	KEGG_pathway	Antineoplastics - alkylating agents [map07040]	0	0	1	1
+lipid	KEGG_pathway	Antineoplastics - agents from natural products [map07042]	0	0	1	1
+lipid	KEGG_pathway	Anti-HIV agents [map07053]	0	0	1	1
+lipid	KEGG_pathway	Sulfonamide derivatives - overview [map07055]	0	0	1	1
+lipid	KEGG_pathway	Benzoic acid family [map07110]	0	0	1	1
+lipid	KEGG_pathway	1,2-Diphenyl substitution family [map07112]	0	0	1	1
+lipid	KEGG_pathway	Naphthalene family [map07114]	0	0	1	1
+lipid	KEGG_pathway	Benzodiazepine family [map07117]	0	0	1	1
+lipid	KEGG_pathway	Serotonin receptor agonists/antagonists [map07211]	0	0	1	1
+lipid	KEGG_pathway	Histamine H1 receptor antagonists [map07212]	0	0	1	1
+lipid	KEGG_pathway	beta-Adrenergic receptor agonists/antagonists [map07214]	0	0	1	1
+lipid	KEGG_pathway	Catecholamine transferase inhibitors [map07216]	0	0	1	1
+lipid	KEGG_pathway	Renin-angiotensin system inhibitors [map07217]	0	0	1	1
+lipid	KEGG_pathway	HIV protease inhibitors [map07218]	0	0	1	1
+lipid	KEGG_pathway	Cholinergic and anticholinergic drugs [map07220]	0	0	1	1
+lipid	KEGG_pathway	Nicotinic cholinergic receptor antagonists [map07221]	0	0	1	1
+lipid	KEGG_pathway	Peroxisome proliferator-activated receptor (PPAR) agonists [map07222]	0	0	1	1
+lipid	KEGG_pathway	Opioid receptor agonists/antagonists [map07224]	0	0	1	1
+lipid	KEGG_pathway	Glucocorticoid and mineralocorticoid receptor agonists/antagonists [map07225]	0	0	1	1
+lipid	KEGG_pathway	Progesterone, androgen and estrogen receptor agonists/antagonists [map07226]	0	0	1	1
+lipid	KEGG_pathway	Histamine H2/H3 receptor agonists/antagonists [map07227]	0	0	1	1
+lipid	KEGG_pathway	Angiotensin receptor and endothelin receptor antagonists [map07229]	0	0	1	1
+lipid	KEGG_pathway	GABA-A receptor agonists/antagonists [map07230]	0	0	1	1
+lipid	KEGG_pathway	Potassium channel blocking and opening drugs [map07232]	0	0	1	1
+lipid	KEGG_pathway	N-Methyl-D-aspartic acid (NMDA) receptor antagonists [map07235]	0	0	1	1
+metabolite	Super.Class	Hydrocarbons	1	1	0.252100840336135	1
+metabolite	Super.Class	Organic nitrogen compounds	2	4	0.263476968362313	1
+metabolite	Super.Class	Organic acids and derivatives	8	27	0.356081297751288	1
+metabolite	Super.Class	Homogeneous non-metal compounds	1	2	0.442244694487965	1
+metabolite	Super.Class	Organic oxygen compounds	5	21	0.660218639369544	1
+metabolite	Super.Class	Nucleosides, nucleotides, and analogues	1	5	0.772731812525475	1
+metabolite	Super.Class	Lipids and lipid-like molecules	6	30	0.842097726245943	1
+metabolite	Super.Class	Organoheterocyclic compounds	0	8	1	1
+metabolite	Super.Class	Benzenoids	0	2	1	1
+metabolite	Super.Class	Phenylpropanoids and polyketides	0	0	1	1
+metabolite	Super.Class	Homogeneous metal compounds	0	0	1	1
+metabolite	Super.Class	Alkaloids and derivatives	0	0	1	1
+metabolite	Super.Class	Miscellaneous inorganic compounds	0	0	1	1
+metabolite	Super.Class	Organosulfur compounds	0	0	1	1
+metabolite	Super.Class	Mixed metalnon-metal compounds	0	0	1	1
+metabolite	Super.Class	Organic Polymers	0	0	1	1
+metabolite	Super.Class	NA	0	0	1	1
+metabolite	Super.Class	Lignans, neolignans and related compounds	0	0	1	1
+metabolite	Super.Class	Organometallic compounds	0	0	1	1
+metabolite	Super.Class	Organohalogen compounds	0	0	1	1
+metabolite	Super.Class	Organophosphorus compounds	0	0	1	1
+metabolite	Super.Class	Hydrocarbon derivatives	0	0	1	1
+metabolite	Super.Class	Organic 1,3-dipolar compounds	0	0	1	1
+metabolite	Super.Class	Organooxygen compounds	0	0	1	1
+metabolite	Main.Class	Hydrocarbons	1	1	0.252100840336135	1
+metabolite	Main.Class	Organic nitrogen compounds	2	4	0.263476968362313	1
+metabolite	Main.Class	Organic acids and derivatives	8	27	0.356081297751288	1
+metabolite	Main.Class	Homogeneous non-metal compounds	1	2	0.442244694487965	1
+metabolite	Main.Class	Organic oxygen compounds	5	21	0.660218639369544	1
+metabolite	Main.Class	Nucleosides, nucleotides, and analogues	1	5	0.772731812525475	1
+metabolite	Main.Class	Lipids and lipid-like molecules	6	30	0.842097726245943	1
+metabolite	Main.Class	Organoheterocyclic compounds	0	8	1	1
+metabolite	Main.Class	Benzenoids	0	2	1	1
+metabolite	Main.Class	Phenylpropanoids and polyketides	0	0	1	1
+metabolite	Main.Class	Homogeneous metal compounds	0	0	1	1
+metabolite	Main.Class	Alkaloids and derivatives	0	0	1	1
+metabolite	Main.Class	Miscellaneous inorganic compounds	0	0	1	1
+metabolite	Main.Class	Organosulfur compounds	0	0	1	1
+metabolite	Main.Class	Mixed metalnon-metal compounds	0	0	1	1
+metabolite	Main.Class	Organic Polymers	0	0	1	1
+metabolite	Main.Class	NA	0	0	1	1
+metabolite	Main.Class	Lignans, neolignans and related compounds	0	0	1	1
+metabolite	Main.Class	Organometallic compounds	0	0	1	1
+metabolite	Main.Class	Organohalogen compounds	0	0	1	1
+metabolite	Main.Class	Organophosphorus compounds	0	0	1	1
+metabolite	Main.Class	Hydrocarbon derivatives	0	0	1	1
+metabolite	Main.Class	Organic 1,3-dipolar compounds	0	0	1	1
+metabolite	Main.Class	Organooxygen compounds	0	0	1	1
+metabolite	Sub.Class	Hydrocarbons	1	1	0.252100840336135	1
+metabolite	Sub.Class	Organic nitrogen compounds	2	4	0.263476968362313	1
+metabolite	Sub.Class	Organic acids and derivatives	8	27	0.356081297751288	1
+metabolite	Sub.Class	Homogeneous non-metal compounds	1	2	0.442244694487965	1
+metabolite	Sub.Class	Organic oxygen compounds	5	21	0.660218639369544	1
+metabolite	Sub.Class	Nucleosides, nucleotides, and analogues	1	5	0.772731812525475	1
+metabolite	Sub.Class	Lipids and lipid-like molecules	6	30	0.842097726245943	1
+metabolite	Sub.Class	Organoheterocyclic compounds	0	8	1	1
+metabolite	Sub.Class	Benzenoids	0	2	1	1
+metabolite	Sub.Class	Phenylpropanoids and polyketides	0	0	1	1
+metabolite	Sub.Class	Homogeneous metal compounds	0	0	1	1
+metabolite	Sub.Class	Alkaloids and derivatives	0	0	1	1
+metabolite	Sub.Class	Miscellaneous inorganic compounds	0	0	1	1
+metabolite	Sub.Class	Organosulfur compounds	0	0	1	1
+metabolite	Sub.Class	Mixed metalnon-metal compounds	0	0	1	1
+metabolite	Sub.Class	Organic Polymers	0	0	1	1
+metabolite	Sub.Class	NA	0	0	1	1
+metabolite	Sub.Class	Lignans, neolignans and related compounds	0	0	1	1
+metabolite	Sub.Class	Organometallic compounds	0	0	1	1
+metabolite	Sub.Class	Organohalogen compounds	0	0	1	1
+metabolite	Sub.Class	Organophosphorus compounds	0	0	1	1
+metabolite	Sub.Class	Hydrocarbon derivatives	0	0	1	1
+metabolite	Sub.Class	Organic 1,3-dipolar compounds	0	0	1	1
+metabolite	Sub.Class	Organooxygen compounds	0	0	1	1
+metabolite	Molec.Fmwrk	Hydrocarbons	1	1	0.252100840336135	1
+metabolite	Molec.Fmwrk	Organic nitrogen compounds	2	4	0.263476968362313	1
+metabolite	Molec.Fmwrk	Organic acids and derivatives	8	27	0.356081297751288	1
+metabolite	Molec.Fmwrk	Homogeneous non-metal compounds	1	2	0.442244694487965	1
+metabolite	Molec.Fmwrk	Organic oxygen compounds	5	21	0.660218639369544	1
+metabolite	Molec.Fmwrk	Nucleosides, nucleotides, and analogues	1	5	0.772731812525475	1
+metabolite	Molec.Fmwrk	Lipids and lipid-like molecules	6	30	0.842097726245943	1
+metabolite	Molec.Fmwrk	Organoheterocyclic compounds	0	8	1	1
+metabolite	Molec.Fmwrk	Benzenoids	0	2	1	1
+metabolite	Molec.Fmwrk	Phenylpropanoids and polyketides	0	0	1	1
+metabolite	Molec.Fmwrk	Homogeneous metal compounds	0	0	1	1
+metabolite	Molec.Fmwrk	Alkaloids and derivatives	0	0	1	1
+metabolite	Molec.Fmwrk	Miscellaneous inorganic compounds	0	0	1	1
+metabolite	Molec.Fmwrk	Organosulfur compounds	0	0	1	1
+metabolite	Molec.Fmwrk	Mixed metalnon-metal compounds	0	0	1	1
+metabolite	Molec.Fmwrk	Organic Polymers	0	0	1	1
+metabolite	Molec.Fmwrk	NA	0	0	1	1
+metabolite	Molec.Fmwrk	Lignans, neolignans and related compounds	0	0	1	1
+metabolite	Molec.Fmwrk	Organometallic compounds	0	0	1	1
+metabolite	Molec.Fmwrk	Organohalogen compounds	0	0	1	1
+metabolite	Molec.Fmwrk	Organophosphorus compounds	0	0	1	1
+metabolite	Molec.Fmwrk	Hydrocarbon derivatives	0	0	1	1
+metabolite	Molec.Fmwrk	Organic 1,3-dipolar compounds	0	0	1	1
+metabolite	Molec.Fmwrk	Organooxygen compounds	0	0	1	1
+metabolite	KEGG_pathway	Neomycin, kanamycin and gentamicin biosynthesis [map00524]	3	3	0.0312870859855432	1
+metabolite	KEGG_pathway	Two-component system [map02020]	4	5	0.0359625718687761	1
+metabolite	KEGG_pathway	Oxidative phosphorylation [map00190]	2	2	0.101683029453015	1
+metabolite	KEGG_pathway	Tyrosine metabolism [map00350]	2	2	0.101683029453015	1
+metabolite	KEGG_pathway	Streptomycin biosynthesis [map00521]	2	2	0.101683029453015	1
+metabolite	KEGG_pathway	Inositol phosphate metabolism [map00562]	2	2	0.101683029453015	1
+metabolite	KEGG_pathway	Butanoate metabolism [map00650]	2	2	0.101683029453015	1
+metabolite	KEGG_pathway	Prolactin signaling pathway [map04917]	2	2	0.101683029453015	1
+metabolite	KEGG_pathway	Insulin resistance [map04931]	2	2	0.101683029453015	1
+metabolite	KEGG_pathway	Pathways of neurodegeneration - multiple diseases [map05022]	2	2	0.101683029453015	1
+metabolite	KEGG_pathway	Cocaine addiction [map05030]	2	2	0.101683029453015	1
+metabolite	KEGG_pathway	Amphetamine addiction [map05031]	2	2	0.101683029453015	1
+metabolite	KEGG_pathway	Ascorbate and aldarate metabolism [map00053]	2	3	0.24247491638796	1
+metabolite	KEGG_pathway	Valine, leucine and isoleucine degradation [map00280]	2	3	0.24247491638796	1
+metabolite	KEGG_pathway	Biosynthesis of terpenoids and steroids [map01062]	2	3	0.24247491638796	1
+metabolite	KEGG_pathway	Parkinson disease [map05012]	2	3	0.24247491638796	1
+metabolite	KEGG_pathway	Alcoholism [map05034]	2	3	0.24247491638796	1
+metabolite	KEGG_pathway	Central carbon metabolism in cancer [map05230]	6	14	0.265941370379082	1
+metabolite	KEGG_pathway	Arginine biosynthesis [map00220]	3	6	0.294288759603855	1
+metabolite	KEGG_pathway	Arginine and proline metabolism [map00330]	3	6	0.294288759603855	1
+metabolite	KEGG_pathway	Citrate cycle (TCA cycle) [map00020]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Ubiquinone and other terpenoid-quinone biosynthesis [map00130]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Photosynthesis [map00195]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Penicillin and cephalosporin biosynthesis [map00311]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Carbapenem biosynthesis [map00332]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Chlorocyclohexane and chlorobenzene degradation [map00361]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Novobiocin biosynthesis [map00401]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	D-Glutamine and D-glutamate metabolism [map00471]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Lipopolysaccharide biosynthesis [map00540]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Peptidoglycan biosynthesis [map00550]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Pyruvate metabolism [map00620]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Chloroalkane and chloroalkene degradation [map00625]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Styrene degradation [map00643]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	C5-Branched dibasic acid metabolism [map00660]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Carbon fixation pathways in prokaryotes [map00720]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Atrazine degradation [map00791]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Isoquinoline alkaloid biosynthesis [map00950]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Betalain biosynthesis [map00965]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Biosynthesis of vancomycin group antibiotics [map01055]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Biosynthesis of enediyne antibiotics [map01059]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	FoxO signaling pathway [map04068]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Phosphatidylinositol signaling system [map04070]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Phospholipase D signaling pathway [map04072]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Cell cycle - yeast [map04111]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Gap junction [map04540]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Circadian entrainment [map04713]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Long-term potentiation [map04720]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Glutamatergic synapse [map04724]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	GABAergic synapse [map04727]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Dopaminergic synapse [map04728]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Insulin secretion [map04911]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Melanogenesis [map04916]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Thyroid hormone synthesis [map04918]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Glucagon signaling pathway [map04922]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Parathyroid hormone synthesis, secretion and action [map04928]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Proximal tubule bicarbonate reclamation [map04964]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Amyotrophic lateral sclerosis [map05014]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Huntington disease [map05016]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Spinocerebellar ataxia [map05017]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Nicotine addiction [map05033]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Biofilm formation - Vibrio cholerae [map05111]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Epithelial cell signaling in Helicobacter pylori infection [map05120]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Renal cell carcinoma [map05211]	1	1	0.322580645161291	1
+metabolite	KEGG_pathway	Alanine, aspartate and glutamate metabolism [map00250]	2	4	0.387959866220736	1
+metabolite	KEGG_pathway	Valine, leucine and isoleucine biosynthesis [map00290]	2	4	0.387959866220736	1
+metabolite	KEGG_pathway	Cyanoamino acid metabolism [map00460]	3	7	0.403693277899434	1
+metabolite	KEGG_pathway	Glucosinolate biosynthesis [map00966]	3	7	0.403693277899434	1
+metabolite	KEGG_pathway	Biosynthesis of alkaloids derived from ornithine, lysine and nicotinic acid [map01064]	4	10	0.409756672862336	1
+metabolite	KEGG_pathway	Carbon metabolism [map01200]	4	10	0.409756672862336	1
+metabolite	KEGG_pathway	2-Oxocarboxylic acid metabolism [map01210]	4	11	0.50019845572392	1
+metabolite	KEGG_pathway	Biosynthesis of alkaloids derived from shikimate pathway [map01063]	3	8	0.508772501285652	1
+metabolite	KEGG_pathway	Phenylalanine metabolism [map00360]	2	5	0.520912404644696	1
+metabolite	KEGG_pathway	Glyoxylate and dicarboxylate metabolism [map00630]	2	5	0.520912404644696	1
+metabolite	KEGG_pathway	Tropane, piperidine and pyridine alkaloid biosynthesis [map00960]	2	5	0.520912404644696	1
+metabolite	KEGG_pathway	Phosphotransferase system (PTS) [map02060]	2	5	0.520912404644696	1
+metabolite	KEGG_pathway	Glycolysis / Gluconeogenesis [map00010]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Fructose and mannose metabolism [map00051]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Histidine metabolism [map00340]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	D-Arginine and D-ornithine metabolism [map00472]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	O-Antigen nucleotide sugar biosynthesis [map00541]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Thiamine metabolism [map00730]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Biotin metabolism [map00780]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Degradation of aromatic compounds [map01220]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Quorum sensing [map02024]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Ferroptosis [map04216]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Synaptic vesicle cycle [map04721]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Long-term depression [map04730]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Shigellosis [map05131]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Pathways in cancer [map05200]	1	2	0.543478260869566	1
+metabolite	KEGG_pathway	Glutathione metabolism [map00480]	2	6	0.634224227165116	1
+metabolite	KEGG_pathway	Biosynthesis of various secondary metabolites - part 2 [map00998]	2	6	0.634224227165116	1
+metabolite	KEGG_pathway	Protein digestion and absorption [map04974]	5	16	0.643069829976495	1
+metabolite	KEGG_pathway	Biosynthesis of secondary metabolites [map01110]	10	32	0.646492615878118	1
+metabolite	KEGG_pathway	Microbial metabolism in diverse environments [map01120]	6	20	0.690863399837093	1
+metabolite	KEGG_pathway	Taurine and hypotaurine metabolism [map00430]	1	3	0.693979933110368	1
+metabolite	KEGG_pathway	Amino sugar and nucleotide sugar metabolism [map00520]	1	3	0.693979933110368	1
+metabolite	KEGG_pathway	Nicotinate and nicotinamide metabolism [map00760]	1	3	0.693979933110368	1
+metabolite	KEGG_pathway	Pantothenate and CoA biosynthesis [map00770]	1	3	0.693979933110368	1
+metabolite	KEGG_pathway	Porphyrin and chlorophyll metabolism [map00860]	1	3	0.693979933110368	1
+metabolite	KEGG_pathway	Nitrogen metabolism [map00910]	1	3	0.693979933110368	1
+metabolite	KEGG_pathway	Phenylpropanoid biosynthesis [map00940]	1	3	0.693979933110368	1
+metabolite	KEGG_pathway	Biosynthesis of alkaloids derived from histidine and purine [map01065]	1	3	0.693979933110368	1
+metabolite	KEGG_pathway	Biosynthesis of alkaloids derived from terpenoid and polyketide [map01066]	1	3	0.693979933110368	1
+metabolite	KEGG_pathway	Taste transduction [map04742]	1	3	0.693979933110368	1
+metabolite	KEGG_pathway	Aminoacyl-tRNA biosynthesis [map00970]	4	14	0.729483989035591	1
+metabolite	KEGG_pathway	Mineral absorption [map04978]	3	11	0.758125021662512	1
+metabolite	KEGG_pathway	Pentose phosphate pathway [map00030]	1	4	0.795986622073579	1
+metabolite	KEGG_pathway	Galactose metabolism [map00052]	1	4	0.795986622073579	1
+metabolite	KEGG_pathway	Pyrimidine metabolism [map00240]	1	4	0.795986622073579	1
+metabolite	KEGG_pathway	Phenylalanine, tyrosine and tryptophan biosynthesis [map00400]	1	4	0.795986622073579	1
+metabolite	KEGG_pathway	Starch and sucrose metabolism [map00500]	1	4	0.795986622073579	1
+metabolite	KEGG_pathway	Methane metabolism [map00680]	1	4	0.795986622073579	1
+metabolite	KEGG_pathway	Vancomycin resistance [map01502]	1	4	0.795986622073579	1
+metabolite	KEGG_pathway	Retrograde endocannabinoid signaling [map04723]	1	4	0.795986622073579	1
+metabolite	KEGG_pathway	Biosynthesis of plant secondary metabolites [map01060]	6	23	0.837937089848955	1
+metabolite	KEGG_pathway	ABC transporters [map02010]	8	30	0.849398293119512	1
+metabolite	KEGG_pathway	Monobactam biosynthesis [map00261]	1	5	0.864755176430799	1
+metabolite	KEGG_pathway	Biosynthesis of phenylpropanoids [map01061]	1	5	0.864755176430799	1
+metabolite	KEGG_pathway	Carbohydrate digestion and absorption [map04973]	1	5	0.864755176430799	1
+metabolite	KEGG_pathway	Biosynthesis of amino acids [map01230]	4	18	0.905500667296434	1
+metabolite	KEGG_pathway	Fatty acid biosynthesis [map00061]	1	6	0.910861366283936	1
+metabolite	KEGG_pathway	Neuroactive ligand-receptor interaction [map04080]	1	6	0.910861366283936	1
+metabolite	KEGG_pathway	Purine metabolism [map00230]	1	7	0.941598826186027	1
+metabolite	KEGG_pathway	Biosynthesis of plant hormones [map01070]	1	7	0.941598826186027	1
+metabolite	KEGG_pathway	Biosynthesis of various secondary metabolites - part 3 [map00997]	1	8	0.961971328679273	1
+metabolite	KEGG_pathway	Biosynthesis of unsaturated fatty acids [map01040]	1	8	0.961971328679273	1
+metabolite	KEGG_pathway	Metabolic pathways [map01100]	15	59	0.980977955202753	1
+metabolite	KEGG_pathway	Pentose and glucuronate interconversions [map00040]	0	3	1	1
+metabolite	KEGG_pathway	Fatty acid elongation [map00062]	0	1	1	1
+metabolite	KEGG_pathway	Fatty acid degradation [map00071]	0	2	1	1
+metabolite	KEGG_pathway	Synthesis and degradation of ketone bodies [map00072]	0	0	1	1
+metabolite	KEGG_pathway	Cutin, suberine and wax biosynthesis [map00073]	0	3	1	1
+metabolite	KEGG_pathway	Steroid biosynthesis [map00100]	0	1	1	1
+metabolite	KEGG_pathway	Primary bile acid biosynthesis [map00120]	0	3	1	1
+metabolite	KEGG_pathway	Secondary bile acid biosynthesis [map00121]	0	0	1	1
+metabolite	KEGG_pathway	Steroid hormone biosynthesis [map00140]	0	1	1	1
+metabolite	KEGG_pathway	Caffeine metabolism [map00232]	0	0	1	1
+metabolite	KEGG_pathway	Tetracycline biosynthesis [map00253]	0	0	1	1
+metabolite	KEGG_pathway	Aflatoxin biosynthesis [map00254]	0	0	1	1
+metabolite	KEGG_pathway	Glycine, serine and threonine metabolism [map00260]	0	6	1	1
+metabolite	KEGG_pathway	Cysteine and methionine metabolism [map00270]	0	6	1	1
+metabolite	KEGG_pathway	Geraniol degradation [map00281]	0	0	1	1
+metabolite	KEGG_pathway	Lysine biosynthesis [map00300]	0	2	1	1
+metabolite	KEGG_pathway	Lysine degradation [map00310]	0	3	1	1
+metabolite	KEGG_pathway	Clavulanic acid biosynthesis [map00331]	0	0	1	1
+metabolite	KEGG_pathway	Prodigiosin biosynthesis [map00333]	0	1	1	1
+metabolite	KEGG_pathway	Benzoate degradation [map00362]	0	1	1	1
+metabolite	KEGG_pathway	Bisphenol degradation [map00363]	0	0	1	1
+metabolite	KEGG_pathway	Fluorobenzoate degradation [map00364]	0	0	1	1
+metabolite	KEGG_pathway	Furfural degradation [map00365]	0	0	1	1
+metabolite	KEGG_pathway	Tryptophan metabolism [map00380]	0	1	1	1
+metabolite	KEGG_pathway	Benzoxazinoid biosynthesis [map00402]	0	0	1	1
+metabolite	KEGG_pathway	Indole diterpene alkaloid biosynthesis [map00403]	0	0	1	1
+metabolite	KEGG_pathway	Staurosporine biosynthesis [map00404]	0	1	1	1
+metabolite	KEGG_pathway	Phenazine biosynthesis [map00405]	0	0	1	1
+metabolite	KEGG_pathway	beta-Alanine metabolism [map00410]	0	3	1	1
+metabolite	KEGG_pathway	Phosphonate and phosphinate metabolism [map00440]	0	1	1	1
+metabolite	KEGG_pathway	Selenocompound metabolism [map00450]	0	1	1	1
+metabolite	KEGG_pathway	D-Alanine metabolism [map00473]	0	1	1	1
+metabolite	KEGG_pathway	N-Glycan biosynthesis [map00510]	0	0	1	1
+metabolite	KEGG_pathway	Mucin type O-glycan biosynthesis [map00512]	0	0	1	1
+metabolite	KEGG_pathway	Mannose type O-glycan biosynthesis [map00515]	0	0	1	1
+metabolite	KEGG_pathway	Biosynthesis of 12-, 14- and 16-membered macrolides [map00522]	0	0	1	1
+metabolite	KEGG_pathway	Polyketide sugar unit biosynthesis [map00523]	0	0	1	1
+metabolite	KEGG_pathway	Acarbose and validamycin biosynthesis [map00525]	0	0	1	1
+metabolite	KEGG_pathway	Glycosaminoglycan degradation [map00531]	0	0	1	1
+metabolite	KEGG_pathway	Glycosaminoglycan biosynthesis - chondroitin sulfate / dermatan sulfate [map00532]	0	0	1	1
+metabolite	KEGG_pathway	Glycosaminoglycan biosynthesis - heparan sulfate / heparin [map00534]	0	0	1	1
+metabolite	KEGG_pathway	Glycerolipid metabolism [map00561]	0	2	1	1
+metabolite	KEGG_pathway	Glycosylphosphatidylinositol (GPI)-anchor biosynthesis [map00563]	0	0	1	1
+metabolite	KEGG_pathway	Glycerophospholipid metabolism [map00564]	0	2	1	1
+metabolite	KEGG_pathway	Ether lipid metabolism [map00565]	0	0	1	1
+metabolite	KEGG_pathway	Lipoarabinomannan (LAM) biosynthesis [map00571]	0	0	1	1
+metabolite	KEGG_pathway	Arabinogalactan biosynthesis - Mycobacterium [map00572]	0	0	1	1
+metabolite	KEGG_pathway	Arachidonic acid metabolism [map00590]	0	1	1	1
+metabolite	KEGG_pathway	Linoleic acid metabolism [map00591]	0	1	1	1
+metabolite	KEGG_pathway	alpha-Linolenic acid metabolism [map00592]	0	0	1	1
+metabolite	KEGG_pathway	Sphingolipid metabolism [map00600]	0	2	1	1
+metabolite	KEGG_pathway	Dioxin degradation [map00621]	0	1	1	1
+metabolite	KEGG_pathway	Xylene degradation [map00622]	0	0	1	1
+metabolite	KEGG_pathway	Toluene degradation [map00623]	0	1	1	1
+metabolite	KEGG_pathway	Polycyclic aromatic hydrocarbon degradation [map00624]	0	0	1	1
+metabolite	KEGG_pathway	Naphthalene degradation [map00626]	0	0	1	1
+metabolite	KEGG_pathway	Aminobenzoate degradation [map00627]	0	1	1	1
+metabolite	KEGG_pathway	Nitrotoluene degradation [map00633]	0	0	1	1
+metabolite	KEGG_pathway	Propanoate metabolism [map00640]	0	1	1	1
+metabolite	KEGG_pathway	Ethylbenzene degradation [map00642]	0	0	1	1
+metabolite	KEGG_pathway	One carbon pool by folate [map00670]	0	0	1	1
+metabolite	KEGG_pathway	Carbon fixation in photosynthetic organisms [map00710]	0	2	1	1
+metabolite	KEGG_pathway	Riboflavin metabolism [map00740]	0	0	1	1
+metabolite	KEGG_pathway	Vitamin B6 metabolism [map00750]	0	0	1	1
+metabolite	KEGG_pathway	Lipoic acid metabolism [map00785]	0	0	1	1
+metabolite	KEGG_pathway	Folate biosynthesis [map00790]	0	0	1	1
+metabolite	KEGG_pathway	Retinol metabolism [map00830]	0	0	1	1
+metabolite	KEGG_pathway	Terpenoid backbone biosynthesis [map00900]	0	0	1	1
+metabolite	KEGG_pathway	Indole alkaloid biosynthesis [map00901]	0	1	1	1
+metabolite	KEGG_pathway	Monoterpenoid biosynthesis [map00902]	0	0	1	1
+metabolite	KEGG_pathway	Limonene and pinene degradation [map00903]	0	0	1	1
+metabolite	KEGG_pathway	Diterpenoid biosynthesis [map00904]	0	0	1	1
+metabolite	KEGG_pathway	Brassinosteroid biosynthesis [map00905]	0	0	1	1
+metabolite	KEGG_pathway	Carotenoid biosynthesis [map00906]	0	0	1	1
+metabolite	KEGG_pathway	Zeatin biosynthesis [map00908]	0	1	1	1
+metabolite	KEGG_pathway	Sesquiterpenoid and triterpenoid biosynthesis [map00909]	0	0	1	1
+metabolite	KEGG_pathway	Sulfur metabolism [map00920]	0	3	1	1
+metabolite	KEGG_pathway	Caprolactam degradation [map00930]	0	0	1	1
+metabolite	KEGG_pathway	Flavonoid biosynthesis [map00941]	0	0	1	1
+metabolite	KEGG_pathway	Anthocyanin biosynthesis [map00942]	0	0	1	1
+metabolite	KEGG_pathway	Isoflavonoid biosynthesis [map00943]	0	0	1	1
+metabolite	KEGG_pathway	Flavone and flavonol biosynthesis [map00944]	0	0	1	1
+metabolite	KEGG_pathway	Stilbenoid, diarylheptanoid and gingerol biosynthesis [map00945]	0	0	1	1
+metabolite	KEGG_pathway	Metabolism of xenobiotics by cytochrome P450 [map00980]	0	0	1	1
+metabolite	KEGG_pathway	Insect hormone biosynthesis [map00981]	0	1	1	1
+metabolite	KEGG_pathway	Drug metabolism - cytochrome P450 [map00982]	0	0	1	1
+metabolite	KEGG_pathway	Drug metabolism - other enzymes [map00983]	0	0	1	1
+metabolite	KEGG_pathway	Steroid degradation [map00984]	0	1	1	1
+metabolite	KEGG_pathway	Biosynthesis of various secondary metabolites - part 1 [map00999]	0	0	1	1
+metabolite	KEGG_pathway	Biosynthesis of ansamycins [map01051]	0	0	1	1
+metabolite	KEGG_pathway	Type I polyketide structures [map01052]	0	0	1	1
+metabolite	KEGG_pathway	Biosynthesis of siderophore group nonribosomal peptides [map01053]	0	1	1	1
+metabolite	KEGG_pathway	Nonribosomal peptide structures [map01054]	0	0	1	1
+metabolite	KEGG_pathway	Biosynthesis of type II polyketide backbone [map01056]	0	0	1	1
+metabolite	KEGG_pathway	Biosynthesis of type II polyketide products [map01057]	0	0	1	1
+metabolite	KEGG_pathway	Acridone alkaloid biosynthesis [map01058]	0	0	1	1
+metabolite	KEGG_pathway	Fatty acid metabolism [map01212]	0	1	1	1
+metabolite	KEGG_pathway	beta-Lactam resistance [map01501]	0	0	1	1
+metabolite	KEGG_pathway	Cationic antimicrobial peptide (CAMP) resistance [map01503]	0	1	1	1
+metabolite	KEGG_pathway	EGFR tyrosine kinase inhibitor resistance [map01521]	0	0	1	1
+metabolite	KEGG_pathway	Endocrine resistance [map01522]	0	0	1	1
+metabolite	KEGG_pathway	Antifolate resistance [map01523]	0	1	1	1
+metabolite	KEGG_pathway	Biofilm formation - Pseudomonas aeruginosa [map02025]	0	0	1	1
+metabolite	KEGG_pathway	Biofilm formation - Escherichia coli [map02026]	0	1	1	1
+metabolite	KEGG_pathway	Bacterial chemotaxis [map02030]	0	3	1	1
+metabolite	KEGG_pathway	RNA transport [map03013]	0	0	1	1
+metabolite	KEGG_pathway	Bacterial secretion system [map03070]	0	0	1	1
+metabolite	KEGG_pathway	PPAR signaling pathway [map03320]	0	0	1	1
+metabolite	KEGG_pathway	MAPK signaling pathway [map04010]	0	0	1	1
+metabolite	KEGG_pathway	ErbB signaling pathway [map04012]	0	0	1	1
+metabolite	KEGG_pathway	Ras signaling pathway [map04014]	0	0	1	1
+metabolite	KEGG_pathway	Rap1 signaling pathway [map04015]	0	0	1	1
+metabolite	KEGG_pathway	Calcium signaling pathway [map04020]	0	0	1	1
+metabolite	KEGG_pathway	cGMP-PKG signaling pathway [map04022]	0	1	1	1
+metabolite	KEGG_pathway	cAMP signaling pathway [map04024]	0	1	1	1
+metabolite	KEGG_pathway	Chemokine signaling pathway [map04062]	0	0	1	1
+metabolite	KEGG_pathway	NF-kappa B signaling pathway [map04064]	0	0	1	1
+metabolite	KEGG_pathway	HIF-1 signaling pathway [map04066]	0	0	1	1
+metabolite	KEGG_pathway	Sphingolipid signaling pathway [map04071]	0	3	1	1
+metabolite	KEGG_pathway	Plant hormone signal transduction [map04075]	0	0	1	1
+metabolite	KEGG_pathway	Cell cycle - Caulobacter [map04112]	0	0	1	1
+metabolite	KEGG_pathway	Meiosis - yeast [map04113]	0	0	1	1
+metabolite	KEGG_pathway	Oocyte meiosis [map04114]	0	0	1	1
+metabolite	KEGG_pathway	Sulfur relay system [map04122]	0	1	1	1
+metabolite	KEGG_pathway	Autophagy - other [map04136]	0	0	1	1
+metabolite	KEGG_pathway	Autophagy - yeast [map04138]	0	0	1	1
+metabolite	KEGG_pathway	Autophagy - animal [map04140]	0	0	1	1
+metabolite	KEGG_pathway	Protein processing in endoplasmic reticulum [map04141]	0	0	1	1
+metabolite	KEGG_pathway	Lysosome [map04142]	0	0	1	1
+metabolite	KEGG_pathway	Endocytosis [map04144]	0	0	1	1
+metabolite	KEGG_pathway	Phagosome [map04145]	0	0	1	1
+metabolite	KEGG_pathway	mTOR signaling pathway [map04150]	0	1	1	1
+metabolite	KEGG_pathway	PI3K-Akt signaling pathway [map04151]	0	0	1	1
+metabolite	KEGG_pathway	AMPK signaling pathway [map04152]	0	0	1	1
+metabolite	KEGG_pathway	Apoptosis [map04210]	0	0	1	1
+metabolite	KEGG_pathway	Longevity regulating pathway [map04211]	0	0	1	1
+metabolite	KEGG_pathway	Longevity regulating pathway - worm [map04212]	0	1	1	1
+metabolite	KEGG_pathway	Longevity regulating pathway - multiple species [map04213]	0	0	1	1
+metabolite	KEGG_pathway	Apoptosis - fly [map04214]	0	0	1	1
+metabolite	KEGG_pathway	Necroptosis [map04217]	0	1	1	1
+metabolite	KEGG_pathway	Cellular senescence [map04218]	0	0	1	1
+metabolite	KEGG_pathway	Cardiac muscle contraction [map04260]	0	0	1	1
+metabolite	KEGG_pathway	Adrenergic signaling in cardiomyocytes [map04261]	0	0	1	1
+metabolite	KEGG_pathway	Vascular smooth muscle contraction [map04270]	0	2	1	1
+metabolite	KEGG_pathway	Wnt signaling pathway [map04310]	0	0	1	1
+metabolite	KEGG_pathway	Hedgehog signaling pathway [map04340]	0	0	1	1
+metabolite	KEGG_pathway	Axon guidance [map04360]	0	0	1	1
+metabolite	KEGG_pathway	Axon regeneration [map04361]	0	1	1	1
+metabolite	KEGG_pathway	VEGF signaling pathway [map04370]	0	0	1	1
+metabolite	KEGG_pathway	Apelin signaling pathway [map04371]	0	0	1	1
+metabolite	KEGG_pathway	Osteoclast differentiation [map04380]	0	0	1	1
+metabolite	KEGG_pathway	Focal adhesion [map04510]	0	0	1	1
+metabolite	KEGG_pathway	Tight junction [map04530]	0	0	1	1
+metabolite	KEGG_pathway	Complement and coagulation cascades [map04610]	0	0	1	1
+metabolite	KEGG_pathway	Platelet activation [map04611]	0	1	1	1
+metabolite	KEGG_pathway	Renin-angiotensin system [map04614]	0	0	1	1
+metabolite	KEGG_pathway	NOD-like receptor signaling pathway [map04621]	0	0	1	1
+metabolite	KEGG_pathway	Cytosolic DNA-sensing pathway [map04623]	0	0	1	1
+metabolite	KEGG_pathway	Toll and Imd signaling pathway [map04624]	0	0	1	1
+metabolite	KEGG_pathway	C-type lectin receptor signaling pathway [map04625]	0	0	1	1
+metabolite	KEGG_pathway	Plant-pathogen interaction [map04626]	0	0	1	1
+metabolite	KEGG_pathway	Natural killer cell mediated cytotoxicity [map04650]	0	0	1	1
+metabolite	KEGG_pathway	Th1 and Th2 cell differentiation [map04658]	0	0	1	1
+metabolite	KEGG_pathway	Th17 cell differentiation [map04659]	0	0	1	1
+metabolite	KEGG_pathway	T cell receptor signaling pathway [map04660]	0	0	1	1
+metabolite	KEGG_pathway	B cell receptor signaling pathway [map04662]	0	0	1	1
+metabolite	KEGG_pathway	Fc epsilon RI signaling pathway [map04664]	0	1	1	1
+metabolite	KEGG_pathway	Fc gamma R-mediated phagocytosis [map04666]	0	1	1	1
+metabolite	KEGG_pathway	Leukocyte transendothelial migration [map04670]	0	0	1	1
+metabolite	KEGG_pathway	Intestinal immune network for IgA production [map04672]	0	0	1	1
+metabolite	KEGG_pathway	Circadian rhythm [map04710]	0	0	1	1
+metabolite	KEGG_pathway	Thermogenesis [map04714]	0	1	1	1
+metabolite	KEGG_pathway	Neurotrophin signaling pathway [map04722]	0	0	1	1
+metabolite	KEGG_pathway	Cholinergic synapse [map04725]	0	0	1	1
+metabolite	KEGG_pathway	Serotonergic synapse [map04726]	0	2	1	1
+metabolite	KEGG_pathway	Olfactory transduction [map04740]	0	0	1	1
+metabolite	KEGG_pathway	Phototransduction [map04744]	0	0	1	1
+metabolite	KEGG_pathway	Phototransduction - fly [map04745]	0	2	1	1
+metabolite	KEGG_pathway	Inflammatory mediator regulation of TRP channels [map04750]	0	1	1	1
+metabolite	KEGG_pathway	Regulation of actin cytoskeleton [map04810]	0	0	1	1
+metabolite	KEGG_pathway	Insulin signaling pathway [map04910]	0	0	1	1
+metabolite	KEGG_pathway	GnRH signaling pathway [map04912]	0	1	1	1
+metabolite	KEGG_pathway	Ovarian steroidogenesis [map04913]	0	2	1	1
+metabolite	KEGG_pathway	Progesterone-mediated oocyte maturation [map04914]	0	0	1	1
+metabolite	KEGG_pathway	Estrogen signaling pathway [map04915]	0	0	1	1
+metabolite	KEGG_pathway	Thyroid hormone signaling pathway [map04919]	0	0	1	1
+metabolite	KEGG_pathway	Adipocytokine signaling pathway [map04920]	0	0	1	1
+metabolite	KEGG_pathway	Oxytocin signaling pathway [map04921]	0	1	1	1
+metabolite	KEGG_pathway	Regulation of lipolysis in adipocytes [map04923]	0	3	1	1
+metabolite	KEGG_pathway	Renin secretion [map04924]	0	1	1	1
+metabolite	KEGG_pathway	Aldosterone synthesis and secretion [map04925]	0	2	1	1
+metabolite	KEGG_pathway	Relaxin signaling pathway [map04926]	0	0	1	1
+metabolite	KEGG_pathway	Cortisol synthesis and secretion [map04927]	0	1	1	1
+metabolite	KEGG_pathway	GnRH secretion [map04929]	0	0	1	1
+metabolite	KEGG_pathway	Type II diabetes mellitus [map04930]	0	0	1	1
+metabolite	KEGG_pathway	Non-alcoholic fatty liver disease [map04932]	0	0	1	1
+metabolite	KEGG_pathway	AGE-RAGE signaling pathway in diabetic complications [map04933]	0	0	1	1
+metabolite	KEGG_pathway	Cushing syndrome [map04934]	0	1	1	1
+metabolite	KEGG_pathway	Growth hormone synthesis, secretion and action [map04935]	0	0	1	1
+metabolite	KEGG_pathway	Type I diabetes mellitus [map04940]	0	0	1	1
+metabolite	KEGG_pathway	Aldosterone-regulated sodium reabsorption [map04960]	0	0	1	1
+metabolite	KEGG_pathway	Endocrine and other factor-regulated calcium reabsorption [map04961]	0	0	1	1
+metabolite	KEGG_pathway	Vasopressin-regulated water reabsorption [map04962]	0	0	1	1
+metabolite	KEGG_pathway	Collecting duct acid secretion [map04966]	0	0	1	1
+metabolite	KEGG_pathway	Salivary secretion [map04970]	0	0	1	1
+metabolite	KEGG_pathway	Gastric acid secretion [map04971]	0	0	1	1
+metabolite	KEGG_pathway	Pancreatic secretion [map04972]	0	0	1	1
+metabolite	KEGG_pathway	Fat digestion and absorption [map04975]	0	1	1	1
+metabolite	KEGG_pathway	Bile secretion [map04976]	0	2	1	1
+metabolite	KEGG_pathway	Vitamin digestion and absorption [map04977]	0	1	1	1
+metabolite	KEGG_pathway	Cholesterol metabolism [map04979]	0	1	1	1
+metabolite	KEGG_pathway	Alzheimer disease [map05010]	0	0	1	1
+metabolite	KEGG_pathway	Prion disease [map05020]	0	0	1	1
+metabolite	KEGG_pathway	Morphine addiction [map05032]	0	1	1	1
+metabolite	KEGG_pathway	Vibrio cholerae infection [map05110]	0	0	1	1
+metabolite	KEGG_pathway	Pathogenic Escherichia coli infection [map05130]	0	0	1	1
+metabolite	KEGG_pathway	Salmonella infection [map05132]	0	0	1	1
+metabolite	KEGG_pathway	Pertussis [map05133]	0	1	1	1
+metabolite	KEGG_pathway	Legionellosis [map05134]	0	0	1	1
+metabolite	KEGG_pathway	Yersinia infection [map05135]	0	0	1	1
+metabolite	KEGG_pathway	Leishmaniasis [map05140]	0	1	1	1
+metabolite	KEGG_pathway	Chagas disease [map05142]	0	0	1	1
+metabolite	KEGG_pathway	African trypanosomiasis [map05143]	0	1	1	1
+metabolite	KEGG_pathway	Malaria [map05144]	0	0	1	1
+metabolite	KEGG_pathway	Toxoplasmosis [map05145]	0	0	1	1
+metabolite	KEGG_pathway	Amoebiasis [map05146]	0	1	1	1
+metabolite	KEGG_pathway	Staphylococcus aureus infection [map05150]	0	0	1	1
+metabolite	KEGG_pathway	Tuberculosis [map05152]	0	0	1	1
+metabolite	KEGG_pathway	Hepatitis C [map05160]	0	0	1	1
+metabolite	KEGG_pathway	Hepatitis B [map05161]	0	0	1	1
+metabolite	KEGG_pathway	Measles [map05162]	0	0	1	1
+metabolite	KEGG_pathway	Human cytomegalovirus infection [map05163]	0	0	1	1
+metabolite	KEGG_pathway	Influenza A [map05164]	0	0	1	1
+metabolite	KEGG_pathway	Human papillomavirus infection [map05165]	0	0	1	1
+metabolite	KEGG_pathway	Human T-cell leukemia virus 1 infection [map05166]	0	0	1	1
+metabolite	KEGG_pathway	Kaposi sarcoma-associated herpesvirus infection [map05167]	0	0	1	1
+metabolite	KEGG_pathway	Herpes simplex virus 1 infection [map05168]	0	0	1	1
+metabolite	KEGG_pathway	Epstein-Barr virus infection [map05169]	0	0	1	1
+metabolite	KEGG_pathway	Human immunodeficiency virus 1 infection [map05170]	0	0	1	1
+metabolite	KEGG_pathway	Chemical carcinogenesis [map05204]	0	0	1	1
+metabolite	KEGG_pathway	Proteoglycans in cancer [map05205]	0	0	1	1
+metabolite	KEGG_pathway	Colorectal cancer [map05210]	0	0	1	1
+metabolite	KEGG_pathway	Pancreatic cancer [map05212]	0	0	1	1
+metabolite	KEGG_pathway	Endometrial cancer [map05213]	0	0	1	1
+metabolite	KEGG_pathway	Glioma [map05214]	0	0	1	1
+metabolite	KEGG_pathway	Prostate cancer [map05215]	0	0	1	1
+metabolite	KEGG_pathway	Basal cell carcinoma [map05217]	0	1	1	1
+metabolite	KEGG_pathway	Melanoma [map05218]	0	0	1	1
+metabolite	KEGG_pathway	Chronic myeloid leukemia [map05220]	0	0	1	1
+metabolite	KEGG_pathway	Acute myeloid leukemia [map05221]	0	0	1	1
+metabolite	KEGG_pathway	Small cell lung cancer [map05222]	0	0	1	1
+metabolite	KEGG_pathway	Non-small cell lung cancer [map05223]	0	0	1	1
+metabolite	KEGG_pathway	Breast cancer [map05224]	0	0	1	1
+metabolite	KEGG_pathway	Hepatocellular carcinoma [map05225]	0	0	1	1
+metabolite	KEGG_pathway	Gastric cancer [map05226]	0	0	1	1
+metabolite	KEGG_pathway	Choline metabolism in cancer [map05231]	0	0	1	1
+metabolite	KEGG_pathway	PD-L1 expression and PD-1 checkpoint pathway in cancer [map05235]	0	0	1	1
+metabolite	KEGG_pathway	Asthma [map05310]	0	0	1	1
+metabolite	KEGG_pathway	Autoimmune thyroid disease [map05320]	0	0	1	1
+metabolite	KEGG_pathway	Systemic lupus erythematosus [map05322]	0	0	1	1
+metabolite	KEGG_pathway	Rheumatoid arthritis [map05323]	0	0	1	1
+metabolite	KEGG_pathway	Allograft rejection [map05330]	0	0	1	1
+metabolite	KEGG_pathway	Graft-versus-host disease [map05332]	0	0	1	1
+metabolite	KEGG_pathway	Hypertrophic cardiomyopathy [map05410]	0	0	1	1
+metabolite	KEGG_pathway	Arrhythmogenic right ventricular cardiomyopathy [map05412]	0	0	1	1
+metabolite	KEGG_pathway	Dilated cardiomyopathy [map05414]	0	0	1	1
+metabolite	KEGG_pathway	Fluid shear stress and atherosclerosis [map05418]	0	0	1	1
+metabolite	KEGG_pathway	Penicillins [map07011]	0	0	1	1
+metabolite	KEGG_pathway	Cephalosporins - parenteral agents [map07012]	0	0	1	1
+metabolite	KEGG_pathway	Cephalosporins - oral agents [map07013]	0	0	1	1
+metabolite	KEGG_pathway	Quinolones [map07014]	0	0	1	1
+metabolite	KEGG_pathway	Local analgesics [map07015]	0	0	1	1
+metabolite	KEGG_pathway	Sulfonamide derivatives - sulfa drugs [map07016]	0	0	1	1
+metabolite	KEGG_pathway	Rifamycins [map07023]	0	0	1	1
+metabolite	KEGG_pathway	HMG-CoA reductase inhibitors [map07024]	0	0	1	1
+metabolite	KEGG_pathway	Antifungal agents [map07026]	0	0	1	1
+metabolite	KEGG_pathway	Anxiolytics [map07030]	0	0	1	1
+metabolite	KEGG_pathway	Hypnotics [map07032]	0	0	1	1
+metabolite	KEGG_pathway	Anticonvulsants [map07033]	0	0	1	1
+metabolite	KEGG_pathway	Eicosanoids [map07034]	0	1	1	1
+metabolite	KEGG_pathway	Prostaglandins [map07035]	0	0	1	1
+metabolite	KEGG_pathway	Antiarrhythmic drugs [map07037]	0	0	1	1
+metabolite	KEGG_pathway	Opioid analgesics [map07039]	0	0	1	1
+metabolite	KEGG_pathway	Antineoplastics - alkylating agents [map07040]	0	0	1	1
+metabolite	KEGG_pathway	Antineoplastics - agents from natural products [map07042]	0	0	1	1
+metabolite	KEGG_pathway	Anti-HIV agents [map07053]	0	0	1	1
+metabolite	KEGG_pathway	Sulfonamide derivatives - overview [map07055]	0	0	1	1
+metabolite	KEGG_pathway	Benzoic acid family [map07110]	0	0	1	1
+metabolite	KEGG_pathway	1,2-Diphenyl substitution family [map07112]	0	0	1	1
+metabolite	KEGG_pathway	Naphthalene family [map07114]	0	0	1	1
+metabolite	KEGG_pathway	Benzodiazepine family [map07117]	0	0	1	1
+metabolite	KEGG_pathway	Serotonin receptor agonists/antagonists [map07211]	0	0	1	1
+metabolite	KEGG_pathway	Histamine H1 receptor antagonists [map07212]	0	0	1	1
+metabolite	KEGG_pathway	beta-Adrenergic receptor agonists/antagonists [map07214]	0	0	1	1
+metabolite	KEGG_pathway	Catecholamine transferase inhibitors [map07216]	0	0	1	1
+metabolite	KEGG_pathway	Renin-angiotensin system inhibitors [map07217]	0	0	1	1
+metabolite	KEGG_pathway	HIV protease inhibitors [map07218]	0	0	1	1
+metabolite	KEGG_pathway	Cholinergic and anticholinergic drugs [map07220]	0	0	1	1
+metabolite	KEGG_pathway	Nicotinic cholinergic receptor antagonists [map07221]	0	0	1	1
+metabolite	KEGG_pathway	Peroxisome proliferator-activated receptor (PPAR) agonists [map07222]	0	0	1	1
+metabolite	KEGG_pathway	Opioid receptor agonists/antagonists [map07224]	0	0	1	1
+metabolite	KEGG_pathway	Glucocorticoid and mineralocorticoid receptor agonists/antagonists [map07225]	0	0	1	1
+metabolite	KEGG_pathway	Progesterone, androgen and estrogen receptor agonists/antagonists [map07226]	0	0	1	1
+metabolite	KEGG_pathway	Histamine H2/H3 receptor agonists/antagonists [map07227]	0	0	1	1
+metabolite	KEGG_pathway	Angiotensin receptor and endothelin receptor antagonists [map07229]	0	0	1	1
+metabolite	KEGG_pathway	GABA-A receptor agonists/antagonists [map07230]	0	0	1	1
+metabolite	KEGG_pathway	Potassium channel blocking and opening drugs [map07232]	0	0	1	1
+metabolite	KEGG_pathway	N-Methyl-D-aspartic acid (NMDA) receptor antagonists [map07235]	0	0	1	1
